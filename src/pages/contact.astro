@@ -1,0 +1,135 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Header />
+
+<main class="bg-[#F1E7C7] text-black min-h-screen">
+  <div class="relative max-w-6xl mx-auto px-16 pt-16 pb-20">
+    <!-- Barre verticale qui prolonge celle du header -->
+    <div class="absolute inset-y-0 left-[-18px] border-l-4 border-black"></div>
+
+    <!-- Titre -->
+    <h1 class="heading-font text-[72px] leading-tight mb-20 ml-[-12px]">
+      Contactez moi
+    </h1>
+
+    <!-- Social / CV / Email -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-16 text-[20px] mb-16 ml-14">
+      <div>
+        <p class="text-base mb-2">Social</p>
+        <div class="border-b-4 border-black w-64 mb-6"></div>
+
+        <a href="https://www.linkedin.com/in/alexandre-demling-965a90346" 
+           target="_blank" class="block hover:underline">
+          Linkedin
+        </a>
+
+        <a href="https://github.com/Alexandre-Demling" 
+           target="_blank" class="block hover:underline">
+          Github
+        </a>
+      </div>
+
+
+      <!-- CV -->
+      <div>
+        <p class="text-base mb-2">CV</p>
+        <div class="border-b-4 border-black w-64 mb-6"></div>
+
+        <p>T&eacute;l&eacute;charger mon</p>
+        <p>CV</p>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <p class="text-base mb-2">Email</p>
+        <div class="border-b-4 border-black w-64 mb-6"></div>
+
+        <p>alexandredemling@gmail.com</p>
+      </div>
+    </section>
+
+    <!-- Ou écrivez moi directement ici -->
+    <section class="mb-10 ml-14">
+      <p class="mb-2">Ou &eacute;crivez moi directement ici</p>
+      <div class="border-b-4 border-black w-full max-w-[960px]"></div>
+    </section>
+
+    <!-- Formulaire Formspree -->
+    <section class="ml-14 mt-10">
+      <form
+        action="https://formspree.io/f/xblqkklp"
+        method="POST"
+        class="space-y-8"
+      >
+        <!-- Nom -->
+        <div class="flex items-center gap-10">
+          <label class="text-3xl w-[190px]">Nom :</label>
+          <input
+            type="text"
+            name="nom"
+            placeholder="Votre Nom"
+            required
+            class="border-2 border-black bg-[#F1E7C7] px-4 py-3 text-lg w-[420px]"
+          />
+        </div>
+
+        <!-- Prénom -->
+        <div class="flex items-center gap-10">
+          <label class="text-3xl w-[190px]">Pr&eacute;nom :</label>
+          <input
+            type="text"
+            name="prenom"
+            placeholder="Votre Prenom"
+            required
+            class="border-2 border-black bg-[#F1E7C7] px-4 py-3 text-lg w-[560px]"
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="flex items-center gap-10">
+          <label class="text-3xl w-[190px]">Email :</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Votre email"
+            required
+            class="border-2 border-black bg-[#F1E7C7] px-4 py-3 text-lg w-[720px]"
+          />
+        </div>
+
+        <!-- Message -->
+        <div class="flex items-start gap-10">
+          <label class="text-3xl w-[190px] mt-2">Message :</label>
+          <textarea
+            name="message"
+            placeholder="Votre message"
+            required
+            class="border-2 border-black bg-[#F1E7C7] px-4 py-3 text-lg w-[720px] h-64 resize-none"
+          ></textarea>
+        </div>
+
+        <!-- Bouton Envoyer -->
+        <div class="flex justify-end pr-[48px]">
+          <button
+            type="submit"
+            class="text-lg heading-font"
+          >
+            Envoyer
+          </button>
+        </div>
+      </form>
+    </section>
+  </div>
+</main>
+
+<Footer />
+
+<style>
+  .heading-font {
+    font-family: var(--font-heading);
+  }
+</style>
