@@ -10,12 +10,12 @@ import pb from "../utils/pb";
  */
 
 // HERO + logo principal
-const logoMainRecord = await pb.collection("image").getOne("udiwtn3ruujt1gq");
+const logoMainRecord = await pb.collection("image").getOne("cvajkn9y0ci2m1j");
 const logoMain = pb.files.getUrl(logoMainRecord, logoMainRecord.image);
 const heroMockup = logoMain;
 
 // Variante secondaire du logo
-const logoAltRecord = await pb.collection("image").getOne("cvajkn9y0ci2m1j");
+const logoAltRecord = await pb.collection("image").getOne("udiwtn3ruujt1gq");
 const logoAlt = pb.files.getUrl(logoAltRecord, logoAltRecord.image);
 ---
 
@@ -131,20 +131,21 @@ const logoAlt = pb.files.getUrl(logoAltRecord, logoAltRecord.image);
     <!-- TEXTE À GAUCHE -->
     <div class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-md">
       <p class="mb-8 sm:mb-10">
-        Le logo existe en plusieurs déclinaisons, notamment en noir
-        et en blanc, pour s’adapter à différents supports et contextes.
-        Cette flexibilité renforce son efficacité et permet de conserver
-        une identité forte, qu’il soit appliqué sur un fond clair,
-        sombre ou coloré.
-      </p>
+  Le logo existe en plusieurs d&eacute;clinaisons, notamment en noir
+  et en blanc, pour s&rsquo;adapter &agrave; diff&eacute;rents supports et contextes.
+  Cette flexibilit&eacute; renforce son efficacit&eacute; et permet de conserver
+  une identit&eacute; forte, qu&rsquo;il soit appliqu&eacute; sur un fond clair,
+  sombre ou color&eacute;.
+</p>
 
-      <p>
-        Plus qu’un simple symbole, ce logo se veut une véritable signature
-        visuelle. Il incarne mon univers créatif, ma recherche de sobriété
-        et ma capacité à donner du sens à des formes simples. C’est une
-        identité qui m’accompagne dans mes projets et qui reflète ma
-        démarche de designer graphique.
-      </p>
+<p>
+  Plus qu&rsquo;un simple symbole, ce logo se veut une v&eacute;ritable signature
+  visuelle. Il incarne mon univers cr&eacute;atif, ma recherche de sobri&eacute;t&eacute;
+  et ma capacit&eacute; &agrave; donner du sens &agrave; des formes simples.
+  C&rsquo;est une identit&eacute; qui m&rsquo;accompagne dans mes projets et qui
+  refl&egrave;te ma d&eacute;marche de designer graphique.
+</p>
+
     </div>
 
     <!-- VARIATIONS DU LOGO (noir / blanc inversés) -->

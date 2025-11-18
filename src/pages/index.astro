@@ -68,117 +68,227 @@ const projectImageClasses = [
 
 <main class="relative bg-[#F1E7C7] text-black min-h-screen">
 
-  <!-- BARRE VERTICALE -->
+  <!-- BARRE VERTICALE GLOBALE -->
   <div
-    class="absolute inset-y-0 left-[34.5px] border-l-4 border-black pointer-events-none z-20"
+    class="absolute inset-y-0 left-4 md:left-8 lg:left-[34.5px] border-l-[3px] lg:border-l-4 border-black pointer-events-none z-20"
   ></div>
 
-  <!-- HERO -->
-  <div class="relative max-w-6xl mx-auto px-16 pt-16 pb-24">
+  <!-- ========================= -->
+<!-- HERO MOBILE (LG HIDDEN)   -->
+<!-- ========================= -->
+<div class="block lg:hidden w-full pt-10 pb-12">
 
-    <h1 class="heading-font text-[72px] leading-tight mb-20 ml-[-12px]">
-      Graphiste
-    </h1>
+  <!-- TITRE "Graphiste" -->
+  <h1 class="heading-font text-[36px] pl-12 pr-4 mb-4">
+    Graphiste
+  </h1>
 
-    <div class="flex justify-end mr-[-40px] lg:mr-[-117px]">
-      <div class="relative w-[720px] md:w-[820px] lg:w-[800px] h-auto">
+  <!-- CADRE DIAGONAL + NOM + PORTRAIT -->
+  <div class="relative w-full px-6">
 
-        <svg viewBox="0 0 945 920" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
-          <path d="M114.984 2L944.985 2" stroke="black" stroke-width="5"/>
-          <path d="M44.9845 919L116.984 2" stroke="black" stroke-width="5"/>
-        </svg>
+    <!-- TON SVG D’ORIGINE -->
+    <svg
+  width="322"
+  height="487"
+  viewBox="0 0 322 487"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  class="w-full h-auto translate-x-[24px]"   
+>
+  <!-- Ligne horizontale fine -->
+  <path d="M24.9988 1H321.999" stroke="black" stroke-width="1" />
 
-        <p class="heading-font absolute top-[120px] left-[140px] md:left-[170px]
-                   text-[48px] md:text-[56px] lg:text-[64px] whitespace-nowrap">
-          Alexandre Demling
-        </p>
+  <!-- Diagonale fine -->
+  <path d="M24.9988 1L0.998779 420" stroke="black" stroke-width="1" />
+</svg>
+
+    <!-- "Alexandre Demling" placé comme sur la maquette -->
+     <p
+    class="heading-font absolute top-[95px] left-1/2 -translate-x-1/2 text-[36px] leading-tight text-center"
+  >
+    Alexandre Demling
+  </p>
+
+   <!-- PORTRAIT : réduit et décalé davantage à droite -->
+<div class="absolute top-[145px] left-[28px] w-full flex justify-center">
+  <div class="relative group w-[52%]">
+    <img
+      src={lineUrl}
+      alt="Portrait vectoriel Alexandre Demling"
+      class="w-full object-contain transition-opacity duration-500 group-hover:opacity-0"
+    />
+    <img
+      src={colorUrl}
+      alt="Portrait coloré Alexandre Demling"
+      class="w-full object-contain absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+    />
+  </div>
+</div>
+  </div>
+
+  <!-- BARRE DE SÉPARATION IDENTIQUE AUX AUTRES -->
+  <div class="w-full mt-[-200px] mb-6">
+    <svg
+      viewBox="0 0 1600 9"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-[11px]"
+    >
+      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
+      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
+      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
+    </svg>
+  </div>
+
+  <!-- TEXTE UI/UX -->
+  <section class="px-8 text-[15px] leading-relaxed">
+    <p class="mb-4">
+      Étudiant en deuxième année de BUT<br />
+      MMI, parcours Création<br />
+      <span class="font-bold block text-[24px] mt-3 mb-1">
+        Design UI/UX
+      </span>
+      Je suis passionné par l’univers visuel et numérique.
+    </p>
+
+    <p class="mb-4">
+      Créatif et curieux, j’aime donner vie aux idées à travers des affiches,
+      logos, identités visuelles, mises en page et illustrations numériques.
+      Mon objectif est de concevoir des visuels clairs, esthétiques et adaptés
+      à chaque projet.
+    </p>
+
+    <p>
+      En parallèle du design, je maîtrise également le développement front-end
+      pour créer des interfaces modernes et fonctionnelles.
+    </p>
+  </section>
+</div>
+
+
+  <!-- ========================== -->
+  <!-- HERO DESKTOP (MOBILE HIDE) -->
+  <!-- ========================== -->
+  <div class="hidden lg:block">
+    <div class="relative max-w-6xl mx-auto px-16 pt-16 pb-24">
+      <h1 class="heading-font text-[72px] leading-tight mb-20 ml-[-12px]">
+        Graphiste
+      </h1>
+
+      <div class="flex justify-end mr-[-40px] lg:mr-[-117px]">
+        <div class="relative w-[720px] md:w-[820px] lg:w-[800px] h-auto">
+          <svg
+            viewBox="0 0 945 920"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-full h-auto"
+          >
+            <path d="M114.984 2L944.985 2" stroke="black" stroke-width="5" />
+            <path d="M44.9845 919L116.984 2" stroke="black" stroke-width="5" />
+          </svg>
+
+          <p
+            class="heading-font absolute top-[120px] left-[140px] md:left-[170px]
+                   text-[48px] md:text-[56px] lg:text-[64px] whitespace-nowrap"
+          >
+            Alexandre Demling
+          </p>
+        </div>
       </div>
+
+      <!-- SECTION TEXTE + PORTRAIT (DESKTOP) -->
+      <section
+        class="mt-8 lg:mt-[-500px] relative z-10 grid grid-cols-1
+                       lg:grid-cols-[0.6fr_1.1fr] gap-10 items-start"
+      >
+        <!-- TEXTE -->
+        <div class="relative ml-[-60px]">
+          <div class="max-w-md text-[16px] leading-[1.5]">
+            <p class="mb-6 leading-snug">
+              &Eacute;tudiant en deuxi&egrave;me ann&eacute;e de BUT<br />
+              MMI, parcours Cr&eacute;ation<br />
+              <span
+                class="font-bold block text-[40px] leading-tight mt-3 mb-1"
+              >
+                Design UI/UX
+              </span>
+              je suis passionn&eacute; par l&rsquo;univers visuel et
+              num&eacute;rique.
+            </p>
+
+            <p class="mb-5">
+              Cr&eacute;atif et curieux, j&rsquo;aime donner vie aux id&eacute;es
+              &agrave; travers des affiches, logos, identit&eacute;s visuelles,
+              mises en page et illustrations num&eacute;riques. Mon objectif est
+              de concevoir des visuels clairs, esth&eacute;tiques et adapt&eacute;s
+              &agrave; chaque projet.
+            </p>
+
+            <p>
+              En parall&egrave;le du design, je ma&icirc;trise &eacute;galement
+              le d&eacute;veloppement front-end pour cr&eacute;er des interfaces
+              modernes et fonctionnelles.
+            </p>
+          </div>
+        </div>
+
+        <!-- IMAGE -->
+        <div class="flex justify-center lg:justify-end">
+          <div
+            class="relative group w-full max-w-[420px] lg:max-w-[500px] mt-6 lg:mt-0"
+          >
+            <img
+              src={lineUrl}
+              alt="Portrait vectoriel Alexandre Demling"
+              class="w-full max-h-[460px] object-contain block
+                     transition-opacity duration-500 group-hover:opacity-0"
+            />
+            <img
+              src={colorUrl}
+              alt="Portrait color&eacute; Alexandre Demling"
+              class="w-full max-h-[460px] object-contain absolute inset-0
+                     opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            />
+          </div>
+        </div>
+      </section>
     </div>
-
-    <!-- SECTION TEXTE + PORTRAIT -->
-    <section class="mt-8 lg:mt-[-500px] relative z-10 grid grid-cols-1
-                    lg:grid-cols-[0.6fr_1.1fr] gap-10 items-start">
-
-      <!-- TEXTE -->
-      <div class="relative ml-[-60px]">
-        <div class="max-w-md text-[16px] leading-[1.5]">
-
-          <p class="mb-6 leading-snug">
-            &Eacute;tudiant en deuxi&egrave;me ann&eacute;e de BUT<br/>
-            MMI, parcours Cr&eacute;ation<br/>
-
-            <span class="font-bold block text-[40px] leading-tight mt-3 mb-1">
-              Design UI/UX
-            </span>
-
-            je suis passionn&eacute; par l&rsquo;univers visuel et num&eacute;rique.
-          </p>
-
-          <p class="mb-5">
-            Cr&eacute;atif et curieux, j&rsquo;aime donner vie aux id&eacute;es &agrave; travers
-            des affiches, logos, identit&eacute;s visuelles, mises en page et
-            illustrations num&eacute;riques. Mon objectif est de concevoir des visuels clairs,
-            esth&eacute;tiques et adapt&eacute;s &agrave; chaque projet.
-          </p>
-
-          <p>
-            En parall&egrave;le du design, je ma&icirc;trise &eacute;galement le
-            d&eacute;veloppement front-end pour cr&eacute;er des interfaces modernes
-            et fonctionnelles.
-          </p>
-
-        </div>
-      </div>
-
-      <!-- IMAGE -->
-      <div class="flex justify-center lg:justify-end">
-        <div class="relative group w-full max-w-[420px] lg:max-w-[500px] mt-6 lg:mt-0">
-
-          <img
-            src={lineUrl}
-            alt="Portrait vectoriel Alexandre Demling"
-            class="w-full max-h-[460px] object-contain block
-                   transition-opacity duration-500 group-hover:opacity-0"
-          />
-
-          <img
-            src={colorUrl}
-            alt="Portrait color&eacute; Alexandre Demling"
-            class="w-full max-h-[460px] object-contain absolute inset-0
-                   opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-          />
-
-        </div>
-      </div>
-
-    </section>
   </div>
 
   <!-- SÉPARATEUR -->
   <div class="w-full mt-[-62px]">
-    <svg viewBox="0 0 1600 9" xmlns="http://www.w3.org/2000/svg" class="w-full h-[11px]">
-      <path d="M0 4L1600 4" stroke="black" stroke-width="5"/>
-      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12"/>
-      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12"/>
+    <svg
+      viewBox="0 0 1600 9"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-[11px]"
+    >
+      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
+      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
+      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
     </svg>
   </div>
 
-  <!-- COMPÉTENCES -->
+  <!-- COMPÉTENCES (inchangé) -->
   <div class="relative max-w-6xl mx-auto px-16 pb-24 mt-14">
     <p class="heading-font text-sm mb-6">Mes Comp&eacute;tences</p>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
-
       <!-- WEB -->
       <div>
-        <p class="heading-font text-[14px] mb-1">D&eacute;veloppement Web</p>
+        <p class="heading-font text-[14px] mb-1">
+          D&eacute;veloppement Web
+        </p>
         <div class="h-[3px] bg-black w-[280px] mb-4"></div>
 
         <ul class="space-y-1">
           {webSkills.map((skill) => (
             <li class="flex items-center gap-3">
-              <img src={skill.icon} alt={skill.name} class="w-8 h-8 object-contain"/>
-              <span class="font-mono text-[20px] font-semibold">{skill.name}</span>
+              <img
+                src={skill.icon}
+                alt={skill.name}
+                class="w-8 h-8 object-contain"
+              />
+              <span class="font-mono text-[20px] font-semibold">
+                {skill.name}
+              </span>
             </li>
           ))}
         </ul>
@@ -186,15 +296,20 @@ const projectImageClasses = [
 
       <!-- AUDIO + DESIGN -->
       <div>
-
         <p class="heading-font text-[14px] mb-1">Audiovisuel</p>
         <div class="h-[3px] bg-black w-[280px] mb-4"></div>
 
         <ul class="space-y-1 mb-10">
           {audiovisuelSkills.map((skill) => (
             <li class="flex items-center gap-3">
-              <img src={skill.icon} alt={skill.name} class="w-8 h-8 object-contain"/>
-              <span class="font-mono text-[20px] font-semibold">{skill.name}</span>
+              <img
+                src={skill.icon}
+                alt={skill.name}
+                class="w-8 h-8 object-contain"
+              />
+              <span class="font-mono text-[20px] font-semibold">
+                {skill.name}
+              </span>
             </li>
           ))}
         </ul>
@@ -205,26 +320,35 @@ const projectImageClasses = [
         <ul class="space-y-1">
           {designSkills.map((skill) => (
             <li class="flex items-center gap-3">
-              <img src={skill.icon} alt={skill.name} class="w-8 h-8 object-contain"/>
-              <span class="font-mono text-[20px] font-semibold">{skill.name}</span>
+              <img
+                src={skill.icon}
+                alt={skill.name}
+                class="w-8 h-8 object-contain"
+              />
+              <span class="font-mono text-[20px] font-semibold">
+                {skill.name}
+              </span>
             </li>
           ))}
         </ul>
-
       </div>
     </div>
   </div>
 
   <!-- SÉPARATEUR -->
   <div class="w-full mt-[-62px]">
-    <svg viewBox="0 0 1600 9" xmlns="http://www.w3.org/2000/svg" class="w-full h-[11px]">
-      <path d="M0 4L1600 4" stroke="black" stroke-width="5"/>
-      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12"/>
-      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12"/>
+    <svg
+      viewBox="0 0 1600 9"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-[11px]"
+    >
+      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
+      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
+      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
     </svg>
   </div>
 
-    <!-- PROJETS -->
+  <!-- PROJETS (inchangé) -->
   <section
     data-carousel="projects"
     class="relative max-w-6xl mx-auto px-16 pb-24 mt-14"
@@ -307,13 +431,10 @@ const projectImageClasses = [
           </div>
         </div>
 
-        <!-- BOUTONS CARROUSEL -->
-        
+        <!-- BOUTONS CARROUSEL (inchangés / à compléter si besoin) -->
       </div>
     </div>
   </section>
-
-
 </main>
 
 <Footer />

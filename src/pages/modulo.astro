@@ -28,8 +28,6 @@ const mockup2 = pb.files.getUrl(mockup2Record, mockup2Record.image);
 const mockup3Record = await pb.collection("image").getOne("0tpctffvmxy3fg8");
 const mockup3 = pb.files.getUrl(mockup3Record, mockup3Record.image);
 
-
-
 // MOODBOARD MODULO (image oaa44rzxc4dlk7)
 const moodboardRecord = await pb.collection("image").getOne("oaa44rxzxc4dlk7");
 const moodboardImg = pb.files.getUrl(moodboardRecord, moodboardRecord.image);
@@ -44,24 +42,26 @@ const moodboardImg = pb.files.getUrl(moodboardRecord, moodboardRecord.image);
   ></div>
 
   <!-- ============ HERO MODULO ============ -->
-  <div class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-16">
+  <div class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-8">
+    <!-- Titre : même position que 'Mon logo' -->
     <h1
       class="heading-font text-[48px] sm:text-[60px] lg:text-[72px] leading-tight mb-10 sm:mb-12 ml-10 sm:ml-12 lg:ml-[-12px]"
     >
       Modulo
     </h1>
 
+    <!-- Image : plus basse en hauteur pour que tout rentre à l'écran -->
     <div class="flex justify-center lg:justify-end lg:mr-[-40px]">
       <img
         src={heroMockup}
         alt="Logo Modulo"
-        class="w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] object-contain"
+        class="h-[190px] sm:h-[210px] lg:h-[230px] w-auto object-contain"
       />
     </div>
   </div>
 
-  <!-- LIGNE HORIZONTALE 1 -->
-  <div class="w-full mt-[-24px] lg:mt-[-40px]">
+  <!-- LIGNE HORIZONTALE 1 : rapprochée sans couper le logo -->
+  <div class="w-full mt-[-24px] lg:mt-[-32px]">
     <svg
       viewBox="0 0 1600 9"
       xmlns="http://www.w3.org/2000/svg"
@@ -74,68 +74,72 @@ const moodboardImg = pb.files.getUrl(moodboardRecord, moodboardRecord.image);
   </div>
 
   <!-- ===================== CONCEPT (TEXTE + LOGOS) ===================== -->
-<section
-  class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32"
->
-  <!-- Petit titre -->
-  <p class="heading-font text-sm mb-10 ml-10 sm:ml-12 lg:ml-[68px]">
-    Concept
-  </p>
+  <section
+    class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32"
+  >
+    <!-- Petit titre -->
+    <p class="heading-font text-sm mb-10 ml-10 sm:ml-12 lg:ml-[68px]">
+      Concept
+    </p>
 
-  <!-- 2 colonnes (texte + logos) même en mobile -->
-  <div
-    class="ml-10 sm:ml-12 lg:ml-[68px]
+    <!-- 2 colonnes (texte + logos) même en mobile -->
+    <div
+      class="ml-10 sm:ml-12 lg:ml-[68px]
            flex flex-row
            gap-10 lg:gap-16
            items-start"
-  >
-    <!-- COLONNE TEXTE -->
-    <div class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-xl">
-      <p class="mb-8 sm:mb-10">
-        Le logo repose sur une construction g&eacute;om&eacute;trique compos&eacute;e
-        de blocs modulaires. Cette structure traduit directement la notion de
-        modularit&eacute;, c&oelig;ur de l&rsquo;ADN de la marque. Chaque &eacute;l&eacute;ment
-        peut &ecirc;tre per&ccedil;u comme une pi&egrave;ce d&rsquo;un ensemble,
-        rappelant l&rsquo;id&eacute;e de personnalisation et d&rsquo;adaptabilit&eacute;.
-        La palette choisie allie un vert profond et un brun clair dor&eacute;.
-        Le vert symbolise la nature, l&rsquo;&eacute;cologie et la durabilit&eacute;,
-        tout en inspirant confiance et s&eacute;r&eacute;nit&eacute;. Le brun clair
-        renvoie &agrave; la terre, aux mati&egrave;res naturelles et &agrave; la chaleur
-        humaine.
-      </p>
+    >
+      <!-- COLONNE TEXTE -->
+      <div
+        class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-xl"
+      >
+        <p class="mb-8 sm:mb-10">
+          Le logo repose sur une construction g&eacute;om&eacute;trique
+          compos&eacute;e de blocs modulaires. Cette structure traduit
+          directement la notion de modularit&eacute;, c&oelig;ur de
+          l&rsquo;ADN de la marque. Chaque &eacute;l&eacute;ment peut
+          &ecirc;tre per&ccedil;u comme une pi&egrave;ce d&rsquo;un
+          ensemble, rappelant l&rsquo;id&eacute;e de personnalisation et
+          d&rsquo;adaptabilit&eacute;. La palette choisie allie un vert
+          profond et un brun clair dor&eacute;. Le vert symbolise la
+          nature, l&rsquo;&eacute;cologie et la durabilit&eacute;, tout en
+          inspirant confiance et s&eacute;r&eacute;nit&eacute;. Le brun
+          clair renvoie &agrave; la terre, aux mati&egrave;res naturelles et
+          &agrave; la chaleur humaine.
+        </p>
 
-      <p>
-        Ensemble, ces couleurs expriment une identit&eacute; responsable, moderne
-        et authentique, en parfaite coh&eacute;rence avec les valeurs de M&#333;dulo.
-        Des mockups ont &eacute;t&eacute; r&eacute;alis&eacute;s afin de projeter le logo sur
-        diff&eacute;rents objets : t-shirts, sacs et polos. Ces supports valorisent
-        le logo dans un univers concret, en montrant sa lisibilit&eacute; et son
-        impact visuel. L&rsquo;identit&eacute; de M&#333;dulo s&rsquo;affirme ainsi comme
-        &eacute;l&eacute;gante, moderne et parfaitement int&eacute;gr&eacute;e dans un style de vie
-        durable et chic.
-      </p>
-    </div>
+        <p>
+          Ensemble, ces couleurs expriment une identit&eacute; responsable,
+          moderne et authentique, en parfaite coh&eacute;rence avec les
+          valeurs de M&#333;dulo. Des mockups ont &eacute;t&eacute;
+          r&eacute;alis&eacute;s afin de projeter le logo sur diff&eacute;rents
+          objets : t-shirts, sacs et polos. Ces supports valorisent le logo
+          dans un univers concret, en montrant sa lisibilit&eacute; et son
+          impact visuel. L&rsquo;identit&eacute; de M&#333;dulo s&rsquo;affirme
+          ainsi comme &eacute;l&eacute;gante, moderne et parfaitement
+          int&eacute;gr&eacute;e dans un style de vie durable et chic.
+        </p>
+      </div>
 
-    <!-- COLONNE LOGOS (même endroit à droite, empilés) -->
-    <div class="flex justify-center lg:justify-end flex-1">
-      <div class="flex flex-col gap-4 items-end">
-        <img
-          src={logoColor}
-          alt="Logo Modulo couleur"
-          class="w-[500px] h-auto !max-w-[275px] !max-h-[275px] object-contain"
-          style="width:220px;height:auto;max-width:220px;max-height:220px;"
-        />
-        <img
-          src={logoBlack}
-          alt="Logo Modulo noir"
-          class="w-[500px] h-auto !max-w-[275px] !max-h-[275px] object-contain"
-          style="width:220px;height:auto;max-width:220px;max-height:220px;"
-        />
+      <!-- COLONNE LOGOS (même endroit à droite, empilés) -->
+      <div class="flex justify-center lg:justify-end flex-1">
+        <div class="flex flex-col gap-4 items-end">
+          <img
+            src={logoColor}
+            alt="Logo Modulo couleur"
+            class="w-[500px] h-auto !max-w-[275px] !max-h-[275px] object-contain"
+            style="width:220px;height:auto;max-width:220px;max-height:220px;"
+          />
+          <img
+            src={logoBlack}
+            alt="Logo Modulo noir"
+            class="w-[500px] h-auto !max-w-[275px] !max-h-[275px] object-contain"
+            style="width:220px;height:auto;max-width:220px;max-height:220px;"
+          />
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- LIGNE HORIZONTALE 2 -->
   <div class="w-full">
@@ -160,18 +164,20 @@ const moodboardImg = pb.files.getUrl(moodboardRecord, moodboardRecord.image);
       <!-- TEXTE À GAUCHE -->
       <div class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-md">
         <p class="mb-8 sm:mb-10">
-          La cr&eacute;ation du logo M&#333;dulo r&eacute;pond &agrave; un double objectif :
-          moderniser l&rsquo;image de la marque et renforcer son ancrage &eacute;co-responsable.
-          L&rsquo;id&eacute;e a &eacute;t&eacute; de cr&eacute;er un visuel &agrave; la fois minimaliste,
-          modulaire et percutant, qui incarne la durabilit&eacute; et la flexibilit&eacute;
-          des produits propos&eacute;s.
+          La cr&eacute;ation du logo M&#333;dulo r&eacute;pond &agrave; un
+          double objectif : moderniser l&rsquo;image de la marque et
+          renforcer son ancrage &eacute;co-responsable. L&rsquo;id&eacute;e a
+          &eacute;t&eacute; de cr&eacute;er un visuel &agrave; la fois
+          minimaliste, modulaire et percutant, qui incarne la durabilit&eacute;
+          et la flexibilit&eacute; des produits propos&eacute;s.
         </p>
 
         <p>
-          Le design conserve une structure g&eacute;om&eacute;trique, symbole d&rsquo;ordre,
-          de modularit&eacute; et de stabilit&eacute;. Il a &eacute;t&eacute; pens&eacute; pour &ecirc;tre lisible
-          dans tous les formats, du digital aux supports physiques, tout en affirmant
-          une identit&eacute; forte et facilement m&eacute;morisable.
+          Le design conserve une structure g&eacute;om&eacute;trique, symbole
+          d&rsquo;ordre, de modularit&eacute; et de stabilit&eacute;. Il a
+          &eacute;t&eacute; pens&eacute; pour &ecirc;tre lisible dans tous les
+          formats, du digital aux supports physiques, tout en affirmant une
+          identit&eacute; forte et facilement m&eacute;morisable.
         </p>
       </div>
 
@@ -212,7 +218,9 @@ const moodboardImg = pb.files.getUrl(moodboardRecord, moodboardRecord.image);
   </div>
 
   <!-- ===================== SECTION MOODBOARD ===================== -->
-  <section class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32">
+  <section
+    class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32"
+  >
     <!-- TITRE -->
     <p class="heading-font text-sm mb-10 ml-10 sm:ml-12 lg:ml-[68px]">
       Moodboard
@@ -224,36 +232,39 @@ const moodboardImg = pb.files.getUrl(moodboardRecord, moodboardRecord.image);
       <!-- TEXTE À GAUCHE -->
       <div class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-xl">
         <p class="mb-8 sm:mb-10">
-          Le moodboard de M&#333;dulo exprime une atmosph&egrave;re &eacute;l&eacute;gante et durable,
-          en accord avec l&rsquo;ADN &eacute;co-responsable de la marque. Les mat&eacute;riaux naturels
-          comme le bois et les fibres tress&eacute;es se m&ecirc;lent &agrave; des formes modulaires
-          et &eacute;pur&eacute;es, traduisant l&rsquo;id&eacute;e de flexibilit&eacute; et de modernit&eacute;.
+          Le moodboard de M&#333;dulo exprime une atmosph&egrave;re
+          &eacute;l&eacute;gante et durable, en accord avec l&rsquo;ADN
+          &eacute;co-responsable de la marque. Les mat&eacute;riaux naturels
+          comme le bois et les fibres tress&eacute;es se m&ecirc;lent &agrave;
+          des formes modulaires et &eacute;pur&eacute;es, traduisant l&rsquo;id&eacute;e
+          de flexibilit&eacute; et de modernit&eacute;.
         </p>
 
         <p>
-          La palette de verts profonds, de bruns chaleureux et de beiges lumineux
-          cr&eacute;e un univers &agrave; la fois chic, naturel et intemporel, parfaitement align&eacute;
-          avec les valeurs de durabilit&eacute; et de raffinement de M&#333;dulo.
+          La palette de verts profonds, de bruns chaleureux et de beiges
+          lumineux cr&eacute;e un univers &agrave; la fois chic, naturel et
+          intemporel, parfaitement align&eacute; avec les valeurs de
+          durabilit&eacute; et de raffinement de M&#333;dulo.
         </p>
       </div>
 
       <!-- IMAGE MOODBOARD EN DIAGONAL -->
-<div class="flex justify-start lg:justify-end">
-  <div class="relative w-full max-w-[480px] h-[260px] md:h-[330px]">
-    <div
-      class="absolute inset-0 border-4 border-black overflow-hidden
+      <div class="flex justify-start lg:justify-end">
+        <div class="relative w-full max-w-[480px] h-[260px] md:h-[330px]">
+          <div
+            class="absolute inset-0 border-4 border-black overflow-hidden
              origin-top-left -skew-x-6 bg-black"
-    >
-      <div class="w-full h-full skew-x-6">
-        <img
-          src={moodboardImg}
-          alt="Moodboard Modulo"
-          class="w-full h-full object-cover scale-[1.1]"
-        />
+          >
+            <div class="w-full h-full skew-x-6">
+              <img
+                src={moodboardImg}
+                alt="Moodboard Modulo"
+                class="w-full h-full object-cover scale-[1.1]"
+              />
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
     </div>
   </section>
 </main>
@@ -263,12 +274,5 @@ const moodboardImg = pb.files.getUrl(moodboardRecord, moodboardRecord.image);
 <style>
   .heading-font {
     font-family: var(--font-heading);
-  }
-
-  /* Taille plus petite du hero uniquement en desktop */
-  @media (min-width: 1024px) {
-    .hero-modulo {
-      width: 50px; /* ajuste la valeur si tu veux encore plus petit/grand */
-    }
   }
 </style>
