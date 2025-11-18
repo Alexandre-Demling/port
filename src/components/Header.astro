@@ -3,35 +3,44 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="bg-[#F1E7C7] border-b-4 border-black sticky top-0 z-50">
-  <div class="relative max-w-6xl mx-auto flex items-end justify-between px-12 pt-5 pb-2">
-    <!-- Barre verticale dans le header -->
-    <div class="pointer-events-none absolute inset-y-0 left-[-18px] border-l-4 border-black"></div>
+  <div class="relative max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
 
-    <!-- Logo aligné avec la barre comme sur Figma -->
-    <a href="/" class="flex items-center pl-0">
-      <img src="/logo.png" alt="Logo Alexandre Demling" class="h-16 w-auto" />
+    <!-- LOGO -->
+    <a href="/" class="flex items-center z-[60]">
+      <img src="/logo.png" alt="Logo Alexandre Demling" class="h-12 w-auto" />
     </a>
 
-    <!-- Navigation (Kulim Park) -->
-    <nav class="flex gap-20 text-2xl heading-font pb-1 pr-4">
-      <a
-        href="/"
-        class={`hover:underline ${currentPath === '/' ? 'underline' : ''}`}
-      >
-        Profil
-      </a>
-      <a
-        href="/projets"
-        class={`hover:underline ${currentPath.startsWith('/projets') ? 'underline' : ''}`}
-      >
-        Projet
-      </a>
-      <a
-        href="/contact"
-        class={`hover:underline ${currentPath.startsWith('/contact') ? 'underline' : ''}`}
-      >
-        Contact
-      </a>
+    <!-- BOUTON BURGER (mobile) -->
+    <button
+      id="menu-btn"
+      class="lg:hidden flex flex-col justify-center items-center gap-1.5 z-[60] relative w-8 h-8"
+    >
+      <!-- Barres -->
+      <span class="burger-line block h-[2px] w-full bg-black transition-all duration-300"></span>
+      <span class="burger-line block h-[2px] w-full bg-black transition-all duration-300"></span>
+      <span class="burger-line block h-[2px] w-full bg-black transition-all duration-300"></span>
+    </button>
+
+    <!-- NAVIGATION DESKTOP -->
+    <nav class="hidden lg:flex gap-20 text-2xl heading-font pb-1 pr-4">
+      <a href="/" class={`hover:underline ${currentPath === '/' ? 'underline' : ''}`}>Profil</a>
+      <a href="/projets" class={`hover:underline ${currentPath.startsWith('/projets') ? 'underline' : ''}`}>Projets</a>
+      <a href="/contact" class={`hover:underline ${currentPath.startsWith('/contact') ? 'underline' : ''}`}>Contact</a>
+    </nav>
+  </div>
+
+   <!-- MENU MOBILE (aucun glissement visible) -->
+  <div
+    id="mobile-menu"
+    class="absolute left-0 right-0 top-[-300px] bg-[#F1E7C7] border-b-4 border-black
+           z-40 pt-20 pb-6 px-6 heading-font"
+  >
+    <p class="uppercase text-xs mb-4 tracking-wide">Navigation</p>
+
+    <nav class="flex flex-col gap-3 text-lg">
+      <a href="/" class="hover:underline">Profil</a>
+      <a href="/projets" class="hover:underline">Projets</a>
+      <a href="/contact" class="hover:underline">Contact</a>
     </nav>
   </div>
 </header>
@@ -40,4 +49,36 @@ const currentPath = Astro.url.pathname;
   .heading-font {
     font-family: var(--font-heading);
   }
+
+  /* Transformation burger -> croix */
+  .menu-open .burger-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .menu-open .burger-line:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-open .burger-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
 </style>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+
+  let open = false;
+
+  btn.addEventListener("click", () => {
+    open = !open;
+
+    if (open) {
+      document.body.classList.add("menu-open");
+      menu.style.top = "0";
+    } else {
+      document.body.classList.remove("menu-open");
+      menu.style.top = "-300px";
+    }
+
+    btn.classList.toggle("menu-open");
+  });
+</script>
