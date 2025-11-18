@@ -1,0 +1,244 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+// Illustration Mes Projets (sans couleur / couleur)
+const lineUrl = "/images/assissanscouleur.png";
+const colorUrl = "/images/assiscouleur.png";
+
+// IMAGES PROJETS
+const orbiteImg = "/images/LandingPageorbite.png";
+const moduloImg = "/images/modulomoodboard.png";
+const logoImg = "/images/logo.png";
+---
+
+<Header />
+
+<main class="relative bg-[#F1E7C7] text-black min-h-screen">
+  <!-- BARRE VERTICALE PRINCIPALE -->
+  <div
+    class="absolute inset-y-0 left-[34.5px] border-l-4 border-black pointer-events-none z-20"
+  ></div>
+
+  <!-- BLOC TITRE + DESSIN -->
+  <div class="relative max-w-6xl mx-auto px-16 pt-16 pb-0">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] items-start">
+      <!-- Titre -->
+      <div class="mb-16">
+        <h1 class="heading-font text-[72px] leading-tight ml-[-12px]">
+          Mes Projets
+        </h1>
+      </div>
+
+      <!-- Dessin avec hover couleur (NE PAS TOUCHER) -->
+      <div class="flex justify-center lg:justify-end lg:mt-[-40px]">
+        <div
+          class="relative group w-full max-w-[420px] lg:max-w-[500px] translate-y-[1px]"
+        >
+          <!-- version ligne -->
+          <img
+            src={lineUrl}
+            alt="Illustration Alexandre Demling ligne"
+            class="w-full max-h-[460px] object-contain block
+                   transition-opacity duration-500 group-hover:opacity-0"
+          />
+          <!-- version couleur -->
+          <img
+            src={colorUrl}
+            alt="Illustration Alexandre Demling couleur"
+            class="w-full max-h-[460px] object-contain absolute inset-0
+                   opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGNE SOUS LE DESSIN (NE PAS TOUCHER) -->
+  <div class="w-full -mt-[10px]">
+    <svg
+      viewBox="0 0 1600 9"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-[11px]"
+    >
+      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
+      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
+      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
+    </svg>
+  </div>
+
+  <!-- ================= ORBITE ================= -->
+  <section id="orbite" class="relative max-w-6xl mx-auto px-16 pt-16 pb-24">
+    <!-- 1 colonne sur mobile, 2 colonnes à partir de lg -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <!-- TEXTE ORBITE -->
+      <aside class="max-w-xl">
+        <h2 class="heading-font text-[22px] mb-1">Orbite</h2>
+        <div class="h-[3px] bg-black w-[280px] mb-8"></div>
+
+        <p class="font-mono text-[16px] leading-relaxed mb-6">
+          La plateforme pour les &eacute;tudiants, par les &eacute;tudiants.
+        </p>
+
+        <p class="font-mono text-[16px] leading-relaxed mb-10">
+          Soir&eacute;es cin&eacute;ma, sport, jeux, sorties...
+          Ici, chacun peut cr&eacute;er ses propres &eacute;v&eacute;nements
+          et participer &agrave; ceux des autres en toute simplicit&eacute;.
+        </p>
+
+        <a
+          href="/orbite"
+          class="font-mono text-[16px] underline underline-offset-4"
+        >
+          Voir Orbite
+        </a>
+      </aside>
+
+      <!-- IMAGE ORBITE AVEC CADRE DIAGONAL -->
+      <div class="flex justify-start lg:justify-end">
+        <div class="relative w-full max-w-[460px] h-[260px] md:h-[320px]">
+          <div
+            class="absolute inset-0 border-4 border-black overflow-hidden
+                   origin-top-left -skew-x-6 bg-black"
+          >
+            <div class="w-full h-full skew-x-6">
+              <img
+  src={orbiteImg}
+  alt="Projet Orbite"
+  class="w-full h-full object-cover scale-[1.1]"
+/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SÉPARATEUR ENTRE PROJETS -->
+  <div class="w-full mt-[-10px] mb-[-10px]">
+    <svg
+      viewBox="0 0 1600 9"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-[11px]"
+    >
+      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
+      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
+      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
+    </svg>
+  </div>
+
+  <!-- ================= MODULO ================= -->
+  <section id="modulo" class="relative max-w-6xl mx-auto px-16 pt-16 pb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <!-- TEXTE MODULO -->
+      <aside class="max-w-xl">
+        <h2 class="heading-font text-[22px] mb-1">M&#333;dulo</h2>
+        <div class="h-[3px] bg-black w-[280px] mb-8"></div>
+
+        <p class="font-mono text-[16px] leading-relaxed mb-6">
+          M&#333;dulo est une marque &eacute;co-responsable et durable,
+          qui met en avant des produits modulables, chics et intemporels.
+        </p>
+
+        <p class="font-mono text-[16px] leading-relaxed mb-6">
+          Sa philosophie repose sur un &eacute;quilibre entre &eacute;l&eacute;gance
+          et respect de l&rsquo;environnement, offrant une alternative moderne
+          et consciente.
+        </p>
+
+        <a
+          href="/modulo"
+          class="font-mono text-[16px] underline underline-offset-4"
+        >
+          Voir M&#333;dulo
+        </a>
+      </aside>
+
+      <!-- IMAGE MODULO AVEC CADRE DIAGONAL -->
+      <div class="flex justify-start lg:justify-end">
+        <div class="relative w-full max-w-[460px] h-[260px] md:h-[320px]">
+          <div
+            class="absolute inset-0 border-4 border-black overflow-hidden
+                   origin-top-left -skew-x-6 bg-black"
+          >
+            <div class="w-full h-full skew-x-6">
+              <img
+  src={moduloImg}
+  alt="Moodboard Modulo"
+  class="w-full h-full object-cover scale-[1.0]"
+/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SÉPARATEUR ENTRE PROJETS -->
+  <div class="w-full mt-[-10px] mb-[-10px]">
+    <svg
+      viewBox="0 0 1600 9"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-[11px]"
+    >
+      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
+      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
+      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
+    </svg>
+  </div>
+
+  <!-- ================= MON LOGO ================= -->
+  <section id="logo" class="relative max-w-6xl mx-auto px-16 pt-16 pb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <!-- TEXTE MON LOGO -->
+      <aside class="max-w-xl">
+        <h2 class="heading-font text-[22px] mb-1">Mon logo</h2>
+        <div class="h-[3px] bg-black w-[280px] mb-8"></div>
+
+        <p class="font-mono text-[16px] leading-relaxed mb-6">
+          Mon logo est une cr&eacute;ation personnelle qui traduit ma vision
+          du design graphique : sobre, &eacute;pur&eacute; et porteur de sens.
+        </p>
+
+        <p class="font-mono text-[16px] leading-relaxed mb-6">
+          Il repose sur un trac&eacute; minimaliste form&eacute; de lignes noires
+          composant mes initiales A et D, avec une lecture abstraite et graphique.
+        </p>
+
+        <a
+          href="/monlogo"
+          class="font-mono text-[16px] underline underline-offset-4"
+        >
+          Voir mon logo
+        </a>
+      </aside>
+
+      <!-- IMAGE MON LOGO AVEC CADRE DIAGONAL -->
+      <div class="flex justify-start lg:justify-end">
+        <div class="relative w-full max-w-[460px] h-[260px] md:h-[320px]">
+          <div
+            class="absolute inset-0 border-4 border-black overflow-hidden
+                   origin-top-left -skew-x-6 bg-white"
+          >
+            <div class="w-full h-full skew-x-6 flex items-center justify-center">
+              <img
+                src={logoImg}
+                alt="Mon logo"
+                class="max-w-[80%] max-h-[80%] object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<Footer />
+
+<style>
+  .heading-font {
+    font-family: var(--font-heading);
+  }
+</style>

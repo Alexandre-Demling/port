@@ -1,0 +1,174 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import pb from "../utils/pb";
+
+/**
+ * IMAGES POCKETBASE
+ * (ids fournis : udiwtn3ruujt1gq, cvajkn9y0ci2m1j)
+ */
+
+// HERO + logo principal
+const logoMainRecord = await pb.collection("image").getOne("udiwtn3ruujt1gq");
+const logoMain = pb.files.getUrl(logoMainRecord, logoMainRecord.image);
+const heroMockup = logoMain;
+
+// Variante secondaire du logo
+const logoAltRecord = await pb.collection("image").getOne("cvajkn9y0ci2m1j");
+const logoAlt = pb.files.getUrl(logoAltRecord, logoAltRecord.image);
+---
+
+<Header />
+
+<main class="relative bg-[#F1E7C7] text-black min-h-screen overflow-x-hidden">
+  <!-- BARRE VERTICALE GAUCHE -->
+  <div
+    class="absolute inset-y-0 left-[34.5px] border-l-4 border-black pointer-events-none z-20"
+  ></div>
+
+  <!-- ============ HERO MON LOGO ============ -->
+  <div class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-16">
+    <h1
+      class="heading-font text-[48px] sm:text-[60px] lg:text-[72px] leading-tight mb-10 sm:mb-12 ml-10 sm:ml-12 lg:ml-[-12px]"
+    >
+      Mon logo
+    </h1>
+
+    <div class="flex justify-center lg:justify-end lg:mr-[-40px]">
+      <img
+        src={heroMockup}
+        alt="Logo personnel"
+        class="w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] object-contain"
+      />
+    </div>
+  </div>
+
+  <!-- LIGNE HORIZONTALE 1 -->
+  <div class="w-full mt-[-24px] lg:mt-[-40px]">
+    <svg
+      viewBox="0 0 1600 9"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-[11px]"
+    >
+      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
+      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
+      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
+    </svg>
+  </div>
+
+  <!-- ===================== CONCEPT (TEXTE + LOGO) ===================== -->
+  <section
+    class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32"
+  >
+    <!-- Petit titre -->
+    <p class="heading-font text-sm mb-10 ml-10 sm:ml-12 lg:ml-[68px]">
+      Concept
+    </p>
+
+    <!-- 1 colonne en mobile, 2 colonnes en desktop -->
+    <div
+      class="ml-10 sm:ml-12 lg:ml-[68px] grid grid-cols-1 lg:grid-cols-2 gap-10 items-start"
+    >
+      <!-- COLONNE TEXTE -->
+      <div class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-xl">
+        <p class="mb-8 sm:mb-10">
+          Le choix d&rsquo;un style lin&eacute;aire et g&eacute;om&eacute;trique
+          refl&egrave;te ma volont&eacute; d&rsquo;aller &agrave; l&rsquo;essentiel. Chaque
+          ligne a &eacute;t&eacute; pens&eacute;e pour repr&eacute;senter la rigueur et la
+          pr&eacute;cision, tout en offrant une identit&eacute; visuelle marqu&eacute;e,
+          facilement m&eacute;morisable et adaptable.
+        </p>
+
+        <p>
+          Derri&egrave;re l&rsquo;apparente simplicit&eacute; du dessin se cache une
+          double lecture : celle de mes initiales, mais aussi celle d&rsquo;une forme
+          abstraite ouverte &agrave; l&rsquo;interpr&eacute;tation. Ce jeu graphique
+          illustre ma d&eacute;marche cr&eacute;ative, qui cherche &agrave; allier clart&eacute;
+          et subtilit&eacute;.
+        </p>
+      </div>
+
+      <!-- COLONNE LOGO (grand) -->
+      <div class="flex justify-center lg:justify-end">
+        <img
+          src={logoMain}
+          alt="Logo principal"
+          class="w-[320px] sm:w-[360px] md:w-[400px] lg:w-[440px] object-contain"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGNE HORIZONTALE 2 -->
+  <div class="w-full">
+    <svg
+      viewBox="0 0 1600 9"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-[11px]"
+    >
+      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
+      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
+      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
+    </svg>
+  </div>
+
+  <!-- ===================== SECTION LOGO / DÉCLINAISONS ===================== -->
+<section
+  class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32"
+>
+  <!-- Titre de section -->
+  <p class="heading-font text-sm mb-10 ml-10 sm:ml-12 lg:ml-[68px]">
+    Choix du design
+  </p>
+
+  <div
+    class="ml-10 sm:ml-12 lg:ml-[68px] 
+           flex flex-row           <!-- ICI LA CORRECTION -->
+           gap-10 lg:gap-16 
+           items-start lg:pr-10"
+  >
+    <!-- TEXTE À GAUCHE -->
+    <div class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-md">
+      <p class="mb-8 sm:mb-10">
+        Le logo existe en plusieurs déclinaisons, notamment en noir
+        et en blanc, pour s’adapter à différents supports et contextes.
+        Cette flexibilité renforce son efficacité et permet de conserver
+        une identité forte, qu’il soit appliqué sur un fond clair,
+        sombre ou coloré.
+      </p>
+
+      <p>
+        Plus qu’un simple symbole, ce logo se veut une véritable signature
+        visuelle. Il incarne mon univers créatif, ma recherche de sobriété
+        et ma capacité à donner du sens à des formes simples. C’est une
+        identité qui m’accompagne dans mes projets et qui reflète ma
+        démarche de designer graphique.
+      </p>
+    </div>
+
+    <!-- VARIATIONS DU LOGO (noir / blanc inversés) -->
+    <div class="flex justify-center lg:justify-end w-full">
+      <div class="flex flex-col gap-4 items-end"> <!-- toujours en colonne -->
+        <img
+          src={logoAlt}
+          alt="Logo noir"
+          class="w-[220px] h-auto object-contain"
+        />
+        <img
+          src={logoMain}
+          alt="Logo blanc"
+          class="w-[220px] h-auto object-contain"
+        />
+      </div>
+    </div>
+  </div>
+</main>
+
+<Footer />
+
+<style>
+  .heading-font {
+    font-family: var(--font-heading);
+  }
+</style>

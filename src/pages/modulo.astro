@@ -1,0 +1,274 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import pb from "../utils/pb";
+
+/**
+ * IMAGES POCKETBASE
+ * (ids d'après tes captures)
+ */
+
+// HERO = logo couleur Modulo (3e4mhwufm8u6xy1)
+const heroRecord = await pb.collection("image").getOne("3e4mhwufm8u6xy1");
+const heroMockup = pb.files.getUrl(heroRecord, heroRecord.image);
+
+// LOGOS
+const logoColor = heroMockup; // même fichier que le hero
+const logoBlackRecord = await pb.collection("image").getOne("8ucz355bp416mzm");
+const logoBlack = pb.files.getUrl(logoBlackRecord, logoBlackRecord.image);
+
+// MOCKUPS
+const mockup1Record = await pb.collection("image").getOne("md0kwwpaoisjm1a");
+const mockup1 = pb.files.getUrl(mockup1Record, mockup1Record.image);
+
+const mockup2Record = await pb.collection("image").getOne("efob4gkzvt0zt84");
+const mockup2 = pb.files.getUrl(mockup2Record, mockup2Record.image);
+
+const mockup3Record = await pb.collection("image").getOne("0tpctffvmxy3fg8");
+const mockup3 = pb.files.getUrl(mockup3Record, mockup3Record.image);
+
+
+
+// MOODBOARD MODULO (image oaa44rzxc4dlk7)
+const moodboardRecord = await pb.collection("image").getOne("oaa44rxzxc4dlk7");
+const moodboardImg = pb.files.getUrl(moodboardRecord, moodboardRecord.image);
+---
+
+<Header />
+
+<main class="relative bg-[#F1E7C7] text-black min-h-screen overflow-x-hidden">
+  <!-- BARRE VERTICALE GAUCHE -->
+  <div
+    class="absolute inset-y-0 left-[34.5px] border-l-4 border-black pointer-events-none z-20"
+  ></div>
+
+  <!-- ============ HERO MODULO ============ -->
+  <div class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-16">
+    <h1
+      class="heading-font text-[48px] sm:text-[60px] lg:text-[72px] leading-tight mb-10 sm:mb-12 ml-10 sm:ml-12 lg:ml-[-12px]"
+    >
+      Modulo
+    </h1>
+
+    <div class="flex justify-center lg:justify-end lg:mr-[-40px]">
+      <img
+        src={heroMockup}
+        alt="Logo Modulo"
+        class="w-[220px] sm:w-[240px] md:w-[260px] lg:w-[280px] object-contain"
+      />
+    </div>
+  </div>
+
+  <!-- LIGNE HORIZONTALE 1 -->
+  <div class="w-full mt-[-24px] lg:mt-[-40px]">
+    <svg
+      viewBox="0 0 1600 9"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-[11px]"
+    >
+      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
+      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
+      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
+    </svg>
+  </div>
+
+  <!-- ===================== CONCEPT (TEXTE + LOGOS) ===================== -->
+<section
+  class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32"
+>
+  <!-- Petit titre -->
+  <p class="heading-font text-sm mb-10 ml-10 sm:ml-12 lg:ml-[68px]">
+    Concept
+  </p>
+
+  <!-- 2 colonnes (texte + logos) même en mobile -->
+  <div
+    class="ml-10 sm:ml-12 lg:ml-[68px]
+           flex flex-row
+           gap-10 lg:gap-16
+           items-start"
+  >
+    <!-- COLONNE TEXTE -->
+    <div class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-xl">
+      <p class="mb-8 sm:mb-10">
+        Le logo repose sur une construction g&eacute;om&eacute;trique compos&eacute;e
+        de blocs modulaires. Cette structure traduit directement la notion de
+        modularit&eacute;, c&oelig;ur de l&rsquo;ADN de la marque. Chaque &eacute;l&eacute;ment
+        peut &ecirc;tre per&ccedil;u comme une pi&egrave;ce d&rsquo;un ensemble,
+        rappelant l&rsquo;id&eacute;e de personnalisation et d&rsquo;adaptabilit&eacute;.
+        La palette choisie allie un vert profond et un brun clair dor&eacute;.
+        Le vert symbolise la nature, l&rsquo;&eacute;cologie et la durabilit&eacute;,
+        tout en inspirant confiance et s&eacute;r&eacute;nit&eacute;. Le brun clair
+        renvoie &agrave; la terre, aux mati&egrave;res naturelles et &agrave; la chaleur
+        humaine.
+      </p>
+
+      <p>
+        Ensemble, ces couleurs expriment une identit&eacute; responsable, moderne
+        et authentique, en parfaite coh&eacute;rence avec les valeurs de M&#333;dulo.
+        Des mockups ont &eacute;t&eacute; r&eacute;alis&eacute;s afin de projeter le logo sur
+        diff&eacute;rents objets : t-shirts, sacs et polos. Ces supports valorisent
+        le logo dans un univers concret, en montrant sa lisibilit&eacute; et son
+        impact visuel. L&rsquo;identit&eacute; de M&#333;dulo s&rsquo;affirme ainsi comme
+        &eacute;l&eacute;gante, moderne et parfaitement int&eacute;gr&eacute;e dans un style de vie
+        durable et chic.
+      </p>
+    </div>
+
+    <!-- COLONNE LOGOS (même endroit à droite, empilés) -->
+    <div class="flex justify-center lg:justify-end flex-1">
+      <div class="flex flex-col gap-4 items-end">
+        <img
+          src={logoColor}
+          alt="Logo Modulo couleur"
+          class="w-[500px] h-auto !max-w-[275px] !max-h-[275px] object-contain"
+          style="width:220px;height:auto;max-width:220px;max-height:220px;"
+        />
+        <img
+          src={logoBlack}
+          alt="Logo Modulo noir"
+          class="w-[500px] h-auto !max-w-[275px] !max-h-[275px] object-contain"
+          style="width:220px;height:auto;max-width:220px;max-height:220px;"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- LIGNE HORIZONTALE 2 -->
+  <div class="w-full">
+    <svg
+      viewBox="0 0 1600 9"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-[11px]"
+    >
+      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
+      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
+      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
+    </svg>
+  </div>
+
+  <!-- ===================== SECTION LOGO (AVEC MOCKUPS) ===================== -->
+  <section
+    class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32"
+  >
+    <div
+      class="ml-10 sm:ml-12 lg:ml-[68px] flex flex-col lg:flex-row gap-10 lg:gap-16 items-start lg:pr-10"
+    >
+      <!-- TEXTE À GAUCHE -->
+      <div class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-md">
+        <p class="mb-8 sm:mb-10">
+          La cr&eacute;ation du logo M&#333;dulo r&eacute;pond &agrave; un double objectif :
+          moderniser l&rsquo;image de la marque et renforcer son ancrage &eacute;co-responsable.
+          L&rsquo;id&eacute;e a &eacute;t&eacute; de cr&eacute;er un visuel &agrave; la fois minimaliste,
+          modulaire et percutant, qui incarne la durabilit&eacute; et la flexibilit&eacute;
+          des produits propos&eacute;s.
+        </p>
+
+        <p>
+          Le design conserve une structure g&eacute;om&eacute;trique, symbole d&rsquo;ordre,
+          de modularit&eacute; et de stabilit&eacute;. Il a &eacute;t&eacute; pens&eacute; pour &ecirc;tre lisible
+          dans tous les formats, du digital aux supports physiques, tout en affirmant
+          une identit&eacute; forte et facilement m&eacute;morisable.
+        </p>
+      </div>
+
+      <!-- COLONNE MOCKUPS (3 images alignées, taille raisonnable) -->
+      <div class="flex justify-center lg:justify-end w-full">
+        <div class="flex gap-4 sm:gap-6 max-w-full">
+          <img
+            src={mockup1}
+            alt="Polo Modulo"
+            class="h-[150px] sm:h-[170px] md:h-[190px] lg:h-[210px] object-contain"
+          />
+          <img
+            src={mockup2}
+            alt="Tote bag Modulo"
+            class="h-[150px] sm:h-[170px] md:h-[190px] lg:h-[210px] object-contain"
+          />
+          <img
+            src={mockup3}
+            alt="T-shirt Modulo"
+            class="h-[150px] sm:h-[170px] md:h-[190px] lg:h-[210px] object-contain"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGNE HORIZONTALE 3 -->
+  <div class="w-full">
+    <svg
+      viewBox="0 0 1600 9"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-[11px]"
+    >
+      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
+      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
+      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
+    </svg>
+  </div>
+
+  <!-- ===================== SECTION MOODBOARD ===================== -->
+  <section class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32">
+    <!-- TITRE -->
+    <p class="heading-font text-sm mb-10 ml-10 sm:ml-12 lg:ml-[68px]">
+      Moodboard
+    </p>
+
+    <div
+      class="ml-10 sm:ml-12 lg:ml-[68px] grid grid-cols-1 lg:grid-cols-2 gap-10 items-start"
+    >
+      <!-- TEXTE À GAUCHE -->
+      <div class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-xl">
+        <p class="mb-8 sm:mb-10">
+          Le moodboard de M&#333;dulo exprime une atmosph&egrave;re &eacute;l&eacute;gante et durable,
+          en accord avec l&rsquo;ADN &eacute;co-responsable de la marque. Les mat&eacute;riaux naturels
+          comme le bois et les fibres tress&eacute;es se m&ecirc;lent &agrave; des formes modulaires
+          et &eacute;pur&eacute;es, traduisant l&rsquo;id&eacute;e de flexibilit&eacute; et de modernit&eacute;.
+        </p>
+
+        <p>
+          La palette de verts profonds, de bruns chaleureux et de beiges lumineux
+          cr&eacute;e un univers &agrave; la fois chic, naturel et intemporel, parfaitement align&eacute;
+          avec les valeurs de durabilit&eacute; et de raffinement de M&#333;dulo.
+        </p>
+      </div>
+
+      <!-- IMAGE MOODBOARD EN DIAGONAL -->
+<div class="flex justify-start lg:justify-end">
+  <div class="relative w-full max-w-[480px] h-[260px] md:h-[330px]">
+    <div
+      class="absolute inset-0 border-4 border-black overflow-hidden
+             origin-top-left -skew-x-6 bg-black"
+    >
+      <div class="w-full h-full skew-x-6">
+        <img
+          src={moodboardImg}
+          alt="Moodboard Modulo"
+          class="w-full h-full object-cover scale-[1.1]"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </section>
+</main>
+
+<Footer />
+
+<style>
+  .heading-font {
+    font-family: var(--font-heading);
+  }
+
+  /* Taille plus petite du hero uniquement en desktop */
+  @media (min-width: 1024px) {
+    .hero-modulo {
+      width: 50px; /* ajuste la valeur si tu veux encore plus petit/grand */
+    }
+  }
+</style>
