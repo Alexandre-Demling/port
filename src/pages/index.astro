@@ -66,7 +66,7 @@ const projectImageClasses = [
 
 <Header />
 
-<main class="relative bg-[#F1E7C7] text-black min-h-screen">
+<main class="relative bg-[#F1E7C7] text-black min-h-screen overflow-x-hidden">
 
   <!-- BARRE VERTICALE GLOBALE -->
   <div
@@ -140,28 +140,26 @@ const projectImageClasses = [
   </div>
 
   <!-- TEXTE UI/UX -->
-  <section class="px-8 text-[15px] leading-relaxed">
-    <p class="mb-4">
-      Étudiant en deuxième année de BUT<br />
-      MMI, parcours Création<br />
-      <span class="font-bold block text-[24px] mt-3 mb-1">
-        Design UI/UX
-      </span>
-      Je suis passionné par l’univers visuel et numérique.
-    </p>
+ <section class="max-w-6xl mx-auto px-16 text-[15px] leading-relaxed">
+  <p class="mb-4">
+    &Eacute;tudiant en deuxi&egrave;me ann&eacute;e de BUT<br />
+    MMI, parcours Cr&eacute;ation<br />
+    <span class="font-bold block text-[24px] mt-3 mb-1">
+      Design UI/UX
+    </span>
+    je suis passionn&eacute; par l’univers visuel et num&eacute;rique.
+  </p>
 
-    <p class="mb-4">
-      Créatif et curieux, j’aime donner vie aux idées à travers des affiches,
-      logos, identités visuelles, mises en page et illustrations numériques.
-      Mon objectif est de concevoir des visuels clairs, esthétiques et adaptés
-      à chaque projet.
-    </p>
+  <p class="mb-4">
+    Cr&eacute;atif et curieux, j’aime donner vie aux id&eacute;es &agrave; travers des affiches,
+    logos, identit&eacute;s visuelles, mises en page et illustrations num&eacute;riques.
+    Mon objectif est de concevoir des visuels clairs, esth&eacute;tiques et adapt&eacute;s
+    &agrave; chaque projet.
+  </p>
 
-    <p>
-      En parallèle du design, je maîtrise également le développement front-end
-      pour créer des interfaces modernes et fonctionnelles.
-    </p>
-  </section>
+  
+</section>
+
 </div>
 
 
@@ -411,9 +409,10 @@ const projectImageClasses = [
       </div>
 
       <!-- COLONNE CARROUSEL D'IMAGES -->
-      <div class="relative h-[420px]">
+      <div class="relative h-[420px] flex justify-center lg:block">
         <div
-          class="absolute inset-0 border-4 border-black overflow-hidden origin-top-left -skew-x-6 bg-white"
+          class="w-full max-w-[520px] h-full border-4 border-black overflow-hidden origin-top-left -skew-x-6 bg-white
+                 lg:max-w-none lg:absolute lg:inset-0"
         >
           <div class="w-full h-full skew-x-6">
             {projects.map((project, index) => (
@@ -430,8 +429,6 @@ const projectImageClasses = [
             ))}
           </div>
         </div>
-
-        <!-- BOUTONS CARROUSEL (inchangés / à compléter si besoin) -->
       </div>
     </div>
   </section>
