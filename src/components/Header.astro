@@ -3,44 +3,89 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="bg-[#F1E7C7] border-b-4 border-black sticky top-0 z-50">
-  <div class="relative max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+  <div
+    class="relative max-w-6xl mx-auto flex items-center lg:items-end justify-between
+           px-6 sm:px-8 lg:px-12 pt-4 lg:pt-5 pb-2"
+  >
+    <!-- Barre verticale dans le header -->
+    <div
+      class="pointer-events-none absolute inset-y-0 left-[-18px] border-l-4 border-black"
+    ></div>
 
-    <!-- LOGO -->
-    <a href="/" class="flex items-center z-[60]">
-      <img src="/logo.png" alt="Logo Alexandre Demling" class="h-12 w-auto" />
+    <!-- Logo aligné avec la barre comme sur Figma -->
+    <a href="/" class="flex items-center pl-0">
+      <img src="/logo.png" alt="Logo Alexandre Demling" class="h-16 w-auto" />
     </a>
 
-    <!-- BOUTON BURGER (mobile) -->
-    <button
-      id="menu-btn"
-      class="lg:hidden flex flex-col justify-center items-center gap-1.5 z-[60] relative w-8 h-8"
-    >
-      <!-- Barres -->
-      <span class="burger-line block h-[2px] w-full bg-black transition-all duration-300"></span>
-      <span class="burger-line block h-[2px] w-full bg-black transition-all duration-300"></span>
-      <span class="burger-line block h-[2px] w-full bg-black transition-all duration-300"></span>
-    </button>
-
-    <!-- NAVIGATION DESKTOP -->
+    <!-- NAVIGATION DESKTOP (inchangée) -->
     <nav class="hidden lg:flex gap-20 text-2xl heading-font pb-1 pr-4">
-      <a href="/" class={`hover:underline ${currentPath === '/' ? 'underline' : ''}`}>Profil</a>
-      <a href="/projets" class={`hover:underline ${currentPath.startsWith('/projets') ? 'underline' : ''}`}>Projets</a>
-      <a href="/contact" class={`hover:underline ${currentPath.startsWith('/contact') ? 'underline' : ''}`}>Contact</a>
+      <a
+        href="/"
+        class={`hover:underline ${currentPath === '/' ? 'underline' : ''}`}
+      >
+        Profil
+      </a>
+      <a
+        href="/projets"
+        class={`hover:underline ${currentPath.startsWith('/projets') ? 'underline' : ''}`}
+      >
+        Projet
+      </a>
+      <a
+        href="/contact"
+        class={`hover:underline ${currentPath.startsWith('/contact') ? 'underline' : ''}`}
+      >
+        Contact
+      </a>
     </nav>
+
+    <!-- BOUTON BURGER MOBILE -->
+    <button
+      type="button"
+      class="lg:hidden flex flex-col justify-between h-6 w-8 relative z-50"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+      data-menu-toggle
+    >
+      <span class="block h-[2px] w-full bg-black"></span>
+      <span class="block h-[2px] w-full bg-black"></span>
+      <span class="block h-[2px] w-full bg-black"></span>
+    </button>
   </div>
 
-   <!-- MENU MOBILE (aucun glissement visible) -->
+  <!-- MENU MOBILE SLIDE -->
   <div
-    id="mobile-menu"
-    class="absolute left-0 right-0 top-[-300px] bg-[#F1E7C7] border-b-4 border-black
-           z-40 pt-20 pb-6 px-6 heading-font"
+    class="lg:hidden fixed top-0 right-0 h-full w-3/4 max-w-xs bg-[#F1E7C7] border-l-4 border-black
+           transform translate-x-full transition-transform duration-300 ease-out z-40"
+    data-menu-panel
   >
-    <p class="uppercase text-xs mb-4 tracking-wide">Navigation</p>
+    <!-- petite barre en haut alignée avec la barre du header -->
+<div class="border-b-4 border-black h-[92px] flex items-center px-6">
+  <span class="heading-font text-xl">Navigation</span>
+</div>
 
-    <nav class="flex flex-col gap-3 text-lg">
-      <a href="/" class="hover:underline">Profil</a>
-      <a href="/projets" class="hover:underline">Projets</a>
-      <a href="/contact" class="hover:underline">Contact</a>
+    <nav class="flex flex-col gap-6 heading-font text-2xl px-6 pt-8">
+      <a
+        href="/"
+        class={`hover:underline ${currentPath === '/' ? 'underline' : ''}`}
+        data-menu-close
+      >
+        Profil
+      </a>
+      <a
+        href="/projets"
+        class={`hover:underline ${currentPath.startsWith('/projets') ? 'underline' : ''}`}
+        data-menu-close
+      >
+        Projets
+      </a>
+      <a
+        href="/contact"
+        class={`hover:underline ${currentPath.startsWith('/contact') ? 'underline' : ''}`}
+        data-menu-close
+      >
+        Contact
+      </a>
     </nav>
   </div>
 </header>
@@ -49,36 +94,25 @@ const currentPath = Astro.url.pathname;
   .heading-font {
     font-family: var(--font-heading);
   }
-
-  /* Transformation burger -> croix */
-  .menu-open .burger-line:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
-  }
-  .menu-open .burger-line:nth-child(2) {
-    opacity: 0;
-  }
-  .menu-open .burger-line:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
-  }
 </style>
 
 <script>
-  const btn = document.getElementById("menu-btn");
-  const menu = document.getElementById("mobile-menu");
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.querySelector("[data-menu-toggle]");
+    const panel = document.querySelector("[data-menu-panel]");
+    const links = panel?.querySelectorAll("[data-menu-close]") ?? [];
 
-  let open = false;
+    if (!toggle || !panel) return;
 
-  btn.addEventListener("click", () => {
-    open = !open;
+    const toggleMenu = () => {
+      const isOpen = panel.classList.contains("translate-x-0");
 
-    if (open) {
-      document.body.classList.add("menu-open");
-      menu.style.top = "0";
-    } else {
-      document.body.classList.remove("menu-open");
-      menu.style.top = "-300px";
-    }
+      panel.classList.toggle("translate-x-0", !isOpen);
+      panel.classList.toggle("translate-x-full", isOpen);
+      toggle.setAttribute("aria-expanded", (!isOpen).toString());
+    };
 
-    btn.classList.toggle("menu-open");
+    toggle.addEventListener("click", toggleMenu);
+    links.forEach((link) => link.addEventListener("click", toggleMenu));
   });
 </script>
