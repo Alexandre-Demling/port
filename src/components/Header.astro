@@ -47,9 +47,9 @@ const currentPath = Astro.url.pathname;
       aria-expanded="false"
       data-menu-toggle
     >
-      <span class="block h-[2px] w-full bg-black"></span>
-      <span class="block h-[2px] w-full bg-black"></span>
-      <span class="block h-[2px] w-full bg-black"></span>
+      <span class="burger-line block h-[2px] w-full bg-black"></span>
+      <span class="burger-line block h-[2px] w-full bg-black"></span>
+      <span class="burger-line block h-[2px] w-full bg-black"></span>
     </button>
   </div>
 
@@ -60,9 +60,9 @@ const currentPath = Astro.url.pathname;
     data-menu-panel
   >
     <!-- petite barre en haut alignée avec la barre du header -->
-<div class="border-b-4 border-black h-[92px] flex items-center px-6">
-  <span class="heading-font text-xl">Navigation</span>
-</div>
+    <div class="border-b-4 border-black h-[92px] flex items-center px-6">
+      <span class="heading-font text-xl">Navigation</span>
+    </div>
 
     <nav class="flex flex-col gap-6 heading-font text-2xl px-6 pt-8">
       <a
@@ -94,6 +94,24 @@ const currentPath = Astro.url.pathname;
   .heading-font {
     font-family: var(--font-heading);
   }
+
+  /* Animation burger -> croix (mobile) */
+  .burger-line {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    transform-origin: center;
+  }
+
+  [data-menu-toggle].is-open .burger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  [data-menu-toggle].is-open .burger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  [data-menu-toggle].is-open .burger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 </style>
 
 <script>
@@ -110,6 +128,8 @@ const currentPath = Astro.url.pathname;
       panel.classList.toggle("translate-x-0", !isOpen);
       panel.classList.toggle("translate-x-full", isOpen);
       toggle.setAttribute("aria-expanded", (!isOpen).toString());
+      // Ajout de la classe pour animer les barres en croix
+      toggle.classList.toggle("is-open", !isOpen);
     };
 
     toggle.addEventListener("click", toggleMenu);
