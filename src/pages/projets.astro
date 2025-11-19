@@ -31,30 +31,30 @@ const logoImg = "/images/logo.png";
         </h1>
       </div>
 
-      <!-- Dessin avec clic en mobile + hover en desktop -->
-<div class="flex justify-center lg:justify-end lg:mt-[-40px]">
-  <div
-    class="relative w-full max-w-[420px] lg:max-w-[500px] translate-y-[1px]"
-  >
-    <!-- Version ligne (par défaut) -->
-    <img
-      src={lineUrl}
-      alt="Illustration Alexandre Demling ligne"
-      class="w-full max-h-[460px] object-contain block transition-opacity duration-500
-             lg:group-hover:opacity-0"
-      data-projet-line
-    />
-
-    <!-- Version couleur (superposée) -->
-    <img
-      src={colorUrl}
-      alt="Illustration Alexandre Demling couleur"
-      class="w-full max-h-[460px] object-contain absolute inset-0 opacity-0
-             transition-opacity duration-500 lg:group-hover:opacity-100"
-      data-projet-color
-    />
-  </div>
-</div>
+        <!-- Dessin : hover en desktop + clic en mobile -->
+      <div class="flex justify-center lg:justify-end lg:mt-[-40px]">
+        <div
+          class="relative group w-full max-w-[420px] lg:max-w-[500px] translate-y-[1px]"
+          data-portrait-wrapper
+        >
+          <!-- version ligne -->
+          <img
+            src={lineUrl}
+            alt="Illustration Alexandre Demling ligne"
+            class="w-full max-h-[460px] object-contain block
+                   transition-opacity duration-500 group-hover:opacity-0"
+            data-portrait-line
+          />
+          <!-- version couleur -->
+          <img
+            src={colorUrl}
+            alt="Illustration Alexandre Demling couleur"
+            class="w-full max-h-[460px] object-contain absolute inset-0
+                   opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            data-portrait-color
+          />
+        </div>
+      </div>
     </div>
   </div>
 
@@ -238,6 +238,31 @@ const logoImg = "/images/logo.png";
   </section>
 </main>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const wrapper = document.querySelector("[data-portrait-wrapper]");
+    if (!wrapper) return;
+
+    const lineImg = wrapper.querySelector("[data-portrait-line]");
+    const colorImg = wrapper.querySelector("[data-portrait-color]");
+    if (!lineImg || !colorImg) return;
+
+    const isMobile = () => window.innerWidth < 1024; // < lg
+
+    const toggleImages = () => {
+      if (!isMobile()) return; // ne rien faire sur desktop
+
+      // on inverse juste la présence de "opacity-0"
+      lineImg.classList.toggle("opacity-0");
+      colorImg.classList.toggle("opacity-0");
+    };
+
+    wrapper.addEventListener("click", toggleImages);
+    wrapper.addEventListener("touchstart", toggleImages, { passive: true });
+  });
+</script>
+
+
 <Footer />
 
 <style>
@@ -245,29 +270,3 @@ const logoImg = "/images/logo.png";
     font-family: var(--font-heading);
   }
 </style>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const lineImg = document.querySelector("[data-projet-line]");
-  const colorImg = document.querySelector("[data-projet-color]");
-
-  if (!lineImg || !colorImg) return;
-
-  // MOBILE uniquement (<1024px)
-  const isMobile = () => window.innerWidth < 1024;
-
-  const toggle = () => {
-    if (!isMobile()) return;
-
-    const showingColor = colorImg.style.opacity === "1";
-
-    colorImg.style.opacity = showingColor ? "0" : "1";
-    lineImg.style.opacity = showingColor ? "1" : "0";
-  };
-
-  // Clic / tap mobile
-  lineImg.addEventListener("click", toggle);
-  colorImg.addEventListener("click", toggle);
-});
-</script>
-
