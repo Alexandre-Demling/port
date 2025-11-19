@@ -147,14 +147,16 @@ const projectImageClasses = [
     <span class="font-bold block text-[24px] mt-3 mb-1">
       Design UI/UX
     </span>
-    je suis passionn&eacute; par l’univers visuel et num&eacute;rique.
+    je suis passionn&eacute; par l&rsquo;univers visuel et
+              num&eacute;rique.
   </p>
 
   <p class="mb-4">
-    Cr&eacute;atif et curieux, j’aime donner vie aux id&eacute;es &agrave; travers des affiches,
-    logos, identit&eacute;s visuelles, mises en page et illustrations num&eacute;riques.
-    Mon objectif est de concevoir des visuels clairs, esth&eacute;tiques et adapt&eacute;s
-    &agrave; chaque projet.
+    Cr&eacute;atif et curieux, j&rsquo;aime donner vie aux id&eacute;es
+              &agrave; travers des affiches, logos, identit&eacute;s visuelles,
+              mises en page et illustrations num&eacute;riques. Mon objectif est
+              de concevoir des visuels clairs, esth&eacute;tiques et adapt&eacute;s
+              &agrave; chaque projet.
   </p>
 
   
@@ -264,19 +266,25 @@ const projectImageClasses = [
     </svg>
   </div>
 
-  <!-- COMPÉTENCES (inchangé) -->
+    <!-- ======================= -->
+  <!--   MES COMPÉTENCES      -->
+  <!-- ======================= -->
   <div class="relative max-w-6xl mx-auto px-16 pb-24 mt-14">
-    <p class="heading-font text-sm mb-6">Mes Comp&eacute;tences</p>
+    <!-- Titre un peu plus grand en mobile -->
+    <p class="heading-font text-base lg:text-sm mb-6">
+      Mes Comp&eacute;tences
+    </p>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+    <!-- 2 colonnes aussi en mobile -->
+    <div class="grid grid-cols-2 gap-8 lg:gap-20">
       <!-- WEB -->
       <div>
-        <p class="heading-font text-[14px] mb-1">
+        <p class="heading-font text-[16px] lg:text-[14px] mb-1">
           D&eacute;veloppement Web
         </p>
         <div class="h-[3px] bg-black w-[280px] mb-4"></div>
 
-        <ul class="space-y-1">
+        <ul class="space-y-2">
           {webSkills.map((skill) => (
             <li class="flex items-center gap-3">
               <img
@@ -284,7 +292,7 @@ const projectImageClasses = [
                 alt={skill.name}
                 class="w-8 h-8 object-contain"
               />
-              <span class="font-mono text-[20px] font-semibold">
+              <span class="font-mono text-[22px] lg:text-[20px] font-semibold">
                 {skill.name}
               </span>
             </li>
@@ -294,10 +302,12 @@ const projectImageClasses = [
 
       <!-- AUDIO + DESIGN -->
       <div>
-        <p class="heading-font text-[14px] mb-1">Audiovisuel</p>
+        <p class="heading-font text-[16px] lg:text-[14px] mb-1">
+          Audiovisuel
+        </p>
         <div class="h-[3px] bg-black w-[280px] mb-4"></div>
 
-        <ul class="space-y-1 mb-10">
+        <ul class="space-y-2 mb-10">
           {audiovisuelSkills.map((skill) => (
             <li class="flex items-center gap-3">
               <img
@@ -305,17 +315,19 @@ const projectImageClasses = [
                 alt={skill.name}
                 class="w-8 h-8 object-contain"
               />
-              <span class="font-mono text-[20px] font-semibold">
+              <span class="font-mono text-[22px] lg:text-[20px] font-semibold">
                 {skill.name}
               </span>
             </li>
           ))}
         </ul>
 
-        <p class="heading-font text-[14px] mb-1">Design &amp; UI/UX</p>
+        <p class="heading-font text-[16px] lg:text-[14px] mb-1">
+          Design &amp; UI/UX
+        </p>
         <div class="h-[3px] bg-black w-[280px] mb-4"></div>
 
-        <ul class="space-y-1">
+        <ul class="space-y-2">
           {designSkills.map((skill) => (
             <li class="flex items-center gap-3">
               <img
@@ -323,7 +335,7 @@ const projectImageClasses = [
                 alt={skill.name}
                 class="w-8 h-8 object-contain"
               />
-              <span class="font-mono text-[20px] font-semibold">
+              <span class="font-mono text-[22px] lg:text-[20px] font-semibold">
                 {skill.name}
               </span>
             </li>
