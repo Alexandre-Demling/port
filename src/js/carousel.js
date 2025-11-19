@@ -1,6 +1,6 @@
-// src/js/carousel.js
+// public/js/carousel.js
 
-document.addEventListener("DOMContentLoaded", () => {
+function initProjectsCarousel() {
   const section = document.querySelector('[data-carousel="projects"]');
   if (!section) return;
 
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!slides.length || !texts.length) return;
 
   let current = 0;
-  let autoplayId;
+  let autoplayId = null;
 
   const show = (index) => {
     const max = slides.length;
@@ -28,10 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const startAutoplay = () => {
-    clearInterval(autoplayId);
+    if (autoplayId) clearInterval(autoplayId);
     autoplayId = setInterval(() => {
       show(current + 1);
-    }, 6000); // 6 secondes
+    }, 6000); // 6s
   };
 
   prevBtn?.addEventListener("click", () => {
@@ -44,6 +44,15 @@ document.addEventListener("DOMContentLoaded", () => {
     startAutoplay();
   });
 
+  // lancement initial
   show(0);
   startAutoplay();
-});
+}
+
+// 🔁 Compatible avec tous les timings de chargement
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initProjectsCarousel);
+} else {
+  // DOM déjà prêt (cas fréquent avec <script type="module" en bas de page)
+  initProjectsCarousel();
+}
