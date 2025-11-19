@@ -31,27 +31,30 @@ const logoImg = "/images/logo.png";
         </h1>
       </div>
 
-      <!-- Dessin avec hover couleur (NE PAS TOUCHER) -->
-      <div class="flex justify-center lg:justify-end lg:mt-[-40px]">
-        <div
-          class="relative group w-full max-w-[420px] lg:max-w-[500px] translate-y-[1px]"
-        >
-          <!-- version ligne -->
-          <img
-            src={lineUrl}
-            alt="Illustration Alexandre Demling ligne"
-            class="w-full max-h-[460px] object-contain block
-                   transition-opacity duration-500 group-hover:opacity-0"
-          />
-          <!-- version couleur -->
-          <img
-            src={colorUrl}
-            alt="Illustration Alexandre Demling couleur"
-            class="w-full max-h-[460px] object-contain absolute inset-0
-                   opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-          />
-        </div>
-      </div>
+      <!-- Dessin avec clic en mobile + hover en desktop -->
+<div class="flex justify-center lg:justify-end lg:mt-[-40px]">
+  <div
+    class="relative w-full max-w-[420px] lg:max-w-[500px] translate-y-[1px]"
+  >
+    <!-- Version ligne (par défaut) -->
+    <img
+      src={lineUrl}
+      alt="Illustration Alexandre Demling ligne"
+      class="w-full max-h-[460px] object-contain block transition-opacity duration-500
+             lg:group-hover:opacity-0"
+      data-projet-line
+    />
+
+    <!-- Version couleur (superposée) -->
+    <img
+      src={colorUrl}
+      alt="Illustration Alexandre Demling couleur"
+      class="w-full max-h-[460px] object-contain absolute inset-0 opacity-0
+             transition-opacity duration-500 lg:group-hover:opacity-100"
+      data-projet-color
+    />
+  </div>
+</div>
     </div>
   </div>
 
@@ -242,3 +245,29 @@ const logoImg = "/images/logo.png";
     font-family: var(--font-heading);
   }
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lineImg = document.querySelector("[data-projet-line]");
+  const colorImg = document.querySelector("[data-projet-color]");
+
+  if (!lineImg || !colorImg) return;
+
+  // MOBILE uniquement (<1024px)
+  const isMobile = () => window.innerWidth < 1024;
+
+  const toggle = () => {
+    if (!isMobile()) return;
+
+    const showingColor = colorImg.style.opacity === "1";
+
+    colorImg.style.opacity = showingColor ? "0" : "1";
+    lineImg.style.opacity = showingColor ? "1" : "0";
+  };
+
+  // Clic / tap mobile
+  lineImg.addEventListener("click", toggle);
+  colorImg.addEventListener("click", toggle);
+});
+</script>
+
