@@ -109,20 +109,26 @@ const projectImageClasses = [
     Alexandre Demling
   </p>
 
-   <!-- PORTRAIT : réduit et décalé davantage à droite -->
+  <!-- PORTRAIT MOBILE : clic / touch = switch d'image -->
 <div class="absolute top-[145px] left-[28px] w-full flex justify-center">
-  <div class="relative group w-[52%]">
+  <button
+    type="button"
+    class="relative w-[52%] focus:outline-none"
+    data-portrait-mobile
+  >
     <img
       src={lineUrl}
       alt="Portrait vectoriel Alexandre Demling"
-      class="w-full object-contain transition-opacity duration-500 group-hover:opacity-0"
+      class="w-full object-contain transition-opacity duration-500"
+      data-portrait-line
     />
     <img
       src={colorUrl}
-      alt="Portrait coloré Alexandre Demling"
-      class="w-full object-contain absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+      alt="Portrait color&eacute; Alexandre Demling"
+      class="w-full object-contain absolute inset-0 opacity-0 transition-opacity duration-500"
+      data-portrait-color
     />
-  </div>
+  </button>
 </div>
   </div>
 
@@ -454,4 +460,6 @@ const projectImageClasses = [
   }
 </style>
 
-<script type="module" src="/src/js/carousel.js"></script>
+<script type="module" src="/js/carousel.js"></script>
+
+
