@@ -26,27 +26,37 @@ const moodboardImg = "/images/Moodboard.png";
 <main class="bg-white text-black overflow-hidden">
 
   <!-- ================= HERO ================= -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-10 pb-20">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
       <div>
-        <p class="font-mono text-xs tracking-widest mb-4">PROJET</p>
+        <p class="font-mono text-xs tracking-widest mb-6 uppercase">Projet</p>
 
-        <h1 class="heading-font text-[42px] sm:text-[56px] lg:text-[72px] leading-none">
+        <h1 class="heading-font text-[56px] sm:text-[72px] lg:text-[96px] leading-[0.95] mb-10">
           Orbite
         </h1>
 
-        <p class="font-mono text-sm max-w-md mt-6">
+        <p class="font-mono text-sm max-w-md leading-relaxed">
           Plateforme collaborative pensée pour les étudiants,
           facilitant les rencontres et les activités sociales.
         </p>
+
+        <!-- ✅ BOUTON RETOUR RÉALISATIONS -->
+        <div class="mt-10">
+          <a
+            href="/realisations"
+            class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest border border-black px-6 py-3 hover:bg-black hover:text-white transition"
+          >
+            ← Retour aux réalisations
+          </a>
+        </div>
       </div>
 
       <div class="flex justify-end">
         <img
           src={heroMockup}
           alt="Mockup desktop Orbite"
-          class="w-full max-w-[300px] sm:max-w-[340px] lg:max-w-[380px] object-contain"
+          class="max-h-[420px] w-auto object-contain"
         />
       </div>
 
@@ -54,11 +64,11 @@ const moodboardImg = "/images/Moodboard.png";
   </section>
 
   <!-- ================= CONCEPT ================= -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-24">
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-32">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
 
       <div class="lg:col-span-6">
-        <h2 class="heading-font text-2xl mb-8">Concept</h2>
+        <h2 class="heading-font text-3xl mb-12">Concept</h2>
 
         <div class="font-mono text-sm leading-relaxed space-y-6 max-w-xl">
           <p>
@@ -88,7 +98,7 @@ const moodboardImg = "/images/Moodboard.png";
   </section>
 
   <!-- ================= DESIGN ================= -->
-  <section class="bg-black text-white py-24">
+  <section class="bg-black text-white py-32">
     <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
@@ -100,7 +110,7 @@ const moodboardImg = "/images/Moodboard.png";
 
         <!-- TEXTE -->
         <div class="lg:col-span-5">
-          <h2 class="heading-font text-2xl mb-8">Design</h2>
+          <h2 class="heading-font text-3xl mb-12">Design</h2>
 
           <div class="font-mono text-sm leading-relaxed space-y-6">
             <p>
@@ -121,11 +131,11 @@ const moodboardImg = "/images/Moodboard.png";
   </section>
 
   <!-- ================= MOODBOARD ================= -->
-  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-24">
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-32">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
       <div class="lg:col-span-5">
-        <h2 class="heading-font text-2xl mb-8">Moodboard</h2>
+        <h2 class="heading-font text-3xl mb-12">Moodboard</h2>
 
         <div class="font-mono text-sm leading-relaxed space-y-6 max-w-md">
           <p>
@@ -156,7 +166,7 @@ const moodboardImg = "/images/Moodboard.png";
     </div>
   </section>
 
-  <!-- ================= FOOTER (IDENTIQUE AU SITE) ================= -->
+  <!-- ================= FOOTER ================= -->
   <footer class="bg-black w-full flex items-center justify-between text-white flex-shrink-0 px-6 sm:px-10 lg:px-16 py-6">
     <div class="flex items-center gap-4">
       <a
