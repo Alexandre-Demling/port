@@ -1,172 +1,162 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import pb from "../utils/pb";
 
-/**
- * IMAGES POCKETBASE
- * (ids fournis : udiwtn3ruujt1gq, cvajkn9y0ci2m1j)
- */
+/* ================= IMAGES POCKETBASE ================= */
 
-// HERO + logo principal
+// Logo principal
 const logoMainRecord = await pb.collection("image").getOne("cvajkn9y0ci2m1j");
 const logoMain = pb.files.getUrl(logoMainRecord, logoMainRecord.image);
-const heroMockup = logoMain;
 
-// Variante secondaire du logo
+// Variante secondaire
 const logoAltRecord = await pb.collection("image").getOne("udiwtn3ruujt1gq");
 const logoAlt = pb.files.getUrl(logoAltRecord, logoAltRecord.image);
 ---
 
+<head>
+  <!-- FIX GLOBAL DU PROBLÈME DE TEXTE -->
+  <meta charset="utf-8" />
+</head>
+
 <Header />
 
-<main class="relative bg-[#F1E7C7] text-black min-h-screen overflow-x-hidden">
-  <!-- BARRE VERTICALE GAUCHE -->
-  <div
-    class="absolute inset-y-0 left-[34.5px] border-l-4 border-black pointer-events-none z-20"
-  ></div>
+<main class="bg-white text-black overflow-hidden">
 
-  <!-- ============ HERO MON LOGO ============ -->
-  <div class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-16">
-    <h1
-      class="heading-font text-[48px] sm:text-[60px] lg:text-[72px] leading-tight mb-10 sm:mb-12 ml-10 sm:ml-12 lg:ml-[-12px]"
-    >
-      Mon logo
-    </h1>
+  <!-- ================= HERO ================= -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-10 pb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-    <div class="flex justify-center lg:justify-end lg:mr-[-40px]">
-      <img
-        src={heroMockup}
-        alt="Logo personnel"
-        class="w-[260px] sm:w-[300px] md:w-[340px] lg:w-[380px] object-contain"
-      />
-    </div>
-  </div>
+      <div>
+        <p class="font-mono text-xs tracking-widest mb-4">PROJET</p>
 
-  <!-- LIGNE HORIZONTALE 1 -->
-  <div class="w-full mt-[-24px] lg:mt-[-40px]">
-    <svg
-      viewBox="0 0 1600 9"
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-full h-[11px]"
-    >
-      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
-      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
-      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
-    </svg>
-  </div>
+        <h1 class="heading-font text-[42px] sm:text-[56px] lg:text-[72px] leading-none">
+          Mon logo
+        </h1>
 
-  <!-- ===================== CONCEPT (TEXTE + LOGO) ===================== -->
-  <section
-    class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32"
-  >
-    <!-- Petit titre -->
-    <p class="heading-font text-sm mb-10 ml-10 sm:ml-12 lg:ml-[68px]">
-      Concept
-    </p>
-
-    <!-- 1 colonne en mobile, 2 colonnes en desktop -->
-    <div
-      class="ml-10 sm:ml-12 lg:ml-[68px] grid grid-cols-1 lg:grid-cols-2 gap-10 items-start"
-    >
-      <!-- COLONNE TEXTE -->
-      <div class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-xl">
-        <p class="mb-8 sm:mb-10">
-          Le choix d&rsquo;un style lin&eacute;aire et g&eacute;om&eacute;trique
-          refl&egrave;te ma volont&eacute; d&rsquo;aller &agrave; l&rsquo;essentiel. Chaque
-          ligne a &eacute;t&eacute; pens&eacute;e pour repr&eacute;senter la rigueur et la
-          pr&eacute;cision, tout en offrant une identit&eacute; visuelle marqu&eacute;e,
-          facilement m&eacute;morisable et adaptable.
-        </p>
-
-        <p>
-          Derri&egrave;re l&rsquo;apparente simplicit&eacute; du dessin se cache une
-          double lecture : celle de mes initiales, mais aussi celle d&rsquo;une forme
-          abstraite ouverte &agrave; l&rsquo;interpr&eacute;tation. Ce jeu graphique
-          illustre ma d&eacute;marche cr&eacute;ative, qui cherche &agrave; allier clart&eacute;
-          et subtilit&eacute;.
+        <p class="font-mono text-sm max-w-md mt-6">
+          Création de mon identité visuelle personnelle,
+          pensée comme une signature graphique durable.
         </p>
       </div>
 
-      <!-- COLONNE LOGO (grand) -->
-      <div class="flex justify-center lg:justify-end">
+      <div class="flex justify-end">
+        <img
+          src={logoMain}
+          alt="Logo personnel"
+          class="w-full max-w-[260px] sm:max-w-[300px] lg:max-w-[320px] object-contain"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONCEPT ================= -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+
+      <!-- TEXTE -->
+      <div class="lg:col-span-6">
+        <h2 class="heading-font text-2xl mb-8">Concept</h2>
+
+        <div class="font-mono text-sm leading-relaxed space-y-6 max-w-xl">
+          <p>
+            Le choix d’un style linéaire et géométrique reflète ma volonté
+            d’aller à l’essentiel. Chaque ligne a été pensée pour représenter
+            la rigueur et la précision, tout en offrant une identité visuelle
+            marquée, facilement mémorisable et adaptable.
+          </p>
+
+          <p>
+            Derrière l’apparente simplicité du dessin se cache une double
+            lecture : celle de mes initiales, mais aussi celle d’une forme
+            abstraite ouverte à l’interprétation. Ce jeu graphique illustre
+            ma démarche créative, entre clarté et subtilité.
+          </p>
+        </div>
+      </div>
+
+      <!-- LOGO -->
+      <div class="lg:col-span-6 flex justify-center lg:justify-end">
         <img
           src={logoMain}
           alt="Logo principal"
-          class="w-[320px] sm:w-[360px] md:w-[400px] lg:w-[440px] object-contain"
+          class="w-[300px] sm:w-[340px] lg:w-[360px] object-contain"
         />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= DESIGN / DÉCLINAISONS ================= -->
+  <section class="bg-black text-white py-24">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+
+        <!-- VARIATIONS -->
+        <div class="lg:col-span-7 flex gap-12 justify-center">
+          <img
+            src={logoAlt}
+            alt="Logo version noire"
+            class="h-[160px] object-contain"
+          />
+          <img
+            src={logoMain}
+            alt="Logo version claire"
+            class="h-[160px] object-contain"
+          />
+        </div>
+
+        <!-- TEXTE -->
+        <div class="lg:col-span-5">
+          <h2 class="heading-font text-2xl mb-8">Choix du design</h2>
+
+          <div class="font-mono text-sm leading-relaxed space-y-6">
+            <p>
+              Le logo existe en plusieurs déclinaisons, notamment en noir
+              et en blanc, afin de s’adapter à différents supports et
+              contextes. Cette flexibilité garantit une lisibilité optimale
+              sur fond clair, sombre ou coloré.
+            </p>
+
+            <p>
+              Plus qu’un simple symbole, ce logo se veut une véritable
+              signature visuelle. Il incarne mon univers créatif, ma
+              recherche de sobriété et ma capacité à donner du sens à
+              des formes simples.
+            </p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- LIGNE HORIZONTALE 2 -->
-  <div class="w-full">
-    <svg
-      viewBox="0 0 1600 9"
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-full h-[11px]"
-    >
-      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
-      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
-      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
-    </svg>
-  </div>
-
-  <!-- ===================== SECTION LOGO / DÉCLINAISONS ===================== -->
-<section
-  class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32"
->
-  <!-- Titre de section -->
-  <p class="heading-font text-sm mb-10 ml-10 sm:ml-12 lg:ml-[68px]">
-    Choix du design
-  </p>
-
-  <div
-    class="ml-10 sm:ml-12 lg:ml-[68px] 
-           flex flex-row           <!-- ICI LA CORRECTION -->
-           gap-10 lg:gap-16 
-           items-start lg:pr-10"
-  >
-    <!-- TEXTE À GAUCHE -->
-    <div class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-md">
-      <p class="mb-8 sm:mb-10">
-  Le logo existe en plusieurs d&eacute;clinaisons, notamment en noir
-  et en blanc, pour s&rsquo;adapter &agrave; diff&eacute;rents supports et contextes.
-  Cette flexibilit&eacute; renforce son efficacit&eacute; et permet de conserver
-  une identit&eacute; forte, qu&rsquo;il soit appliqu&eacute; sur un fond clair,
-  sombre ou color&eacute;.
-</p>
-
-<p>
-  Plus qu&rsquo;un simple symbole, ce logo se veut une v&eacute;ritable signature
-  visuelle. Il incarne mon univers cr&eacute;atif, ma recherche de sobri&eacute;t&eacute;
-  et ma capacit&eacute; &agrave; donner du sens &agrave; des formes simples.
-  C&rsquo;est une identit&eacute; qui m&rsquo;accompagne dans mes projets et qui
-  refl&egrave;te ma d&eacute;marche de designer graphique.
-</p>
-
+  <!-- ================= FOOTER (IDENTIQUE AU SITE) ================= -->
+  <footer class="bg-black w-full flex items-center justify-between text-white flex-shrink-0 px-6 sm:px-10 lg:px-16 py-6">
+    <div class="flex items-center gap-4">
+      <a
+        href="https://www.linkedin.com/in/alexandre-demling-965a90346"
+        target="_blank"
+        class="footer-link uppercase"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="https://github.com/Alexandre-Demling"
+        target="_blank"
+        class="footer-link uppercase"
+      >
+        Github
+      </a>
     </div>
 
-    <!-- VARIATIONS DU LOGO (noir / blanc inversés) -->
-    <div class="flex justify-center lg:justify-end w-full">
-      <div class="flex flex-col gap-4 items-end"> <!-- toujours en colonne -->
-        <img
-          src={logoAlt}
-          alt="Logo noir"
-          class="w-[220px] h-auto object-contain"
-        />
-        <img
-          src={logoMain}
-          alt="Logo blanc"
-          class="w-[220px] h-auto object-contain"
-        />
-      </div>
-    </div>
-  </div>
+    <a href="/mentionlegale" class="footer-link uppercase">
+      Mentions légales
+    </a>
+  </footer>
+
 </main>
-
-<Footer />
 
 <style>
   .heading-font {

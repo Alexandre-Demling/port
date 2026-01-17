@@ -2,137 +2,290 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="bg-[#F1E7C7] border-b-4 border-black sticky top-0 z-50">
-  <div
-    class="relative max-w-6xl mx-auto flex items-center lg:items-end justify-between
-           px-6 sm:px-8 lg:px-12 pt-4 lg:pt-5 pb-2"
-  >
-    <!-- Barre verticale dans le header -->
-    <div
-      class="pointer-events-none absolute inset-y-0 left-[-22px] border-l-4 border-black"
-    ></div>
-
-    <!-- Logo aligné avec la barre comme sur Figma -->
-    <a href="/" class="flex items-center pl-0">
-      <img src="/logo.png" alt="Logo Alexandre Demling" class="h-16 w-auto" />
+<header class="bg-white sticky top-0 z-50 h-[80px]">
+  <div class="relative max-w-7xl mx-auto h-full flex items-center justify-between px-8 lg:px-12">
+    <!-- Logo -->
+    <a href="/" class="flex items-center">
+      <img src="/logo.png" alt="Logo Alexandre Demling" class="h-10 lg:h-12 w-auto" />
     </a>
 
-    <!-- NAVIGATION DESKTOP (inchangée) -->
-    <nav class="hidden lg:flex gap-20 text-2xl heading-font pb-1 pr-4">
-      <a
-        href="/"
-        class={`hover:underline ${currentPath === '/' ? 'underline' : ''}`}
-      >
-        Profil
-      </a>
-      <a
-        href="/projets"
-        class={`hover:underline ${currentPath.startsWith('/projets') ? 'underline' : ''}`}
-      >
-        Projet
-      </a>
-      <a
-        href="/contact"
-        class={`hover:underline ${currentPath.startsWith('/contact') ? 'underline' : ''}`}
-      >
-        Contact
-      </a>
-    </nav>
-
-    <!-- BOUTON BURGER MOBILE -->
+    <!-- Bouton burger -->
     <button
       type="button"
-      class="lg:hidden flex flex-col justify-between h-6 w-8 relative z-50"
-      aria-label="Ouvrir le menu"
-      aria-expanded="false"
-      data-menu-toggle
+      id="menuToggle"
+      class="flex flex-col justify-between h-6 w-8 relative z-[60]"
+      aria-label="Menu"
     >
-      <span class="burger-line block h-[2px] w-full bg-black"></span>
-      <span class="burger-line block h-[2px] w-full bg-black"></span>
-      <span class="burger-line block h-[2px] w-full bg-black"></span>
+      <span class="burger-line block h-[2px] w-full bg-black transition-all duration-300"></span>
+      <span class="burger-line block h-[2px] w-full bg-black transition-all duration-300"></span>
+      <span class="burger-line block h-[2px] w-full bg-black transition-all duration-300"></span>
     </button>
   </div>
 
-  <!-- MENU MOBILE SLIDE -->
+  <!-- Menu plein écran -->
   <div
-    class="lg:hidden fixed top-0 right-0 h-full w-3/4 max-w-xs bg-[#F1E7C7] border-l-4 border-black
-           transform translate-x-full transition-transform duration-300 ease-out z-40"
-    data-menu-panel
+    id="menuPanel"
+    class="fixed inset-0 bg-white z-50 translate-x-full transition-transform duration-500 ease-out"
   >
-    <!-- petite barre en haut alignée avec la barre du header -->
-    <div class="border-b-4 border-black h-[92px] flex items-center px-6">
-      <span class="heading-font text-xl">Navigation</span>
+    <!-- Header du menu avec logo uniquement -->
+    <div class="absolute top-0 left-0 right-0 h-[80px] flex items-center justify-between px-8 lg:px-12">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img src="/logo.png" alt="Logo Alexandre Demling" class="h-10 lg:h-12 w-auto" />
+      </a>
     </div>
 
-    <nav class="flex flex-col gap-6 heading-font text-2xl px-6 pt-8">
-      <a
-        href="/"
-        class={`hover:underline ${currentPath === '/' ? 'underline' : ''}`}
-        data-menu-close
-      >
-        Profil
-      </a>
-      <a
-        href="/projets"
-        class={`hover:underline ${currentPath.startsWith('/projets') ? 'underline' : ''}`}
-        data-menu-close
-      >
-        Projets
-      </a>
-      <a
-        href="/contact"
-        class={`hover:underline ${currentPath.startsWith('/contact') ? 'underline' : ''}`}
-        data-menu-close
-      >
-        Contact
-      </a>
-    </nav>
+    <!-- Contenu du menu -->
+    <div class="h-full w-full flex flex-col justify-center px-8 lg:px-16">
+      <!-- Navigation principale -->
+      <nav class="flex flex-col gap-4 lg:gap-8">
+        <a
+          href="/"
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold uppercase tracking-tight hover:translate-x-5 transition-transform duration-300"
+        >
+          Accueil
+        </a>
+        <a
+          href="/realisations"
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold uppercase tracking-tight hover:translate-x-5 transition-transform duration-300"
+        >
+          Réalisation
+        </a>
+        <a
+          href="/contact"
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold uppercase tracking-tight hover:translate-x-5 transition-transform duration-300"
+        >
+          Contact
+        </a>
+      </nav>
+
+      <!-- Liens secondaires -->
+      <div class="absolute bottom-12 lg:bottom-20 left-8 lg:left-16 flex flex-wrap gap-4 lg:gap-6 text-sm lg:text-base uppercase tracking-wider">
+        <a 
+          href="https://github.com/Alexandre-Demling" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="underline-offset-4 transition-all secondary-link"
+        >
+          Github
+        </a>
+        <a 
+          href="https://www.linkedin.com/in/alexandre-demling-965a90346" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="underline-offset-4 transition-all secondary-link"
+        >
+          LinkedIn
+        </a>
+        <a 
+          href="/mentions-legales" 
+          class="underline-offset-4 transition-all secondary-link"
+        >
+          Mentions légales
+        </a>
+      </div>
+    </div>
   </div>
 </header>
 
 <style>
-  .heading-font {
-    font-family: var(--font-heading);
-  }
-
-  /* Animation burger -> croix (mobile) */
   .burger-line {
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: all 0.3s ease;
     transform-origin: center;
   }
 
-  [data-menu-toggle].is-open .burger-line:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+  /* Burger transforms into X when menu is open */
+  #menuToggle.is-open .burger-line:nth-child(1) {
+    transform: translateY(10.5px) rotate(45deg);
   }
 
-  [data-menu-toggle].is-open .burger-line:nth-child(2) {
+  #menuToggle.is-open .burger-line:nth-child(2) {
     opacity: 0;
   }
 
-  [data-menu-toggle].is-open .burger-line:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+  #menuToggle.is-open .burger-line:nth-child(3) {
+    transform: translateY(-10.5px) rotate(-45deg);
+  }
+
+  .menu-link {
+    position: relative;
+    display: inline-block;
+    color: #000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .menu-link:hover {
+    transform: translateX(20px);
+    opacity: 0.6;
+  }
+
+  .menu-link.active {
+    opacity: 0.7;
+  }
+
+  .secondary-link {
+    position: relative;
+    color: #000;
+    transition: transform 0.2s ease;
+  }
+
+  .secondary-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #000;
+    transition: width 0.3s ease;
+  }
+
+  .secondary-link:hover::after {
+    width: 100%;
+  }
+
+  .secondary-link:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Adding media queries for responsive header */
+  /* Mobile - prevent text overflow */
+  @media (max-width: 640px) {
+    #menuPanel nav a {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    #menuPanel .absolute.bottom-12 {
+      bottom: 3rem;
+      font-size: 0.75rem;
+      gap: 0.75rem;
+    }
+
+    header {
+      height: 60px;
+    }
+
+    header img {
+      height: 2rem;
+    }
+
+    #menuToggle {
+      height: 1.25rem;
+      width: 1.75rem;
+    }
+  }
+
+  /* Tablets */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    #menuPanel nav a {
+      font-size: 3rem;
+      line-height: 1.15;
+    }
+
+    #menuPanel .absolute.bottom-12 {
+      bottom: 4rem;
+      font-size: 0.875rem;
+    }
+
+    header {
+      height: 70px;
+    }
+
+    header img {
+      height: 2.5rem;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 1025px) {
+    #menuPanel nav a {
+      font-size: 5rem;
+      line-height: 1.1;
+    }
+
+    #menuPanel .absolute.bottom-12 {
+      bottom: 5rem;
+      font-size: 1rem;
+      gap: 1.5rem;
+    }
+
+    header {
+      height: 80px;
+    }
+
+    header img {
+      height: 3rem;
+    }
+  }
+
+  /* Extra large screens */
+  @media (min-width: 1536px) {
+    #menuPanel nav a {
+      font-size: 6rem;
+    }
+
+    header img {
+      height: 3.5rem;
+    }
   }
 </style>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const toggle = document.querySelector("[data-menu-toggle]");
-    const panel = document.querySelector("[data-menu-panel]");
-    const links = panel?.querySelectorAll("[data-menu-close]") ?? [];
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menuToggle');
+    const menuPanel = document.getElementById('menuPanel');
+    const menuLinks = document.querySelectorAll('#menuPanel a');
 
-    if (!toggle || !panel) return;
+    function toggleMenu() {
+      if (!menuPanel || !menuToggle) return;
 
-    const toggleMenu = () => {
-      const isOpen = panel.classList.contains("translate-x-0");
+      const isOpen = menuToggle.classList.contains('is-open');
 
-      panel.classList.toggle("translate-x-0", !isOpen);
-      panel.classList.toggle("translate-x-full", isOpen);
-      toggle.setAttribute("aria-expanded", (!isOpen).toString());
-      // Ajout de la classe pour animer les barres en croix
-      toggle.classList.toggle("is-open", !isOpen);
-    };
+      if (isOpen) {
+        // Close menu
+        menuPanel.classList.add('translate-x-full');
+        menuToggle.classList.remove('is-open');
+        document.body.style.overflow = '';
+      } else {
+        // Open menu
+        menuPanel.classList.remove('translate-x-full');
+        menuToggle.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
 
-    toggle.addEventListener("click", toggleMenu);
-    links.forEach((link) => link.addEventListener("click", toggleMenu));
+    if (menuToggle) {
+      menuToggle.addEventListener('click', toggleMenu);
+    }
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        // Si c'est un lien externe, ne pas empêcher le comportement par défaut
+        const isExternal = link.hasAttribute('target') && link.getAttribute('target') === '_blank';
+
+        if (!isExternal) {
+          e.preventDefault();
+          const href = link.getAttribute('href');
+
+          // Fermer le menu avec animation
+          menuPanel.classList.add('translate-x-full');
+          menuToggle.classList.remove('is-open');
+          document.body.style.overflow = '';
+
+          // Attendre la fin de l'animation (500ms) avant de naviguer
+          setTimeout(() => {
+            window.location.href = href;
+          }, 300);
+        }
+      });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuToggle.classList.contains('is-open')) {
+        toggleMenu();
+      }
+    });
   });
 </script>

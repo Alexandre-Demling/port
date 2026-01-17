@@ -1,0 +1,308 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+
+const cartePostaleImg = "/images/hyppo.png";
+const magazineImg = "/images/doublepagedeux.png";
+const moduloImg = "/images/modulomoodboard.png";
+const orbiteImg = "/images/LandingPageorbite.png";
+const logoImg = "/images/logo.png";
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réalisations - Alexandre Demling</title>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
+
+    .mono {
+      font-family: "Major Mono Display", monospace;
+    }
+
+    .project-row {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 4rem;
+      padding: 4rem 0;
+      position: relative;
+    }
+
+    .project-separator {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .project-separator::before {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: black;
+      opacity: 0.4;
+    }
+
+    .project-date {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      opacity: 0.6;
+      white-space: nowrap;
+    }
+
+    .project-number {
+      font-size: 120px;
+      opacity: 0.06;
+      line-height: 1;
+      position: absolute;
+      top: 24px;
+      left: 0;
+      pointer-events: none;
+    }
+
+    .project-title {
+      font-size: 42px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .project-link {
+      position: relative;
+      display: inline-block;
+    }
+
+    .project-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 1px;
+      background: black;
+      transition: width 0.3s ease;
+    }
+
+    .project-row:hover .project-link::after {
+      width: 100%;
+    }
+
+    .tag {
+      font-size: 10px;
+      border: 1px solid black;
+      padding: 4px 12px;
+      letter-spacing: 0.15em;
+    }
+
+    .image-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #f5f5f5;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      height: 300px;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .project-row:hover .image-card img {
+      transform: scale(1.04);
+    }
+
+    .image-card--poster img {
+      object-fit: contain;
+      background: #f5f5f5;
+    }
+
+    .logo-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+    }
+
+    .logo-card img {
+      max-width: 220px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    @media (max-width: 1024px) {
+      .project-row {
+        grid-template-columns: 1fr;
+        gap: 2.2rem;
+      }
+
+      .image-card {
+        height: 220px;
+      }
+
+      .project-number {
+        font-size: 80px;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white min-h-screen flex flex-col text-black">
+  <Header />
+
+  <main class="flex-1 px-4 sm:px-8 lg:px-16 xl:px-24 pt-12 pb-20">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- TITRE -->
+      <div class="mb-24">
+        <h1 class="text-5xl lg:text-[72px] mono">Réalisations</h1>
+        <div class="flex items-center gap-4 mt-6">
+          <div class="w-24 h-[2px] bg-black"></div>
+          <span class="text-xs tracking-widest text-black/60">Portfolio 2025</span>
+        </div>
+      </div>
+
+      <!-- 01 : CARTE POSTALE -->
+      <a href="/cartepostale" class="project-row">
+        <div class="project-separator">
+          <span class="project-date mono">MARS 2024</span>
+        </div>
+
+        <div>
+          <span class="project-number mono">01</span>
+          <h2 class="project-title mono project-link">Carte postale</h2>
+          <p class="mt-4 max-w-md text-sm leading-relaxed">
+            Réinterprétation d’une affiche de Cassandre appliquée à un animal
+            en voie de disparition.
+          </p>
+
+          <div class="flex gap-3 mt-6 flex-wrap">
+            <span class="tag">AFFICHE</span>
+            <span class="tag">GRAPHISME</span>
+            <span class="tag">CONCEPT</span>
+          </div>
+        </div>
+
+        <div class="image-card image-card--poster">
+          <img src={cartePostaleImg} alt="Carte postale hippocampe" />
+        </div>
+      </a>
+
+      <!-- 02 : MAGAZINE -->
+      <a href="/magazine" class="project-row">
+        <div class="project-separator">
+          <span class="project-date mono">2024</span>
+        </div>
+
+        <div>
+          <span class="project-number mono">02</span>
+          <h2 class="project-title mono project-link">Magazine</h2>
+          <p class="mt-4 max-w-md text-sm leading-relaxed">
+            Conception graphique d’un magazine institutionnel pour le CRAC 19.
+          </p>
+
+          <div class="flex gap-3 mt-6 flex-wrap">
+            <span class="tag">ÉDITORIAL</span>
+            <span class="tag">GRAPHISME</span>
+          </div>
+        </div>
+
+        <div class="image-card image-card--poster">
+          <img src={magazineImg} alt="Magazine CRAC 19" />
+        </div>
+      </a>
+
+      <!-- 03 : MODULO -->
+      <a href="/modulo" class="project-row">
+        <div class="project-separator">
+          <span class="project-date mono">JUIN 2024</span>
+        </div>
+
+        <div>
+          <span class="project-number mono">03</span>
+          <h2 class="project-title mono project-link">MŌdulo</h2>
+          <p class="mt-4 max-w-md text-sm leading-relaxed">
+            Identité visuelle pour une marque éco-responsable et durable.
+          </p>
+
+          <div class="flex gap-3 mt-6 flex-wrap">
+            <span class="tag">BRANDING</span>
+            <span class="tag">DESIGN</span>
+          </div>
+        </div>
+
+        <div class="image-card">
+          <img src={moduloImg} alt="Projet Modulo" />
+        </div>
+      </a>
+
+      <!-- 04 : ORBITE -->
+      <a href="/orbite" class="project-row">
+        <div class="project-separator">
+          <span class="project-date mono">JANVIER 2024</span>
+        </div>
+
+        <div>
+          <span class="project-number mono">04</span>
+          <h2 class="project-title mono project-link">Orbite</h2>
+          <p class="mt-4 max-w-md text-sm leading-relaxed">
+            Plateforme collaborative pensée pour les étudiants.
+          </p>
+
+          <div class="flex gap-3 mt-6 flex-wrap">
+            <span class="tag">UI/UX</span>
+            <span class="tag">WEB</span>
+          </div>
+        </div>
+
+        <div class="image-card">
+          <img src={orbiteImg} alt="Projet Orbite" />
+        </div>
+      </a>
+
+      <!-- 05 : MON LOGO -->
+      <a href="/monlogo" class="project-row">
+        <div class="project-separator">
+          <span class="project-date mono">OCTOBRE 2024</span>
+        </div>
+
+        <div>
+          <span class="project-number mono">05</span>
+          <h2 class="project-title mono project-link">Mon logo</h2>
+          <p class="mt-4 max-w-md text-sm leading-relaxed">
+            Construction de mon identité graphique personnelle.
+          </p>
+
+          <div class="flex gap-3 mt-6 flex-wrap">
+            <span class="tag">LOGO</span>
+            <span class="tag">BRANDING</span>
+          </div>
+        </div>
+
+        <div class="image-card logo-card">
+          <img src={logoImg} alt="Logo personnel" />
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer class="bg-black text-white h-[50px] flex items-center justify-between px-6">
+    <div class="flex gap-4 text-xs uppercase">
+      <a href="https://linkedin.com" class="footer-link">LinkedIn</a>
+      <a href="https://github.com" class="footer-link">Github</a>
+    </div>
+    <a href="/mentionlegale" class="footer-link text-xs uppercase">
+      Mentions légales
+    </a>
+  </footer>
+</body>
+</html>

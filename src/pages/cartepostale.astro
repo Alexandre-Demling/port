@@ -1,0 +1,174 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+
+/* ================= IMAGES ================= */
+const afficheBateaux = "/images/bateaux.png";
+const afficheHyppo = "/images/hyppo.png";
+const afficheHyppoRouge = "/images/hypporouge.png";
+---
+
+<head>
+  <meta charset="utf-8" />
+</head>
+
+<Header />
+
+<main class="bg-white text-black overflow-hidden">
+
+  <!-- ================= HERO ================= -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-10 pb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+      <div>
+        <p class="font-mono text-xs tracking-widest mb-4">PROJET</p>
+
+        <h1 class="heading-font text-[42px] sm:text-[56px] lg:text-[72px] leading-none">
+          Carte postale
+        </h1>
+
+        <p class="font-mono text-sm max-w-md mt-6">
+          Réinterprétation d’une affiche de Cassandre,
+          appliquée à un animal en voie de disparition : l’hippocampe.
+        </p>
+
+        <p class="font-mono text-xs mt-6 opacity-60">
+          Version originale de A.M. Cassandre
+        </p>
+      </div>
+
+      <div class="flex justify-end">
+        <img
+          src={afficheBateaux}
+          alt="Affiche originale de Cassandre"
+          class="w-full max-w-[260px] sm:max-w-[300px] lg:max-w-[320px] object-contain"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONCEPT ================= -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+
+      <div class="lg:col-span-6">
+        <h2 class="heading-font text-2xl mb-8">Concept</h2>
+
+        <div class="font-mono text-sm leading-relaxed space-y-6 max-w-xl">
+          <p>
+            Le dessin de l’hippocampe présent sur l’affiche est une copie fidèle,
+            réalisée sur Adobe à partir du dessin original que j’avais effectué
+            sur papier.
+          </p>
+
+          <p>
+            Le filet de pêche reprend la même forme et le même emplacement que
+            le paquebot sur l’affiche originale de Cassandre. Il remplace le
+            bateau et symbolise la menace humaine qui pèse sur l’hippocampe.
+          </p>
+
+          <p>
+            La fumée du bateau de pêche est transformée afin de dessiner la
+            crête de l’hippocampe. Ce procédé permet de créer un lien visuel
+            direct entre l’animal et l’activité humaine responsable de sa
+            disparition.
+          </p>
+
+          <p>
+            Les textes ont été modifiés pour correspondre au nouveau sujet.
+            Le titre et les informations ne parlent plus du transport maritime,
+            mais de l’hippocampe et de sa situation critique, tout en conservant
+            une mise en page inspirée de l’affiche d’origine.
+          </p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 flex justify-center lg:justify-end">
+        <img
+          src={afficheHyppo}
+          alt="Carte postale Hippocampe"
+          class="w-[280px] sm:w-[320px] lg:w-[340px] object-contain"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= VERSIONS ================= -->
+  <section class="bg-black text-white py-24">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+
+      <h2 class="heading-font text-2xl mb-16">Déclinaisons</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+
+        <!-- VERSION ROUGE -->
+        <div>
+          <img
+            src={afficheHyppoRouge}
+            alt="Version rouge sombre"
+            class="w-full max-w-[300px] mx-auto object-contain mb-6"
+          />
+
+          <p class="font-mono text-sm leading-relaxed max-w-md mx-auto">
+            Le choix du rouge évoque le danger, l’urgence et l’alerte.
+            Les tons sombres renforcent l’idée de menace et de disparition.
+            Cette palette contraste volontairement avec l’esthétique ancienne
+            de l’affiche originale, tout en conservant un lien graphique fort
+            avec le style de Cassandre.
+          </p>
+        </div>
+
+        <!-- VERSION COULEURS ORIGINALES -->
+        <div>
+          <img
+            src={afficheHyppo}
+            alt="Version couleurs originales"
+            class="w-full max-w-[300px] mx-auto object-contain mb-6"
+          />
+
+          <p class="font-mono text-sm leading-relaxed max-w-md mx-auto">
+            Cette version reprend exactement la même composition que la version
+            finale, avec l’hippocampe, le filet de pêche et les éléments graphiques.
+            La seule différence réside dans le choix des couleurs, qui reprend
+            celles de la carte postale d’origine afin de se rapprocher davantage
+            de son esthétique et de son ambiance.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-black w-full flex items-center justify-between text-white flex-shrink-0 px-6 sm:px-10 lg:px-16 py-6">
+    <div class="flex items-center gap-4">
+      <a
+        href="https://www.linkedin.com/in/alexandre-demling-965a90346"
+        target="_blank"
+        class="footer-link uppercase"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="https://github.com/Alexandre-Demling"
+        target="_blank"
+        class="footer-link uppercase"
+      >
+        Github
+      </a>
+    </div>
+
+    <a href="/mentionlegale" class="footer-link uppercase">
+      Mentions légales
+    </a>
+  </footer>
+
+</main>
+
+<style>
+  .heading-font {
+    font-family: var(--font-heading);
+  }
+</style>

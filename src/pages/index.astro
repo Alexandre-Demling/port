@@ -1,470 +1,191 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 
-const lineUrl = "/images/versionsanscouleur.png";
-const colorUrl = "/images/versioncouleur.png";
-
-const webSkills = [
-  { name: "VS Code", icon: "/images/vscode.png" },
-  { name: "HTML", icon: "/images/html.png" },
-  { name: "CSS", icon: "/images/css.png" },
-  { name: "JavaScript", icon: "/images/js.png" },
-  { name: "Astro", icon: "/images/astro.png" },
-  { name: "Tailwind CSS", icon: "/images/tailwind.png" },
-  { name: "PocketBase", icon: "/images/pocketbase.png" },
-  { name: "Netlify", icon: "/images/Netlify.png" },
-  { name: "WordPress", icon: "/images/wordpress.png" },
-  { name: "SQL", icon: "/images/sql.png" },
-];
-
-const audiovisuelSkills = [
-  { name: "DaVinci Resolve", icon: "/images/davinci.png" },
-];
-
-const designSkills = [
-  { name: "Adobe Illustrator", icon: "/images/ai.png" },
-  { name: "Figma", icon: "/images/figma (1).png" },
-  { name: "Canva", icon: "/images/canva.png" },
-];
-
-
-const projects = [
-  {
-    title: "Orbite",
-    subtitle: "Plateforme d’événements étudiants",
-    description:
-      "Orbite : une plateforme pensée par et pour les étudiants, favorisant rencontres, événements et intégration grâce à un design moderne et une expérience ludique.",
-    image: "/images/LandingPageorbite.png",
-  },
-  {
-    title: "Modulo",
-    subtitle: "Identité visuelle éco-responsable",
-    description:
-      "Modulo : une refonte de logo pour une marque éco-responsable et chic, mettant en avant modularité, durabilité et élégance à travers une identité visuelle forte.",
-    image: "/images/modulomoodboard.png",
-  },
-  {
-    title: "Mon logo",
-    subtitle: "Recherche graphique personnelle",
-    description:
-      "Mon logo : un projet personnel de recherche graphique qui explore formes, couleurs et lisibilité afin de donner vie à une identité claire et distinctive.",
-    image: "/images/logo.png",
-  },
-];
-
-
-const projectImageClasses = [
-  "w-full h-full object-cover scale-[1.25]",
-  "w-full h-full object-cover scale-[1.25]",
-  "w-full h-full object-contain bg-white p-10",
-];
+const lineUrl = "/images/sanscouleur.svg";
+const colorUrl = "/images/aveccouleur.svg";
 ---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alexandre Demling - Portfolio</title>
 
-<Header />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
 
-<main class="relative bg-[#F1E7C7] text-black min-h-screen overflow-x-hidden">
+    .major-mono-display-regular {
+      font-family: "Major Mono Display", monospace;
+      font-weight: 400;
+      font-style: normal;
+    }
 
+    .footer-link {
+      position: relative;
+      text-decoration: none;
+    }
 
-  <div
-    class="absolute inset-y-0 left-4 md:left-8 lg:left-[34.5px] border-l-[3px] lg:border-l-4 border-black pointer-events-none z-20"
-  ></div>
+    .footer-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 1px;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
 
-  
-<div class="block lg:hidden w-full pt-10 pb-12">
+    .footer-link:hover::after {
+      width: 100%;
+    }
 
- 
-  <h1 class="heading-font text-[36px] pl-12 pr-4 mb-4">
-    Graphiste
-  </h1>
+    /* ===== BANDEAU DÉFILANT ===== */
+    .skills-marquee {
+      background: black;
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
 
- 
-  <div class="relative w-full px-6">
+    .skills-track {
+      display: inline-flex;
+      animation: marquee 25s linear infinite;
+    }
 
-  
-    <svg
-  width="322"
-  height="487"
-  viewBox="0 0 322 487"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
-  class="w-full h-auto translate-x-[24px]"   
->
+    .skills-item {
+      padding: 0 2rem;
+      font-size: 14px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
 
-  <path d="M24.9988 1H321.999" stroke="black" stroke-width="1" />
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
 
-  
-  <path d="M24.9988 1L0.998779 420" stroke="black" stroke-width="1" />
-</svg>
+    @media (max-width: 640px) {
+      .skills-item {
+        font-size: 11px;
+        padding: 0 1.2rem;
+      }
+    }
 
-   
-     <p
-    class="heading-font absolute top-[95px] left-1/2 -translate-x-1/2 text-[36px] leading-tight text-center"
-  >
-    Alexandre Demling
-  </p>
+    /* ===== RESPONSIVE EXISTANT ===== */
+    @media (max-width: 640px) {
+      .portrait-container { max-width: 180px; }
+      .title-text { font-size: 28px; line-height: 1.1; word-break: break-word; }
+      footer { height: 60px; padding: 0 1rem; font-size: 10px; }
+      .footer-link { font-size: 10px; }
+    }
 
- 
-<div class="absolute top-[145px] left-[28px] w-full flex justify-center">
-  <button
-    type="button"
-    class="relative w-[52%] focus:outline-none"
-    data-portrait-mobile
-  >
-    <img
-      src={lineUrl}
-      alt="Portrait vectoriel Alexandre Demling"
-      class="w-full object-contain transition-opacity duration-500"
-      data-portrait-line
-    />
-    <img
-      src={colorUrl}
-      alt="Portrait color&eacute; Alexandre Demling"
-      class="w-full object-contain absolute inset-0 opacity-0 transition-opacity duration-500"
-      data-portrait-color
-    />
-  </button>
-</div>
-  </div>
+    @media (min-width: 641px) and (max-width: 1024px) {
+      .portrait-container { max-width: 200px; }
+      .title-text { font-size: 42px; line-height: 1.1; }
+      footer { height: 50px; padding: 0 1.5rem; }
+      .footer-link { font-size: 13px; }
+    }
 
-  <div class="w-full mt-[-200px] mb-6">
-    <svg
-      viewBox="0 0 1600 9"
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-full h-[11px]"
-    >
-      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
-      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
-      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
-    </svg>
-  </div>
+    @media (min-width: 1025px) {
+      .portrait-container { max-width: 200px; }
+      .title-text { font-size: 68px; line-height: 1; }
+      footer { height: 50px; padding: 0 4rem; }
+      .footer-link { font-size: 14px; }
+    }
 
- 
- <section class="max-w-6xl mx-auto px-16 text-[15px] leading-relaxed">
-  <p class="mb-4 text-[18px] leading-relaxed">
-    &Eacute;tudiant en deuxi&egrave;me ann&eacute;e de BUT<br />
-    MMI, parcours Cr&eacute;ation<br />
-    <span class="font-bold block text-[24px] mt-3 mb-1">
-      Design UI/UX
-    </span>
-    je suis passionn&eacute; par l&rsquo;univers visuel et
-              num&eacute;rique.
-  </p>
+    @media (min-width: 1536px) {
+      .title-text { font-size: 76px; }
+      .portrait-container { max-width: 240px; }
+    }
+  </style>
+</head>
 
-  <p class="mb-4 text-[18px] leading-relaxed">
-    Cr&eacute;atif et curieux, j&rsquo;aime donner vie aux id&eacute;es
-              &agrave; travers des affiches, logos, identit&eacute;s visuelles,
-              mises en page et illustrations num&eacute;riques. Mon objectif est
-              de concevoir des visuels clairs, esth&eacute;tiques et adapt&eacute;s
-              &agrave; chaque projet.
-  </p>
+<body class="m-0 p-0 overflow-hidden min-h-screen flex flex-col">
+  <Header />
 
-  
-</section>
+  <main class="relative bg-white text-black flex-1 overflow-hidden flex flex-col">
+    <div class="flex-1 flex items-center justify-center px-4 sm:px-8 lg:px-16">
+      <div class="max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-6 lg:gap-16">
 
-</div>
-
-
-  
-  <div class="hidden lg:block">
-    <div class="relative max-w-6xl mx-auto px-16 pt-16 pb-24">
-      <h1 class="heading-font text-[72px] leading-tight mb-20 ml-[-12px]">
-        Graphiste
-      </h1>
-
-      <div class="flex justify-end mr-[-40px] lg:mr-[-117px]">
-        <div class="relative w-[720px] md:w-[820px] lg:w-[800px] h-auto">
-          <svg
-            viewBox="0 0 945 920"
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-full h-auto"
+        <!-- PORTRAIT -->
+        <div class="portrait-container relative group w-full flex-shrink-0">
+          <button
+            type="button"
+            class="relative w-full focus:outline-none"
+            onclick="this.classList.toggle('active')"
           >
-            <path d="M114.984 2L944.985 2" stroke="black" stroke-width="5" />
-            <path d="M44.9845 919L116.984 2" stroke="black" stroke-width="5" />
-          </svg>
-
-          <p
-            class="heading-font absolute top-[120px] left-[140px] md:left-[170px]
-                   text-[48px] md:text-[56px] lg:text-[64px] whitespace-nowrap"
-          >
-            Alexandre Demling
-          </p>
-        </div>
-      </div>
-
-     
-      <section
-        class="mt-8 lg:mt-[-500px] relative z-10 grid grid-cols-1
-                       lg:grid-cols-[0.6fr_1.1fr] gap-10 items-start"
-      >
-       
-        <div class="relative ml-[-60px]">
-          <div class="max-w-md text-[16px] leading-[1.5]">
-            <p class="mb-6 leading-snug">
-              &Eacute;tudiant en deuxi&egrave;me ann&eacute;e de BUT<br />
-              MMI, parcours Cr&eacute;ation<br />
-              <span
-                class="font-bold block text-[40px] leading-tight mt-3 mb-1"
-              >
-                Design UI/UX
-              </span>
-              je suis passionn&eacute; par l&rsquo;univers visuel et
-              num&eacute;rique.
-            </p>
-
-            <p class="mb-5">
-              Cr&eacute;atif et curieux, j&rsquo;aime donner vie aux id&eacute;es
-              &agrave; travers des affiches, logos, identit&eacute;s visuelles,
-              mises en page et illustrations num&eacute;riques. Mon objectif est
-              de concevoir des visuels clairs, esth&eacute;tiques et adapt&eacute;s
-              &agrave; chaque projet.
-            </p>
-
-            <p>
-              En parall&egrave;le du design, je ma&icirc;trise &eacute;galement
-              le d&eacute;veloppement front-end pour cr&eacute;er des interfaces
-              modernes et fonctionnelles.
-            </p>
-          </div>
-        </div>
-
-                
-        <div class="flex justify-center lg:justify-end">
-          <div
-            class="relative group w-full max-w-[420px] lg:max-w-[500px] mt-6 lg:mt-0"
-          >
-            
             <img
               src={lineUrl}
               alt="Portrait vectoriel Alexandre Demling"
-              class="relative z-10 w-full max-h-[460px] object-contain block
-                     transition-opacity duration-500 group-hover:opacity-0"
+              class="w-full h-auto object-contain transition-opacity duration-500 group-hover:opacity-0 active:opacity-0"
             />
-
-            
             <img
-  src={colorUrl}
-  alt="Portrait color&eacute; Alexandre Demling"
-  class="absolute inset-0 z-10 w-full max-h-[465px] object-contain
-         opacity-0 transition-opacity duration-500 group-hover:opacity-100
-         translate-x-[2px] -translate-y-[5px]"
-/>
-
-           
-            <img
-  src="/images/eclats-portrait.svg"
-  alt=""
-  aria-hidden="true"
-  class="pointer-events-none absolute inset-0 w-full h-full object-contain z-20 -translate-x-[4px]"
-/>
-          </div>
+              src={colorUrl}
+              alt="Portrait coloré Alexandre Demling"
+              class="absolute inset-0 w-full h-auto object-contain opacity-0 transition-opacity duration-500 group-hover:opacity-100 active:opacity-100"
+            />
+          </button>
         </div>
 
-      </section>
+        <div class="flex items-center justify-center lg:justify-end w-full lg:w-auto">
+          <h1 class="title-text major-mono-display-regular text-center lg:text-right">
+            Alexandre Demling
+          </h1>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== BANDEAU COMPÉTENCES ===== -->
+  <div class="skills-marquee">
+    <div class="skills-track">
+      <span class="skills-item">VS Code</span>
+      <span class="skills-item">HTML</span>
+      <span class="skills-item">CSS</span>
+      <span class="skills-item">JavaScript</span>
+      <span class="skills-item">Astro</span>
+      <span class="skills-item">Tailwind CSS</span>
+      <span class="skills-item">PocketBase</span>
+      <span class="skills-item">Netlify</span>
+      <span class="skills-item">WordPress</span>
+      <span class="skills-item">SQL</span>
+      <span class="skills-item">DaVinci Resolve</span>
+      <span class="skills-item">Design & UI/UX</span>
+      <span class="skills-item">Adobe Illustrator</span>
+      <span class="skills-item">Figma</span>
+      <span class="skills-item">Canva</span>
+
+      <!-- duplication -->
+      <span class="skills-item">VS Code</span>
+      <span class="skills-item">HTML</span>
+      <span class="skills-item">CSS</span>
+      <span class="skills-item">JavaScript</span>
+      <span class="skills-item">Astro</span>
+      <span class="skills-item">Tailwind CSS</span>
+      <span class="skills-item">PocketBase</span>
+      <span class="skills-item">Netlify</span>
+      <span class="skills-item">WordPress</span>
+      <span class="skills-item">SQL</span>
+      <span class="skills-item">DaVinci Resolve</span>
+      <span class="skills-item">Design & UI/UX</span>
+      <span class="skills-item">Adobe Illustrator</span>
+      <span class="skills-item">Figma</span>
+      <span class="skills-item">Canva</span>
     </div>
   </div>
 
-  
-  <div class="w-full mt-[-62px]">
-    <svg
-      viewBox="0 0 1600 9"
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-full h-[11px]"
-    >
-      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
-      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
-      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
-    </svg>
-  </div>
-
-    
-  <div class="relative max-w-6xl mx-auto px-16 pb-24 mt-14">
-    <p class="heading-font text-base lg:text-sm mb-6">
-      Mes Comp&eacute;tences
-    </p>
-
-    <div class="grid grid-cols-2 gap-8 lg:gap-20">
-     
-      <div>
-        <p class="heading-font text-[16px] lg:text-[14px] mb-1">
-          D&eacute;veloppement Web
-        </p>
-        <div class="h-[3px] bg-black w-[280px] mb-4"></div>
-
-        <ul class="space-y-2">
-          {webSkills.map((skill) => (
-            <li class="flex items-center gap-3">
-              <img
-                src={skill.icon}
-                alt={skill.name}
-                class="w-8 h-8 object-contain"
-              />
-              <span class="font-mono text-[22px] lg:text-[20px] font-semibold">
-                {skill.name}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-     
-      <div>
-        <p class="heading-font text-[16px] lg:text-[14px] mb-1">
-          Audiovisuel
-        </p>
-        <div class="h-[3px] bg-black w-[280px] mb-4"></div>
-
-        <ul class="space-y-2 mb-10">
-          {audiovisuelSkills.map((skill) => (
-            <li class="flex items-center gap-3">
-              <img
-                src={skill.icon}
-                alt={skill.name}
-                class="w-8 h-8 object-contain"
-              />
-              <span class="font-mono text-[22px] lg:text-[20px] font-semibold">
-                {skill.name}
-              </span>
-            </li>
-          ))}
-        </ul>
-
-        <p class="heading-font text-[16px] lg:text-[14px] mb-1">
-          Design &amp; UI/UX
-        </p>
-        <div class="h-[3px] bg-black w-[280px] mb-4"></div>
-
-        <ul class="space-y-2">
-          {designSkills.map((skill) => (
-            <li class="flex items-center gap-3">
-              <img
-                src={skill.icon}
-                alt={skill.name}
-                class="w-8 h-8 object-contain"
-              />
-              <span class="font-mono text-[22px] lg:text-[20px] font-semibold">
-                {skill.name}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
+  <footer class="bg-black w-full flex items-center justify-between text-white flex-shrink-0">
+    <div class="flex items-center gap-4">
+      <a href="https://www.linkedin.com/in/alexandre-demling-965a90346" target="_blank" class="footer-link uppercase">LinkedIn</a>
+      <a href="https://github.com/Alexandre-Demling" target="_blank" class="footer-link uppercase">Github</a>
     </div>
-  </div>
-
- 
-  <div class="w-full mt-[-62px]">
-    <svg
-      viewBox="0 0 1600 9"
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-full h-[11px]"
-    >
-      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
-      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
-      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
-    </svg>
-  </div>
-
-  
-  <section
-    data-carousel="projects"
-    class="relative max-w-6xl mx-auto px-16 pb-24 mt-14"
-  >
-    <p class="heading-font text-sm mb-6">Mes Projets</p>
-
-    <div class="grid grid-cols-1 lg:grid-cols-[0.7fr_1.3fr] gap-12 items-stretch">
-     
-      <div class="space-y-8">
-       
-        <div data-carousel-text class="space-y-3">
-          <h3 class="heading-font text-[28px]">Orbite</h3>
-		  <div class="h-[3px] bg-black w-[280px] mb-4"></div>
-          <p class="font-mono text-[16px]">
-            Plateforme d&rsquo;&eacute;v&eacute;nements &eacute;tudiants
-          </p>
-          <p class="font-mono text-[18px] leading-relaxed">
-            Orbite : une plateforme pens&eacute;e par et pour les
-            &eacute;tudiants, favorisant rencontres, &eacute;v&eacute;nements
-            et int&eacute;gration gr&acirc;ce &agrave; un design moderne
-            et une exp&eacute;rience ludique.
-          </p>
-        </div>
-
-    
-        <div data-carousel-text class="space-y-3 hidden">
-          <h3 class="heading-font text-[28px]">Modulo</h3>
-		  <div class="h-[3px] bg-black w-[280px] mb-4"></div>
-          <p class="font-mono text-[16px]">
-            Identit&eacute; visuelle &eacute;co-responsable
-          </p>
-          <p class="font-mono text-[18px] leading-relaxed">
-            Modulo : une refonte de logo pour une marque
-            &eacute;co-responsable et chic, mettant en avant
-            modularit&eacute;, durabilit&eacute; et &eacute;l&eacute;gance
-            &agrave; travers une identit&eacute; visuelle forte.
-          </p>
-        </div>
-
-     
-        <div data-carousel-text class="space-y-3 hidden">
-          <h3 class="heading-font text-[28px]">Mon logo</h3>
-		  <div class="h-[3px] bg-black w-[280px] mb-4"></div>
-          <p class="font-mono text-[16px]">
-            Recherche graphique personnelle
-          </p>
-          <p class="font-mono text-[18px] leading-relaxed">
-            Mon logo : un projet personnel de recherche graphique qui
-            explore formes, couleurs et lisibilit&eacute; afin de donner vie
-            &agrave; une identit&eacute; claire et distinctive.
-          </p>
-        </div>
-
-     
-        <div class="mt-6">
-          <a
-            href="/projets"
-            class="font-mono text-[18px] underline underline-offset-[6px]"
-          >
-            Voir mes projets
-          </a>
-        </div>
-      </div>
-
-     
-      <div class="relative h-[420px] flex justify-center lg:block">
-        <div
-          class="w-full max-w-[520px] h-full border-4 border-black overflow-hidden origin-top-left -skew-x-6 bg-white
-                 lg:max-w-none lg:absolute lg:inset-0"
-        >
-          <div class="w-full h-full skew-x-6">
-            {projects.map((project, index) => (
-              <div
-                data-carousel-slide
-                class={index === 0 ? "w-full h-full" : "w-full h-full hidden"}
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  class={projectImageClasses[index]}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<Footer />
-
-<style>
-  .heading-font {
-    font-family: var(--font-heading);
-  }
-</style>
-
-<script type="module" src="/js/carousel.js"></script>
-
-
+    <a href="/mentionlegale" class="footer-link uppercase">Mentions légales</a>
+  </footer>
+</body>
+</html>

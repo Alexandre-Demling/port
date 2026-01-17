@@ -1,174 +1,222 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 ---
 
-<Header />
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Alexandre Demling</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+    
+    .major-mono-display-regular {
+      font-family: "Major Mono Display", monospace;
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    .footer-link {
+      position: relative;
+      text-decoration: none;
+    }
+    
+    .footer-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 1px;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+    
+    .footer-link:hover::after {
+      width: 100%;
+    }
 
-<main class="bg-[#F1E7C7] text-black min-h-screen">
-  <div
-    class="contact-container relative max-w-6xl mx-auto 
-           px-6 sm:px-10 lg:px-16 
-           pt-10 sm:pt-16 
-           pb-6 sm:pb-10 lg:pb-20"
-  >
-    <!-- Barre verticale qui prolonge celle du header -->
-    <div class="absolute inset-y-0 left-[-22px] border-l-4 border-black"></div>
+    body, html {
+      overflow: hidden;
+      height: 100vh;
+    }
 
-    <!-- Titre -->
-    <h1
-      class="heading-font 
-             text-[40px] sm:text-[56px] lg:text-[72px] 
-             leading-tight 
-             mb-10 sm:mb-16 lg:mb-20 
-             ml-[-4px] sm:ml-[-8px] lg:ml-[-12px]"
-    >
-      Contactez moi
-    </h1>
+    @media (max-width: 640px) {
+      footer {
+        height: 60px;
+        padding: 0 1rem;
+        font-size: 10px;
+      }
+      
+      .footer-link {
+        font-size: 10px;
+      }
+    }
 
-    <!-- Social / Email -->
-    <section
-      class="grid grid-cols-1 md:grid-cols-3 
-             gap-8 md:gap-16 
-             text-[16px] sm:text-[20px] 
-             mb-8 md:mb-16 
-             ml-2 sm:ml-8 md:ml-14"
-    >
-      <!-- Social -->
-      <div>
-        <p class="text-sm sm:text-base mb-2">Social</p>
-        <div class="border-b-4 border-black w-40 sm:w-64 mb-4 sm:mb-6"></div>
+    @media (min-width: 641px) and (max-width: 1024px) {
+      footer {
+        height: 50px;
+        padding: 0 1.5rem;
+      }
+      
+      .footer-link {
+        font-size: 13px;
+      }
+    }
 
-        <a
-          href="https://www.linkedin.com/in/alexandre-demling-965a90346"
-          target="_blank"
-          class="block hover:underline"
-        >
-          Linkedin
-        </a>
+    @media (min-width: 1025px) {
+      footer {
+        height: 50px;
+        padding: 0 4rem;
+      }
+      
+      .footer-link {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
 
-        <a
-          href="https://github.com/Alexandre-Demling"
-          target="_blank"
-          class="block hover:underline"
-        >
-          Github
-        </a>
-      </div>
+<body class="m-0 p-0 h-screen flex flex-col bg-white overflow-hidden">
+  <Header />
 
-      <!-- Email -->
-      <div class="md:col-span-1">
-        <p class="text-sm sm:text-base mb-2">Email</p>
-        <div class="border-b-4 border-black w-40 sm:w-64 mb-4 sm:mb-6"></div>
+  <!-- Reduced top spacing and adjusted layout to bring content higher -->
+  <main class="flex-1 flex items-start justify-center px-4 lg:px-16 xl:px-24 pt-8 lg:pt-16">
+    <div class="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+      
+      <!-- Left Column: Title and Contact Info -->
+      <div class="flex flex-col gap-6 lg:gap-8">
+        <h1 class="text-4xl sm:text-5xl lg:text-[64px] xl:text-[72px] major-mono-display-regular tracking-tight leading-tight">
+          Contact
+        </h1>
+        
 
-        <p>alexandredemling@gmail.com</p>
-      </div>
-    </section>
+        <div class="flex flex-col gap-5">
+          <div>
+            <p class="text-xs uppercase tracking-widest mb-2 text-gray-400">Email</p>
+            <a 
+              href="mailto:alexandredemling@gmail.com" 
+              class="text-base lg:text-lg hover:underline transition-all"
+            >
+              alexandredemling@gmail.com
+            </a>
+          </div>
 
-    <!-- Ou écrivez moi directement ici -->
-    <section class="mb-6 md:mb-10 ml-2 sm:ml-8 md:ml-14">
-      <p class="mb-2">Ou &eacute;crivez moi directement ici</p>
-      <div class="border-b-4 border-black w-full max-w-[960px]"></div>
-    </section>
-
-    <!-- Formulaire Formspree -->
-    <section class="mt-6 md:mt-10 ml-2 sm:ml-8 md:ml-14">
-      <form
-        action="https://formspree.io/f/xblqkklp"
-        method="POST"
-        class="space-y-6 md:space-y-8"
-      >
-        <!-- Nom -->
-        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-10">
-          <label class="text-lg sm:text-2xl md:text-3xl md:w-[190px]">
-            Nom :
-          </label>
-          <input
-            type="text"
-            name="nom"
-            placeholder="Votre Nom"
-            required
-            class="border-2 border-black bg-[#F1E7C7]
-                   px-3 py-2 sm:px-4 sm:py-3
-                   text-base sm:text-lg
-                   w-full md:w-[720px]"
-          />
+          <div>
+            <p class="text-xs uppercase tracking-widest mb-2 text-gray-400">Social</p>
+            <div class="flex gap-6">
+              <a
+                href="https://www.linkedin.com/in/alexandre-demling-965a90346"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-base lg:text-lg hover:underline transition-all"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://github.com/Alexandre-Demling"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-base lg:text-lg hover:underline transition-all"
+              >
+                Github
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <!-- Prénom -->
-        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-10">
-          <label class="text-lg sm:text-2xl md:text-3xl md:w-[190px]">
-            Pr&eacute;nom :
-          </label>
+      <!-- Right Column: Form with additional fields -->
+      <div class="flex items-start justify-center lg:justify-end">
+        <form
+          action="https://formspree.io/f/xblqkklp"
+          method="POST"
+          class="w-full max-w-md space-y-4"
+        >
+          <!-- Added more fields to the form -->
           <input
             type="text"
             name="prenom"
-            placeholder="Votre Prenom"
+            placeholder="PRÉNOM"
             required
-            class="border-2 border-black bg-[#F1E7C7]
-                   px-3 py-2 sm:px-4 sm:py-3
-                   text-base sm:text-lg
-                   w-full md:w-[720px]"
+            class="w-full border-b border-black bg-transparent px-1 py-2 text-sm uppercase tracking-wider focus:outline-none focus:border-b-2 transition-all placeholder:text-gray-300"
           />
-        </div>
 
-        <!-- Email -->
-        <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-10">
-          <label class="text-lg sm:text-2xl md:text-3xl md:w-[190px]">
-            Email :
-          </label>
+          <input
+            type="text"
+            name="nom"
+            placeholder="NOM"
+            required
+            class="w-full border-b border-black bg-transparent px-1 py-2 text-sm uppercase tracking-wider focus:outline-none focus:border-b-2 transition-all placeholder:text-gray-300"
+          />
+
           <input
             type="email"
             name="email"
-            placeholder="Votre email"
+            placeholder="EMAIL"
             required
-            class="border-2 border-black bg-[#F1E7C7]
-                   px-3 py-2 sm:px-4 sm:py-3
-                   text-base sm:text-lg
-                   w-full md:w-[720px]"
+            class="w-full border-b border-black bg-transparent px-1 py-2 text-sm uppercase tracking-wider focus:outline-none focus:border-b-2 transition-all placeholder:text-gray-300"
           />
-        </div>
 
-        <!-- Message -->
-        <div class="flex flex-col md:flex-row md:items-start gap-2 md:gap-10">
-          <label
-            class="text-lg sm:text-2xl md:text-3xl 
-                   md:w-[190px] md:mt-2"
-          >
-            Message :
-          </label>
+          
+
+          <input
+            type="text"
+            name="sujet"
+            placeholder="SUJET"
+            required
+            class="w-full border-b border-black bg-transparent px-1 py-2 text-sm uppercase tracking-wider focus:outline-none focus:border-b-2 transition-all placeholder:text-gray-300"
+          />
+
           <textarea
             name="message"
-            placeholder="Votre message"
+            placeholder="MESSAGE"
             required
-            class="border-2 border-black bg-[#F1E7C7]
-                   px-3 py-2 sm:px-4 sm:py-3
-                   text-base sm:text-lg
-                   w-full md:w-[720px]
-                   h-40 sm:h-52 md:h-64
-                   resize-none"
+            rows="3"
+            class="w-full border-b border-black bg-transparent px-1 py-2 text-sm uppercase tracking-wider resize-none focus:outline-none focus:border-b-2 transition-all placeholder:text-gray-300"
           ></textarea>
-        </div>
 
-        <!-- Bouton Envoyer -->
-        <div class="flex justify-end md:pr-[48px] pt-2 md:pt-4">
           <button
             type="submit"
-            class="text-sm sm:text-base md:text-lg heading-font"
+            class="bg-black text-white px-10 py-3 text-xs uppercase tracking-widest hover:bg-gray-800 transition-colors w-full mt-6"
           >
             Envoyer
           </button>
-        </div>
-      </form>
-    </section>
-  </div>
-</main>
+        </form>
+      </div>
+    </div>
+  </main>
 
-<Footer />
-
-<style>
-  .heading-font {
-    font-family: var(--font-heading);
-  }
-</style>
+  <footer class="bg-black w-full h-[60px] sm:h-[50px] flex items-center justify-between text-white flex-shrink-0 px-4 sm:px-8 lg:px-16">
+    <div class="flex items-center gap-2 sm:gap-4">
+      <a 
+        href="https://www.linkedin.com/in/alexandre-demling-965a90346" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="footer-link text-[10px] sm:text-xs lg:text-sm whitespace-nowrap uppercase"
+      >
+        LinkedIn
+      </a>
+      <span class="text-white/50 text-[10px] sm:text-xs lg:text-sm"></span>
+      <a 
+        href="https://github.com/Alexandre-Demling" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="footer-link text-[10px] sm:text-xs lg:text-sm whitespace-nowrap uppercase"
+      >
+        Github
+      </a>
+    </div>
+    
+    <a 
+      href="/mentionlegale" 
+      class="footer-link text-[10px] sm:text-xs lg:text-sm whitespace-nowrap uppercase"
+    >
+      <span class="hidden sm:inline">Mentions légales</span>
+      <span class="sm:hidden">Mentions</span>
+    </a>
+  </footer>
+</body>
+</html>

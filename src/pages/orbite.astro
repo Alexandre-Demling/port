@@ -1,277 +1,186 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import pb from "../utils/pb";
 
-// HERO (toujours en local)
+/* ================= IMAGES ================= */
+
 const heroMockup = "/images/orbitepc2.png";
 
-// ====== POCKETBASE : on récupère le record du projet ======
-const projet = await pb.collection("projet").getOne("8313tte14db73ex");
+const mapImg = "/images/MAP.png";
+const actImg = "/images/ACT.png";
+const creaImg = "/images/CREA.png";
 
-// IMAGES depuis PocketBase
-const mapImg = pb.files.getUrl(projet, projet.map);
-const actImg = pb.files.getUrl(projet, projet.act);
-const creaImg = pb.files.getUrl(projet, projet.crea);
+const logoColor = "/images/orbitecouleur.png";
+const logoBlack = "/images/orbitenoir.png";
 
-// LOGOS depuis PocketBase
-const logoColor = pb.files.getUrl(projet, projet.logo1);
-const logoBlack = pb.files.getUrl(projet, projet.logo2);
-const logoOutline = pb.files.getUrl(projet, projet.logo3);
-
-// Moodboard depuis PocketBase
-const moodboardImg = pb.files.getUrl(projet, projet.moodboard);
+const moodboardImg = "/images/Moodboard.png";
 ---
+
+<head>
+  <!-- FIX GLOBAL UTF-8 (texte OK partout) -->
+  <meta charset="utf-8" />
+</head>
 
 <Header />
 
-<main class="relative bg-[#F1E7C7] text-black min-h-screen">
-  <!-- BARRE VERTICALE GAUCHE -->
-  <div
-    class="absolute inset-y-0 left-[34.5px] border-l-4 border-black pointer-events-none z-20"
-  ></div>
+<main class="bg-white text-black overflow-hidden">
 
-    <!-- ============ HERO ORBITE ============ -->
-  <!-- ============ HERO ORBITE ============ -->
-<div class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-16 pb-20">
-  <h1
-    class="heading-font text-[48px] sm:text-[60px] lg:text-[72px] leading-tight
-    mb-14 sm:mb-16 ml-10 sm:ml-12 lg:ml-[-12px]"
-  >
-    Orbite
-  </h1>
+  <!-- ================= HERO ================= -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-10 pb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-  <!-- Image repositionnée SANS changement de taille -->
-  <div class="flex justify-center lg:justify-end lg:mr-[-80px]">
-    <img
-      src={heroMockup}
-      alt="Maquette Orbite sur ordinateur"
-      class="w-[300px] sm:w-[360px] md:w-[420px] lg:w-[500px] object-contain 
-      translate-y-[-30px]"  
-    />
-  </div>
-</div>
+      <div>
+        <p class="font-mono text-xs tracking-widest mb-4">PROJET</p>
 
+        <h1 class="heading-font text-[42px] sm:text-[56px] lg:text-[72px] leading-none">
+          Orbite
+        </h1>
 
-
-  <!-- LIGNE HORIZONTALE 1 -->
-  <div class="w-full mt-[-40px] lg:mt-[-62px]">
-    <svg
-      viewBox="0 0 1600 9"
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-full h-[11px]"
-    >
-      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
-      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
-      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
-    </svg>
-  </div>
-
-  <!-- ===================== CONCEPT (TEXTE + MOCKUPS) ===================== -->
-  <section
-    class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32"
-  >
-    <!-- Petit titre -->
-    <p class="heading-font text-sm mb-10 ml-10 sm:ml-12 lg:ml-[68px]">
-      Concept
-    </p>
-
-    <!-- 1 colonne en mobile, 2 colonnes en desktop -->
-    <div class="ml-10 sm:ml-12 lg:ml-[68px] grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-      <!-- COLONNE TEXTE -->
-      <div class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-xl">
-        <p class="mb-8 sm:mb-10">
-          Orbite est une plateforme cr&eacute;&eacute;e par et pour les
-          &eacute;tudiants, afin de faciliter les rencontres et
-          l&rsquo;organisation d&rsquo;activit&eacute;s : soir&eacute;es
-          cin&eacute;ma, sport, jeux, sorties culturelles. Elle int&egrave;gre
-          un syst&egrave;me de gamification qui motive les utilisateurs &agrave;
-          participer et &agrave; proposer des &eacute;v&eacute;nements.
-        </p>
-
-        <p class="mb-8 sm:mb-10">
-          Le projet a &eacute;t&eacute; pens&eacute; pour les &eacute;tudiants,
-          avec un usage simple, rapide et mobile-first. Un syst&egrave;me de
-          validation par carte &eacute;tudiante garantit la s&eacute;curit&eacute;,
-          tandis qu&rsquo;une carte interactive et des partenariats locaux
-          enrichissent l&rsquo;exp&eacute;rience sociale.
-        </p>
-
-        <p>
-          La conception s&rsquo;appuie sur des technologies accessibles comme
-          LeafletJS pour la cartographie, ainsi que Figma pour le design des
-          maquettes. Illustrator et Photoshop ont &eacute;t&eacute; utilis&eacute;s
-          pour l&rsquo;identit&eacute; visuelle, soutenue par une r&eacute;flexion
-          UX/UI pour une navigation fluide et intuitive.
+        <p class="font-mono text-sm max-w-md mt-6">
+          Plateforme collaborative pensée pour les étudiants,
+          facilitant les rencontres et les activités sociales.
         </p>
       </div>
 
-      <!-- COLONNE MOCKUPS -->
-      <div class="flex justify-center lg:justify-end">
-        <div class="flex gap-4 sm:gap-6">
-          <img
-            src={mapImg}
-            alt="Carte des &eacute;v&eacute;nements"
-            class="h-[170px] sm:h-[190px] md:h-[210px] lg:h-[230px] object-contain"
-          />
-          <img
-            src={actImg}
-            alt="Liste des activit&eacute;s"
-            class="h-[170px] sm:h-[190px] md:h-[210px] lg:h-[230px] object-contain"
-          />
-          <img
-            src={creaImg}
-            alt="Cr&eacute;ation d'&eacute;v&eacute;nement"
-            class="h-[170px] sm:h-[190px] md:h-[210px] lg:h-[230px] object-contain"
-          />
+      <div class="flex justify-end">
+        <img
+          src={heroMockup}
+          alt="Mockup desktop Orbite"
+          class="w-full max-w-[300px] sm:max-w-[340px] lg:max-w-[380px] object-contain"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONCEPT ================= -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+
+      <div class="lg:col-span-6">
+        <h2 class="heading-font text-2xl mb-8">Concept</h2>
+
+        <div class="font-mono text-sm leading-relaxed space-y-6 max-w-xl">
+          <p>
+            Orbite est une plateforme conçue pour favoriser les rencontres
+            étudiantes et l’organisation d’activités sociales : sport,
+            culture, jeux ou sorties.
+          </p>
+
+          <p>
+            Le projet repose sur un système de gamification, une validation
+            par carte étudiante et une carte interactive permettant de
+            découvrir les événements autour de soi.
+          </p>
         </div>
+      </div>
+
+      <!-- ÉCRANS MOBILE -->
+      <div class="lg:col-span-6">
+        <div class="grid grid-cols-3 gap-6">
+          <img src={mapImg} alt="Carte interactive" class="h-[220px] object-contain mx-auto" />
+          <img src={actImg} alt="Liste des activités" class="h-[220px] object-contain mx-auto" />
+          <img src={creaImg} alt="Création d’événement" class="h-[220px] object-contain mx-auto" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= DESIGN ================= -->
+  <section class="bg-black text-white py-24">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+
+        <!-- LOGOS -->
+        <div class="lg:col-span-7 flex gap-10 justify-center">
+          <img src={logoColor} alt="Logo Orbite couleur" class="h-[160px] object-contain" />
+          <img src={logoBlack} alt="Logo Orbite noir" class="h-[160px] object-contain" />
+        </div>
+
+        <!-- TEXTE -->
+        <div class="lg:col-span-5">
+          <h2 class="heading-font text-2xl mb-8">Design</h2>
+
+          <div class="font-mono text-sm leading-relaxed space-y-6">
+            <p>
+              Le logo d’Orbite repose sur la notion de mouvement et de
+              connexion. L’orbite symbolise la dynamique sociale,
+              tandis que le repère évoque la géolocalisation.
+            </p>
+
+            <p>
+              L’identité visuelle a été pensée pour être claire,
+              engageante et adaptable sur tous les supports.
+            </p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- LIGNE HORIZONTALE 2 -->
-  <div class="w-full">
-    <svg
-      viewBox="0 0 1600 9"
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-full h-[11px]"
-    >
-      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
-      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
-      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
-    </svg>
-  </div>
+  <!-- ================= MOODBOARD ================= -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
-  <!-- ===================== SECTION LOGO ===================== -->
-<section
-  class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32"
->
+      <div class="lg:col-span-5">
+        <h2 class="heading-font text-2xl mb-8">Moodboard</h2>
 
-<!-- Petit titre -->
-  <p class="heading-font text-sm mb-10 ml-10 sm:ml-12 lg:ml-[68px]">
-    Logo
-  </p>
+        <div class="font-mono text-sm leading-relaxed space-y-6 max-w-md">
+          <p>
+            L’univers visuel d’Orbite mêle exploration spatiale et
+            énergie humaine. Les teintes sombres rappellent l’espace,
+            tandis que les couleurs plus chaudes renforcent la
+            convivialité étudiante.
+          </p>
 
-  <div
-    class="ml-10 sm:ml-12 lg:ml-[68px]
-           flex flex-row                  <!-- 2 colonnes même en mobile -->
-           gap-10 lg:gap-16
-           items-start
-           lg:pr-10"
-  >
-    <!-- TEXTE À GAUCHE -->
-    <div class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-md">
-      <p class="mb-8 sm:mb-10">
-        La cr&eacute;ation du logo a &eacute;t&eacute; guid&eacute;e par trois
-        notions : mouvement, connexion et centralisation. L&rsquo;ic&ocirc;ne
-        de localisation a servi de base pour repr&eacute;senter la cr&eacute;ation
-        et la g&eacute;olocalisation des &eacute;v&eacute;nements, tandis qu&rsquo;une
-        orbite circulaire est venue symboliser les interactions &eacute;tudiantes
-        gravitant autour d&rsquo;un centre commun.
-      </p>
-
-      <p>
-        L&rsquo;univers graphique retenu associe simplicit&eacute; et
-        modernit&eacute;, pour garantir une lisibilit&eacute; optimale sur
-        tous les supports (site web, application mobile, supports imprim&eacute;s).
-        Le disque orbital devient ainsi un rep&egrave;re visuel fort,
-        imm&eacute;diatement associ&eacute; &agrave; la dynamique sociale et
-        communautaire d&rsquo;Orbite.
-      </p>
-    </div>
-
-    <!-- COLONNE TEXTE + LOGOS -->
-    <div class="flex flex-col gap-6 flex-shrink-0 w-full lg:w-auto max-w-lg">
-      <!-- TEXTE 'Afin...' aligné comme les autres -->
-      <p class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-md">
-        Afin d&rsquo;assurer une adaptabilit&eacute; maximale, plusieurs
-        d&eacute;clinaisons ont &eacute;t&eacute; cr&eacute;&eacute;es :
-        une version en couleur, une version noire et une version blanche.
-      </p>
-
-      <!-- LOGO COULEUR : plus proche du texte en mobile -->
-      <div class="w-full flex justify-start sm:justify-end">
-        <img
-          src={logoColor}
-          alt="Logo Orbite en couleur"
-          class="w-[160px] sm:w-[170px] md:w-[180px] object-contain"
-        />
-      </div>
-
-      <!-- LOGO BLANC + NOIR : layout desktop conservé -->
-      <div class="w-full flex justify-start sm:justify-end gap-4 sm:gap-6">
-        <img
-          src={logoOutline}
-          alt="Logo Orbite contour"
-          class="w-[160px] sm:w-[170px] md:w-[180px] object-contain"
-        />
-        <img
-          src={logoBlack}
-          alt="Logo Orbite noir"
-          class="w-[160px] sm:w-[170px] md:w-[180px] object-contain"
-        />
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <!-- LIGNE HORIZONTALE 3 -->
-  <div class="w-full">
-    <svg
-      viewBox="0 0 1600 9"
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-full h-[11px]"
-    >
-      <path d="M0 4L1600 4" stroke="black" stroke-width="5" />
-      <path d="M180 4H260" stroke="#F1E7C7" stroke-width="12" />
-      <path d="M1340 4H1420" stroke="#F1E7C7" stroke-width="12" />
-    </svg>
-  </div>
-
-  <!-- ===================== SECTION MOODBOARD ===================== -->
-<section class="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32">
-  <!-- TITRE -->
-  <p class="heading-font text-sm mb-10 ml-10 sm:ml-12 lg:ml-[68px]">
-    Moodboard
-  </p>
-
-  <div class="ml-10 sm:ml-12 lg:ml-[68px] grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-    <!-- TEXTE À GAUCHE -->
-    <div class="font-mono text-[14px] sm:text-[16px] leading-relaxed max-w-xl">
-      <p class="mb-8 sm:mb-10">
-        Le moodboard d&rsquo;Orbite refl&egrave;te l&rsquo;&eacute;quilibre entre exploration spatiale et &eacute;nergie humaine. L&rsquo;imaginaire de l&rsquo;espace, avec ses galaxies violettes et ses formes orbitales, illustre la d&eacute;couverte, le mouvement et l&rsquo;infini des possibles. En parall&egrave;le, des teintes chaudes de jaune et d&rsquo;orange traduisent la convivialit&eacute;, l&rsquo;entraide et la joie de vivre propres &agrave; l&rsquo;univers &eacute;tudiant.
-      </p>
-
-      <p>
-        Ce contraste entre le froid et le chaud cr&eacute;e un univers visuel immersif et stimulant, fid&egrave;le &agrave; l&rsquo;identit&eacute; du projet.
-      </p>
-    </div>
-
-    <!-- IMAGE MOODBOARD EN DIAGONAL -->
-    <div class="flex justify-center lg:justify-end">
-      <div class="relative w-full max-w-[480px] h-[260px] md:h-[330px]">
-        <div
-          class="absolute inset-0 border-4 border-black overflow-hidden
-                 origin-top-left -skew-x-6 bg-black"
-        >
-          <div class="w-full h-full skew-x-6">
-            <img
-              src={moodboardImg}
-              alt="Moodboard Orbite"
-              class="w-full h-full object-cover scale-[1.1]"
-            />
-          </div>
+          <p>
+            L’ensemble traduit une identité moderne, immersive
+            et orientée communauté.
+          </p>
         </div>
       </div>
+
+      <div class="lg:col-span-7">
+        <div class="relative">
+          <img
+            src={moodboardImg}
+            alt="Moodboard Orbite"
+            class="w-full max-w-[640px] ml-auto object-cover"
+          />
+          <div class="absolute -bottom-5 -left-5 w-full h-full border border-black pointer-events-none"></div>
+        </div>
+      </div>
+
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ================= FOOTER (IDENTIQUE AU SITE) ================= -->
+  <footer class="bg-black w-full flex items-center justify-between text-white flex-shrink-0 px-6 sm:px-10 lg:px-16 py-6">
+    <div class="flex items-center gap-4">
+      <a
+        href="https://www.linkedin.com/in/alexandre-demling-965a90346"
+        target="_blank"
+        class="footer-link uppercase"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="https://github.com/Alexandre-Demling"
+        target="_blank"
+        class="footer-link uppercase"
+      >
+        Github
+      </a>
+    </div>
+
+    <a href="/mentionlegale" class="footer-link uppercase">
+      Mentions légales
+    </a>
+  </footer>
 
 </main>
-
-<Footer />
 
 <style>
   .heading-font {

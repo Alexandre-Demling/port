@@ -1,0 +1,209 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+
+const lineUrl = "/images/versionsanscouleur.png";
+const colorUrl = "/images/versioncouleur.png";
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alexandre Demling - Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+    
+    .major-mono-display-regular {
+      font-family: "Major Mono Display", monospace;
+      font-weight: 400;
+      font-style: normal;
+    }
+    
+    .footer-link {
+      position: relative;
+      text-decoration: none;
+    }
+    
+    .footer-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 1px;
+      background-color: white;
+      transition: width 0.3s ease;
+    }
+    
+    .footer-link:hover::after {
+      width: 100%;
+    }
+
+    /* Updated vertical text with tighter spacing and better positioning */
+    .vertical-text {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      letter-spacing: 0.05em;
+    }
+
+    /* Reduced all sizes and repositioned elements to the right */
+    /* Mobile first - phones */
+    @media (max-width: 640px) {
+      .portrait-container {
+        max-width: 150px;
+      }
+      
+      .title-text {
+        font-size: 24px;
+        line-height: 1.1;
+        word-break: break-word;
+      }
+      
+      footer {
+        height: 60px;
+        padding: 0 1rem;
+        font-size: 10px;
+      }
+      
+      .footer-link {
+        font-size: 10px;
+      }
+    }
+
+    /* Tablets */
+    @media (min-width: 641px) and (max-width: 1024px) {
+      .portrait-container {
+        max-width: 180px;
+      }
+      
+      .title-text {
+        font-size: 32px;
+        line-height: 1.1;
+      }
+      
+      footer {
+        height: 50px;
+        padding: 0 1.5rem;
+      }
+      
+      .footer-link {
+        font-size: 13px;
+      }
+    }
+
+    /* Desktop and larger */
+    @media (min-width: 1025px) {
+      .portrait-container {
+        max-width: 200px;
+      }
+      
+      .title-text {
+        font-size: 42px;
+        line-height: 1;
+      }
+      
+      footer {
+        height: 50px;
+        padding: 0 4rem;
+      }
+      
+      .footer-link {
+        font-size: 14px;
+      }
+      
+      .vertical-texts {
+        display: flex !important;
+      }
+    }
+
+    /* Extra large screens */
+    @media (min-width: 1536px) {
+      .title-text {
+        font-size: 48px;
+      }
+      
+      .portrait-container {
+        max-width: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body class="m-0 p-0 min-h-screen flex flex-col bg-white">
+  <Header />
+
+  <!-- Repositioned main content to push portrait and name to the right -->
+  <main class="flex-1 flex items-center justify-center px-4 lg:px-12 overflow-hidden">
+    <div class="w-full max-w-7xl mx-auto flex items-center justify-center lg:justify-end gap-4 lg:gap-12">
+      
+      <!-- Left side: Vertical professional titles (desktop only) -->
+      <div class="hidden lg:flex flex-col items-start gap-4 absolute left-8">
+        <span class="vertical-text text-xs tracking-wider uppercase">Graphiste</span>
+        <span class="vertical-text text-xs tracking-wider uppercase">Développeur Front</span>
+        <span class="vertical-text text-xs tracking-wider uppercase">Designer</span>
+      </div>
+
+      <!-- Center/Right: Portrait and name positioned to the right -->
+      <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-8">
+        <!-- Portrait -->
+        <div class="w-[150px] sm:w-[180px] lg:w-[200px] xl:w-[220px] relative group flex-shrink-0">
+          <button
+            type="button"
+            class="relative w-full focus:outline-none"
+          >
+            <img
+              src={lineUrl || "/placeholder.svg"}
+              alt="Portrait vectoriel Alexandre Demling"
+              class="w-full h-auto object-contain transition-opacity duration-500 group-hover:opacity-0"
+            />
+            
+            <img
+              src={colorUrl || "/placeholder.svg"}
+              alt="Portrait coloré Alexandre Demling"
+              class="absolute inset-0 w-full h-auto object-contain opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            />
+          </button>
+        </div>
+
+        <!-- Name -->
+        <h1 class="text-2xl sm:text-3xl lg:text-[42px] xl:text-[48px] major-mono-display-regular leading-none tracking-tight text-center lg:text-left">
+          ALEXANDRE DEMLING
+        </h1>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer stays at bottom -->
+  <footer class="bg-black w-full h-[60px] sm:h-[50px] flex items-center justify-between text-white flex-shrink-0 px-4 sm:px-8 lg:px-16">
+    <div class="flex items-center gap-2 sm:gap-4">
+      <a 
+        href="https://www.linkedin.com/in/alexandre-demling-965a90346" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="footer-link text-[10px] sm:text-xs lg:text-sm whitespace-nowrap uppercase"
+      >
+        LinkedIn
+      </a>
+      <span class="text-white/50 text-[10px] sm:text-xs lg:text-sm">-</span>
+      <a 
+        href="https://github.com/Alexandre-Demling" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="footer-link text-[10px] sm:text-xs lg:text-sm whitespace-nowrap uppercase"
+      >
+        Github
+      </a>
+    </div>
+    
+    <a 
+      href="/mentionlegale" 
+      class="footer-link text-[10px] sm:text-xs lg:text-sm whitespace-nowrap uppercase"
+    >
+      <span class="hidden sm:inline">Mentions légales</span>
+      <span class="sm:hidden">Mentions</span>
+    </a>
+  </footer>
+</body>
+</html>

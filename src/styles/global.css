@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&family=Kulim+Park:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&family=Kulim+Park:wght@400;600;700&family=Major+Mono+Display&display=swap");
 @import "tailwindcss";
 
 :root {
   --font-body: "Cousine", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-heading: "Kulim Park", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: "Major Mono Display", monospace;
 }
 
 html,
@@ -13,8 +13,7 @@ body {
 }
 
 body {
-  background-color: #e8d8b5; /* beige de la maquette */
+  background-color: #ffffff;
   color: #000;
   font-family: var(--font-body);
 }
-

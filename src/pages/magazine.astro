@@ -1,0 +1,217 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+
+/* ================= IMAGES ================= */
+const coverImg = "/images/premierecouverture.png";
+const doublePageOne = "/images/pagedoubleun.png";
+const doublePageTwo = "/images/doublepagedeux.png";
+const cheminUn = "/images/cheminun.png";
+const cheminDeux = "/images/chemindeux.png";
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magazine CRAC 19 – Alexandre Demling</title>
+</head>
+
+<body class="bg-white text-black min-h-screen flex flex-col">
+  <Header />
+
+  <main class="flex-1 overflow-hidden">
+
+    <!-- ================= HERO ================= -->
+    <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <div>
+          <p class="font-mono text-xs tracking-widest mb-6 uppercase">Projet</p>
+
+          <h1 class="heading-font text-[56px] sm:text-[72px] lg:text-[96px] leading-[0.95] mb-10">
+            Magazine<br />CRAC&nbsp;19
+          </h1>
+
+          <p class="font-mono text-sm max-w-md leading-relaxed">
+            Conception graphique d’un magazine institutionnel de 16 pages
+            destiné à présenter les activités, artistes et expositions
+            du CRAC 19.
+          </p>
+        </div>
+
+        <div class="flex justify-end">
+          <img
+            src={coverImg}
+            alt="Couverture du magazine CRAC 19"
+            class="max-h-[420px] w-auto object-contain"
+          />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= BRIEF CRÉATIF ================= -->
+    <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-32">
+      <h2 class="heading-font text-3xl mb-12">Brief créatif</h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div class="font-mono text-sm leading-relaxed space-y-6 max-w-xl">
+          <p>
+            Le CRAC 19 souhaite créer un magazine imprimé de 16 pages afin de
+            présenter ses activités, ses artistes et ses expositions.
+            Ce support accompagne la communication de l’association lors
+            d’événements et auprès de ses partenaires.
+          </p>
+
+          <p>
+            Le magazine répond à un besoin de centralisation de l’information,
+            jusqu’alors dispersée entre le site internet et les newsletters.
+            Il permet de renforcer l’image du CRAC 19 et de valoriser les projets
+            artistiques de manière cohérente et lisible.
+          </p>
+
+          <p>
+            L’objectif est d’informer et de séduire le public tout en proposant
+            un support graphique impactant, professionnel et accessible.
+          </p>
+        </div>
+
+        <div class="font-mono text-sm leading-relaxed space-y-6 max-w-xl">
+          <p>
+            La cible regroupe des artistes, étudiants en art, amateurs et
+            professionnels du milieu culturel, ainsi que des partenaires
+            institutionnels.
+          </p>
+
+          <p>
+            Le CRAC 19 se positionne comme un centre d’art contemporain engagé,
+            innovant et ouvert à tous, mettant en avant des artistes émergents
+            et des projets ancrés dans le territoire.
+          </p>
+
+          <p>
+            Le magazine doit refléter ces valeurs tout en conservant une
+            esthétique sérieuse, chaleureuse et inspirante.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LIGNE ÉDITORIALE & DA ================= -->
+    <section class="bg-black text-white py-32">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+
+        <h2 class="heading-font text-3xl mb-16">
+          Ligne éditoriale & direction artistique
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+
+          <!-- TEXTE À GAUCHE -->
+          <div class="font-mono text-sm leading-relaxed space-y-6 max-w-xl">
+            <p>
+              Le ton du magazine est professionnel, accessible et inspirant.
+              Il met l’accent sur la qualité des images et la clarté des textes,
+              tout en conservant une approche sérieuse mais chaleureuse.
+            </p>
+
+            <p>
+              Les contenus alternent portraits d’artistes, dossiers thématiques,
+              actualités, agenda, galeries d’œuvres et coulisses des expositions.
+            </p>
+
+            <p>
+              Le choix graphique repose sur une bichromie rouge et blanc,
+              reprenant l’identité visuelle du CRAC 19.
+            </p>
+
+            <p>
+              Une grille de mise en page en trois colonnes structure les textes,
+              tandis que de grandes images en pleine page renforcent l’impact
+              visuel du magazine.
+            </p>
+          </div>
+
+          <!-- COUVERTURE À DROITE -->
+          <div class="flex justify-center lg:justify-end">
+            <img
+              src={coverImg}
+              alt="Première de couverture du magazine"
+              class="max-h-[420px] w-auto object-contain"
+            />
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CHEMIN DE FER ================= -->
+    <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-32">
+      <h2 class="heading-font text-3xl mb-12">Chemin de fer</h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <div class="font-mono text-sm leading-relaxed space-y-3 max-w-xl">
+          <p>1. Couverture : visuel fort de l’exposition du semestre</p>
+          <p>2. Sommaire, éditorial et ours</p>
+          <p>3. Le CRAC 19 aujourd’hui : missions et positionnement</p>
+          <p>4–5. Œuvres & territoire</p>
+          <p>6–7. Portrait(s) d’artiste(s)</p>
+          <p>8–9. Introduction de l’exposition du semestre</p>
+          <p>10–11. Analyses détaillées des œuvres</p>
+          <p>12. Coulisses / making-of</p>
+          <p>13. Mémoire : exposition précédente</p>
+          <p>14. Partenaires & soutiens</p>
+          <p>15. Infos pratiques & contacts</p>
+          <p>16. Quatrième de couverture</p>
+        </div>
+
+        <div class="flex flex-col gap-10">
+          <img src={cheminUn} alt="Chemin de fer – partie 1" class="w-full object-contain" />
+          
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= VISUELS ================= -->
+    <section class="bg-black text-white py-32">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+
+        <h2 class="heading-font text-3xl mb-16">Extraits du magazine</h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <img src={doublePageOne} alt="Double page du magazine CRAC 19" class="w-full object-contain" />
+          <img src={doublePageTwo} alt="Double page intérieure du magazine" class="w-full object-contain" />
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER (DESIGN MAQUETTE) ================= -->
+  <footer class="bg-black w-full flex items-center justify-between text-white px-6 sm:px-10 lg:px-16 py-6 text-xs uppercase">
+    <div class="flex gap-6">
+      <a href="https://www.linkedin.com/in/alexandre-demling-965a90346" target="_blank">
+        LinkedIn
+      </a>
+      <a href="https://github.com/Alexandre-Demling" target="_blank">
+        Github
+      </a>
+    </div>
+
+    <a href="/mentionlegale">
+      Mentions légales
+    </a>
+  </footer>
+
+</body>
+</html>
+
+<style>
+  .heading-font {
+    font-family: var(--font-heading);
+  }
+</style>
