@@ -1,0 +1,142 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mentions légales – Alexandre Demling</title>
+
+  <style>
+    .heading-font {
+      font-family: var(--font-heading);
+    }
+  </style>
+</head>
+
+<body class="bg-white text-black min-h-screen flex flex-col">
+  <Header />
+
+  <main class="flex-1 max-w-5xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32">
+
+    <h1 class="heading-font text-4xl sm:text-5xl lg:text-6xl mb-16">
+      Mentions légales
+    </h1>
+
+    <section class="font-mono text-sm leading-relaxed space-y-10 max-w-3xl">
+
+      <!-- ÉDITEUR -->
+      <div>
+        <h2 class="uppercase tracking-widest text-xs mb-4">
+          Éditeur du site
+        </h2>
+        <p>
+          Alexandre Demling<br />
+          Étudiant / Designer graphique & UI/UX<br />
+          France
+        </p>
+      </div>
+
+      <!-- RESPONSABLE -->
+      <div>
+        <h2 class="uppercase tracking-widest text-xs mb-4">
+          Responsable de la publication
+        </h2>
+        <p>
+          Alexandre Demling
+        </p>
+      </div>
+
+      <!-- HÉBERGEMENT -->
+      <div>
+        <h2 class="uppercase tracking-widest text-xs mb-4">
+          Hébergement
+        </h2>
+        <p>
+          Le site est hébergé par :<br />
+          Netlify, Inc.<br />
+          2325 3rd Street, Suite 215<br />
+          San Francisco, California 94107<br />
+          États-Unis<br />
+          <a href="https://www.netlify.com" target="_blank" class="underline">
+            www.netlify.com
+          </a>
+        </p>
+      </div>
+
+      <!-- PROPRIÉTÉ INTELLECTUELLE -->
+      <div>
+        <h2 class="uppercase tracking-widest text-xs mb-4">
+          Propriété intellectuelle
+        </h2>
+        <p>
+          L’ensemble des contenus présents sur ce site (textes, images,
+          projets, graphismes, logos, vidéos, maquettes, illustrations)
+          est protégé par le droit d’auteur.
+        </p>
+        <p>
+          Sauf mention contraire, tous les contenus sont la propriété
+          exclusive d’Alexandre Demling. Toute reproduction, représentation,
+          modification ou diffusion, totale ou partielle, sans autorisation
+          préalable est strictement interdite.
+        </p>
+      </div>
+
+      <!-- DONNÉES PERSONNELLES -->
+      <div>
+        <h2 class="uppercase tracking-widest text-xs mb-4">
+          Données personnelles
+        </h2>
+        <p>
+          Ce site ne collecte aucune donnée personnelle sans votre consentement.
+        </p>
+        <p>
+          Aucun formulaire de contact, cookie de suivi ou outil de mesure
+          d’audience n’est utilisé à des fins commerciales.
+        </p>
+      </div>
+
+      <!-- LIENS EXTERNES -->
+      <div>
+        <h2 class="uppercase tracking-widest text-xs mb-4">
+          Liens externes
+        </h2>
+        <p>
+          Le site peut contenir des liens vers des sites tiers.
+          Alexandre Demling ne saurait être tenu responsable du contenu
+          ou des pratiques de ces sites externes.
+        </p>
+      </div>
+
+      <!-- DROIT APPLICABLE -->
+      <div>
+        <h2 class="uppercase tracking-widest text-xs mb-4">
+          Droit applicable
+        </h2>
+        <p>
+          Le présent site est soumis au droit français.
+        </p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="bg-black w-full flex items-center justify-between text-white px-6 sm:px-10 lg:px-16 py-6 text-xs uppercase">
+    <div class="flex gap-6">
+      <a href="https://www.linkedin.com/in/alexandre-demling-965a90346" target="_blank">
+        LinkedIn
+      </a>
+      <a href="https://github.com/Alexandre-Demling" target="_blank">
+        Github
+      </a>
+    </div>
+    <a href="/mentionlegale">
+      Mentions légales
+    </a>
+  </footer>
+
+</body>
+</html>
