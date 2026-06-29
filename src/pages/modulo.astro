@@ -1,27 +1,17 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
-import pb from "../utils/pb";
 
-/* ================= IMAGES POCKETBASE ================= */
+/* ================= IMAGES ================= */
 
-const heroRecord = await pb.collection("image").getOne("3e4mhwufm8u6xy1");
-const heroMockup = pb.files.getUrl(heroRecord, heroRecord.image);
+const heroMockup = "/images/modulo logo 2.png";
+const logoBlack = "/images/modulo logo noir 1.png";
 
-const logoBlackRecord = await pb.collection("image").getOne("8ucz355bp416mzm");
-const logoBlack = pb.files.getUrl(logoBlackRecord, logoBlackRecord.image);
+const mockup1 = "/images/mockup 1.png";
+const mockup2 = "/images/mockup 2.png";
+const mockup3 = "/images/mockup 3.png";
 
-const mockup1Record = await pb.collection("image").getOne("md0kwwpaoisjm1a");
-const mockup1 = pb.files.getUrl(mockup1Record, mockup1Record.image);
-
-const mockup2Record = await pb.collection("image").getOne("efob4gkzvt0zt84");
-const mockup2 = pb.files.getUrl(mockup2Record, mockup2Record.image);
-
-const mockup3Record = await pb.collection("image").getOne("0tpctffvmxy3fg8");
-const mockup3 = pb.files.getUrl(mockup3Record, mockup3Record.image);
-
-const moodboardRecord = await pb.collection("image").getOne("oaa44rxzxc4dlk7");
-const moodboardImg = pb.files.getUrl(moodboardRecord, moodboardRecord.image);
+const moodboardImg = "/images/modulomoodboard.png";
 ---
 
 <head>

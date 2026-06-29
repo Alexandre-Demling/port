@@ -1,17 +1,11 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
-import pb from "../utils/pb";
 
-/* ================= IMAGES POCKETBASE ================= */
+/* ================= IMAGES ================= */
 
-// Logo principal
-const logoMainRecord = await pb.collection("image").getOne("cvajkn9y0ci2m1j");
-const logoMain = pb.files.getUrl(logoMainRecord, logoMainRecord.image);
-
-// Variante secondaire
-const logoAltRecord = await pb.collection("image").getOne("udiwtn3ruujt1gq");
-const logoAlt = pb.files.getUrl(logoAltRecord, logoAltRecord.image);
+const logoMain = "/images/logo.png";
+const logoAlt = "/images/logoblanc.png";
 ---
 
 <head>

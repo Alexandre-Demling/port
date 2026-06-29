@@ -2,88 +2,40 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import pb from "../utils/pb.ts";
 
-// Récupération des deux images depuis PocketBase
-const lineRecord = await pb.collection("image").getOne("fnlzjonemagixrb");
-const colorRecord = await pb.collection("image").getOne("uidylscqp2hqtxa");
-
-// Construction des URLs de fichiers
-const getImageUrl = (record) =>
-  `${pb.baseUrl}/api/files/${record.collectionId}/${record.id}/${record.image}`;
-
-const lineUrl = getImageUrl(lineRecord);
-const colorUrl = getImageUrl(colorRecord);
+// Portrait
+const lineUrl = "/images/versionsanscouleur.png";
+const colorUrl = "/images/versioncouleur.png";
 
 // -------------------------
 // IMAGES POUR LES COMPÉTENCES
 // -------------------------
-const fetchImage = (id) => pb.collection("image").getOne(id);
-
-const [
-  vsCodeRecord,
-  htmlRecord,
-  cssRecord,
-  jsRecord,
-  astroRecord,
-  tailwindRecord,
-  pocketbaseRecord,
-  netlifyRecord,
-  wordpressRecord,
-  sqlRecord,
-  illustratorRecord,
-  figmaRecord,
-  canvaRecord,
-  davinciRecord,
-] = await Promise.all([
-  fetchImage("m473t0jxpirmzew"), // VS Code
-  fetchImage("77zbx038uhcpkxh"), // HTML
-  fetchImage("dkkq1hjta45cunn"), // CSS
-  fetchImage("eln93iz9c6sh0lk"), // JS
-  fetchImage("vsnlye5csjt1nrg"), // Astro
-  fetchImage("c65vpb2zugf3bfc"), // Tailwind
-  fetchImage("h0o8f9h7y7fct0s"), // PocketBase
-  fetchImage("ixj4ev2pank0zqo"), // Netlify
-  fetchImage("h5gzoxf1g1vf0o8"), // WordPress
-  fetchImage("bbn0j3y0xrqq3q2"), // SQL
-  fetchImage("dthwnbd8155kqbz"), // Illustrator
-  fetchImage("n2u840bdxocppcr"), // Figma
-  fetchImage("epwwtkdql4ydrzi"), // Canva
-  fetchImage("kku9wyes9ug5g7p"), // DaVinci Resolve
-]);
-
 const webSkills = [
-  { name: "VS Code", icon: getImageUrl(vsCodeRecord) },
-  { name: "HTML", icon: getImageUrl(htmlRecord) },
-  { name: "CSS", icon: getImageUrl(cssRecord) },
-  { name: "JavaScript", icon: getImageUrl(jsRecord) },
-  { name: "Astro", icon: getImageUrl(astroRecord) },
-  { name: "Tailwind CSS", icon: getImageUrl(tailwindRecord) },
-  { name: "PocketBase", icon: getImageUrl(pocketbaseRecord) },
-  { name: "Netlify", icon: getImageUrl(netlifyRecord) },
-  { name: "WordPress", icon: getImageUrl(wordpressRecord) },
-  { name: "SQL", icon: getImageUrl(sqlRecord) },
+  { name: "VS Code", icon: "/images/vscode.png" },
+  { name: "HTML", icon: "/images/html.png" },
+  { name: "CSS", icon: "/images/css.png" },
+  { name: "JavaScript", icon: "/images/js.png" },
+  { name: "Astro", icon: "/images/astro.png" },
+  { name: "Tailwind CSS", icon: "/images/tailwind.png" },
+  { name: "PocketBase", icon: "/images/pocketbase.png" },
+  { name: "Netlify", icon: "/images/Netlify.png" },
+  { name: "WordPress", icon: "/images/wordpress.png" },
+  { name: "SQL", icon: "/images/sql.png" },
 ];
 
 const audiovisuelSkills = [
-  { name: "DaVinci Resolve", icon: getImageUrl(davinciRecord) },
+  { name: "DaVinci Resolve", icon: "/images/davinci.png" },
 ];
 
 const designSkills = [
-  { name: "Adobe Illustrator", icon: getImageUrl(illustratorRecord) },
-  { name: "Figma", icon: getImageUrl(figmaRecord) },
-  { name: "Canva", icon: getImageUrl(canvaRecord) },
+  { name: "Adobe Illustrator", icon: "/images/ai.png" },
+  { name: "Figma", icon: "/images/figma (1).png" },
+  { name: "Canva", icon: "/images/canva.png" },
 ];
 
 // -------------------------
 // IMAGES / DONNÉES POUR LE CAROUSEL PROJETS
 // -------------------------
-
-const [orbiteRecord, moduloRecord, logoRecord] = await Promise.all([
-  fetchImage("uz1gafvaqo7ltov"), // Orbite
-  fetchImage("oaa44rxzxc4dlk7"), // Modulo moodboard
-  fetchImage("cvajkn9y0ci2m1j"), // Mon logo
-]);
 
 // Classes spécifiques pour zoomer/dézoomer chaque image
 const projectImageClasses = [
@@ -99,9 +51,9 @@ const projectImageClasses = [
 
 // uniquement pour les images du carrousel
 const projects = [
-  { id: "orbite", image: getImageUrl(orbiteRecord) },
-  { id: "modulo", image: getImageUrl(moduloRecord) },
-  { id: "logo", image: getImageUrl(logoRecord) },
+  { id: "orbite", image: "/images/LandingPageorbite.png" },
+  { id: "modulo", image: "/images/modulomoodboard.png" },
+  { id: "logo", image: "/images/logo.png" },
 ];
 ---
 
