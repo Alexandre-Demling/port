@@ -1,0 +1,170 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+
+/* ================= IMAGES ================= */
+
+const heroMockup = "/images/lj1.png";
+const conceptionImg1 = "/images/lj2.png";
+const conceptionImg2 = "/images/lj3.png";
+---
+
+<head>
+  <meta charset="utf-8" />
+</head>
+
+<Header />
+
+<main class="bg-white text-black overflow-hidden">
+
+  <!-- ================= HERO ================= -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <div>
+        <p class="font-mono text-xs tracking-widest mb-6 uppercase">Projet</p>
+
+        <h1 class="heading-font text-[56px] sm:text-[72px] lg:text-[96px] leading-[0.95] mb-10">
+          Les Jetées
+        </h1>
+
+        <p class="font-mono text-sm max-w-md leading-relaxed">
+          Maquette web pour un promoteur immobilier présentant deux
+          projets résidentiels à Strasbourg.
+        </p>
+
+        <!-- ✅ BOUTON RETOUR RÉALISATIONS -->
+        <div class="mt-10">
+          <a
+            href="/realisations"
+            class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest border border-black px-6 py-3 hover:bg-black hover:text-white transition"
+          >
+            ← Retour aux réalisations
+          </a>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <img
+          src={heroMockup}
+          alt="Maquette Les Jetées"
+          class="max-h-[420px] w-auto object-contain border border-black/10 shadow-xl shadow-black/10"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONTEXTE ================= -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-32">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+
+      <div class="lg:col-span-6">
+        <h2 class="heading-font text-3xl mb-12">Contexte</h2>
+
+        <div class="font-mono text-sm leading-relaxed space-y-6 max-w-xl">
+          <p>
+            Constructa est un promoteur immobilier pour lequel l'agence
+            IDAHO devait concevoir un site vitrine mettant en avant deux
+            projets : Segel et Hav[e]n (Les Jetées).
+          </p>
+
+          <p>
+            La mission consistait uniquement en une phase de conception
+            et de maquettage, sans intégration CMS.
+          </p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6">
+        <h2 class="heading-font text-3xl mb-12 invisible" aria-hidden="true">Contexte</h2>
+
+        <div class="font-mono text-sm leading-relaxed space-y-6 max-w-xl">
+          <p>
+            La maquette a été réalisée avec Claude Design pour générer
+            la structure visuelle, puis finalisée dans Claude Code pour
+            l'ajustement du code, le placement des visuels et les
+            animations d'apparition. Un avantage de ce workflow est que
+            la maquette était directement produite en HTML/CSS, existant
+            d'emblée en version desktop et mobile.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONCEPTION ================= -->
+  <section class="bg-black text-white py-32">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+
+        <div class="lg:col-span-5">
+          <h2 class="heading-font text-3xl mb-12">Conception</h2>
+
+          <div class="font-mono text-sm leading-relaxed space-y-6">
+            <p>
+              Le projet a évolué en trois versions successives : d'abord
+              centré sur un seul projet avec un style noir sur blanc,
+              puis étendu à deux projets différenciés par couleur (bleu
+              et pourpre), et enfin uniformisé en bleu pour les deux
+              projets, suivant les retours progressifs du client.
+            </p>
+
+            <p>
+              Les visuels architecturaux animés ont été générés avec
+              Midjourney, notamment pour illustrer les immeubles en bord
+              de Rhin avec des mouvements subtils d'eau et de
+              végétation.
+            </p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-8">
+          <div class="border border-white/10 shadow-2xl shadow-black/40 overflow-hidden">
+            <img src={conceptionImg1} alt="Les Jetées, vue sur le Rhin" class="w-full object-contain" />
+          </div>
+          <div class="border border-white/10 shadow-2xl shadow-black/40 overflow-hidden">
+            <img src={conceptionImg2} alt="Les Jetées, présentation Segel et H[e]aven" class="w-full object-contain" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OUTILS UTILISÉS ================= -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-32">
+    <h2 class="heading-font text-3xl mb-12">Outils utilisés</h2>
+
+    <div class="flex flex-wrap gap-4 font-mono text-xs uppercase tracking-widest">
+      <span class="border border-black px-5 py-3">Claude Design</span>
+      <span class="border border-black px-5 py-3">Claude Code</span>
+      <span class="border border-black px-5 py-3">Midjourney</span>
+      <span class="border border-black px-5 py-3">HTML</span>
+      <span class="border border-black px-5 py-3">CSS</span>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-black w-full flex items-center justify-between text-white px-6 sm:px-10 lg:px-16 py-6">
+    <div class="flex items-center gap-4">
+      <a href="https://www.linkedin.com/in/alexandre-demling-965a90346" target="_blank" class="footer-link uppercase">
+        LinkedIn
+      </a>
+      <a href="https://github.com/Alexandre-Demling" target="_blank" class="footer-link uppercase">
+        Github
+      </a>
+    </div>
+    <a href="/mentionlegale" class="footer-link uppercase">
+      Mentions légales
+    </a>
+  </footer>
+
+</main>
+
+<style>
+  .heading-font {
+    font-family: var(--font-heading);
+  }
+</style>
