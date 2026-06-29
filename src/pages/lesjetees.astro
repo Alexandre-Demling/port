@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
+import Seo from "../components/Seo.astro";
 
 /* ================= IMAGES ================= */
 
@@ -9,10 +10,17 @@ const conceptionImg1 = "/images/lj2.png";
 const conceptionImg2 = "/images/lj3.png";
 ---
 
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <meta charset="utf-8" />
+  <Seo
+    title="Les Jetées – Alexandre Demling"
+    description="Maquette web pour Constructa, présentant deux projets résidentiels (Segel et Hav[e]n), conçue par Alexandre Demling."
+    image={heroMockup}
+  />
 </head>
 
+<body>
 <Header />
 
 <main class="bg-white text-black overflow-hidden">
@@ -162,6 +170,8 @@ const conceptionImg2 = "/images/lj3.png";
   </footer>
 
 </main>
+</body>
+</html>
 
 <style>
   .heading-font {

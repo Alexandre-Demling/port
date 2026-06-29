@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
+import Seo from "../components/Seo.astro";
 
 /* ================= IMAGES ================= */
 const coverImg = "/images/premierecouverture.png";
@@ -12,9 +13,11 @@ const cheminDeux = "/images/chemindeux.png";
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Magazine CRAC 19 – Alexandre Demling</title>
+  <Seo
+    title="Magazine CRAC 19 – Alexandre Demling"
+    description="Conception graphique d'un magazine institutionnel pour le CRAC 19, par Alexandre Demling."
+    image={coverImg}
+  />
 </head>
 
 <body class="bg-white text-black min-h-screen flex flex-col">

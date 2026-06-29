@@ -1,16 +1,31 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
+import Seo from "../components/Seo.astro";
 
 const lineUrl = "/images/sanscouleur.svg";
 const colorUrl = "/images/aveccouleur.svg";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Alexandre Demling",
+  url: Astro.site?.toString(),
+  jobTitle: "Graphiste & développeur web",
+  sameAs: [
+    "https://www.linkedin.com/in/alexandre-demling-965a90346",
+    "https://github.com/Alexandre-Demling",
+  ],
+};
 ---
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alexandre Demling - Portfolio</title>
+  <Seo
+    title="Alexandre Demling - Portfolio Graphiste & Développeur Web"
+    description="Portfolio d'Alexandre Demling, graphiste et développeur web freelance : identités visuelles, sites WordPress, maquettes Astro et projets UI/UX."
+  />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');

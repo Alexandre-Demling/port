@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
+import Seo from "../components/Seo.astro";
 
 /* ================= IMAGES ================= */
 
@@ -14,10 +15,17 @@ const mockup3 = "/images/mockup 3.png";
 const moodboardImg = "/images/modulomoodboard.png";
 ---
 
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <meta charset="utf-8" />
+  <Seo
+    title="MŌdulo – Alexandre Demling"
+    description="Identité visuelle pour Modulo, marque éco-responsable de mobilier modulaire, par Alexandre Demling."
+    image={heroMockup}
+  />
 </head>
 
+<body>
 <Header />
 
 <main class="bg-white text-black overflow-hidden">
@@ -182,6 +190,8 @@ const moodboardImg = "/images/modulomoodboard.png";
   </footer>
 
 </main>
+</body>
+</html>
 
 <style>
   .heading-font {

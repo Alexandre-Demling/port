@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
+import Seo from "../components/Seo.astro";
 
 /* ================= IMAGES ================= */
 
@@ -8,11 +9,17 @@ const logoMain = "/images/logo.png";
 const logoAlt = "/images/logoblanc.png";
 ---
 
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <!-- FIX GLOBAL DU PROBLÈME DE TEXTE -->
-  <meta charset="utf-8" />
+  <Seo
+    title="Mon logo – Alexandre Demling"
+    description="Construction de l'identité graphique personnelle d'Alexandre Demling."
+    image={logoMain}
+  />
 </head>
 
+<body>
 <Header />
 
 <main class="bg-white text-black overflow-hidden">
@@ -161,6 +168,8 @@ const logoAlt = "/images/logoblanc.png";
   </footer>
 
 </main>
+</body>
+</html>
 
 <style>
   .heading-font {

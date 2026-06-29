@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
+import Seo from "../components/Seo.astro";
 
 const jeteesImg = "/images/lj1.png";
 const maindejeanneImg = "/images/lmdj1.png";
@@ -14,9 +15,10 @@ const logoImg = "/images/logo.png";
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Réalisations - Alexandre Demling</title>
+  <Seo
+    title="Réalisations - Alexandre Demling"
+    description="Découvrez les réalisations d'Alexandre Demling : identités visuelles, sites web WordPress et Astro, maquettes et projets graphiques."
+  />
 
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");

@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
+import Seo from "../components/Seo.astro";
 
 /* ================= IMAGES ================= */
 const afficheBateaux = "/images/bateaux.png";
@@ -11,9 +12,11 @@ const afficheHyppoRouge = "/images/hypporouge.png";
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carte postale – Alexandre Demling</title>
+  <Seo
+    title="Carte postale – Alexandre Demling"
+    description="Réinterprétation d'une affiche de Cassandre appliquée à un animal en voie de disparition, par Alexandre Demling."
+    image={afficheHyppo}
+  />
 </head>
 
 <body class="bg-white text-black min-h-screen flex flex-col">

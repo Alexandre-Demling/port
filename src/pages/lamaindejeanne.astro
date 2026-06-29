@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
+import Seo from "../components/Seo.astro";
 
 /* ================= IMAGES ================= */
 
@@ -9,10 +10,17 @@ const integrationImg = "/images/lmdj2.png";
 const menuImg = "/images/lmdj3.png";
 ---
 
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <meta charset="utf-8" />
+  <Seo
+    title="La Main de Jeanne – Alexandre Demling"
+    description="Intégration WordPress (thème Avada) pour La Main de Jeanne, entreprise de services à la personne, par Alexandre Demling."
+    image={heroMockup}
+  />
 </head>
 
+<body>
 <Header />
 
 <main class="bg-white text-black overflow-hidden">
@@ -188,6 +196,8 @@ const menuImg = "/images/lmdj3.png";
   </footer>
 
 </main>
+</body>
+</html>
 
 <style>
   .heading-font {

@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
+import Seo from "../components/Seo.astro";
 
 /* ================= IMAGES ================= */
 
@@ -16,11 +17,17 @@ const logoBlack = "/images/orbitenoir.png";
 const moodboardImg = "/images/Moodboard.png";
 ---
 
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <!-- FIX GLOBAL UTF-8 (texte OK partout) -->
-  <meta charset="utf-8" />
+  <Seo
+    title="Orbite – Alexandre Demling"
+    description="Orbite, plateforme collaborative pensée pour les étudiants : UI/UX et identité visuelle par Alexandre Demling."
+    image={heroMockup}
+  />
 </head>
 
+<body>
 <Header />
 
 <main class="bg-white text-black overflow-hidden">
@@ -191,6 +198,8 @@ const moodboardImg = "/images/Moodboard.png";
   </footer>
 
 </main>
+</body>
+</html>
 
 <style>
   .heading-font {
