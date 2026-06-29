@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 
+const maindejeanneImg = "/images/modulomoodboard.png";
 const cartePostaleImg = "/images/hyppo.png";
 const magazineImg = "/images/doublepagedeux.png";
 const moduloImg = "/images/modulomoodboard.png";
@@ -172,14 +173,39 @@ const logoImg = "/images/logo.png";
         </div>
       </div>
 
-      <!-- 01 : CARTE POSTALE -->
+      <!-- 01 : LA MAIN DE JEANNE -->
+      <a href="/lamaindejeanne" class="project-row">
+        <div class="project-separator">
+          <span class="project-date mono">2026</span>
+        </div>
+
+        <div>
+          <span class="project-number mono">01</span>
+          <h2 class="project-title mono project-link">La Main de Jeanne</h2>
+          <p class="mt-4 max-w-md text-sm leading-relaxed">
+            Intégration complète d'un site WordPress (thème Avada) pour une
+            entreprise de services à la personne.
+          </p>
+
+          <div class="flex gap-3 mt-6 flex-wrap">
+            <span class="tag">WORDPRESS</span>
+            <span class="tag">INTÉGRATION</span>
+          </div>
+        </div>
+
+        <div class="image-card">
+          <img src={maindejeanneImg} alt="Projet La Main de Jeanne" />
+        </div>
+      </a>
+
+      <!-- 02 : CARTE POSTALE -->
       <a href="/cartepostale" class="project-row">
         <div class="project-separator">
           <span class="project-date mono">DÉCEMBRE 2025</span>
         </div>
 
         <div>
-          <span class="project-number mono">01</span>
+          <span class="project-number mono">02</span>
           <h2 class="project-title mono project-link">Carte postale</h2>
           <p class="mt-4 max-w-md text-sm leading-relaxed">
             Réinterprétation d’une affiche de Cassandre appliquée à un animal
@@ -198,14 +224,14 @@ const logoImg = "/images/logo.png";
         </div>
       </a>
 
-      <!-- 02 : MAGAZINE -->
+      <!-- 03 : MAGAZINE -->
       <a href="/magazine" class="project-row">
         <div class="project-separator">
           <span class="project-date mono">DÉCEMBRE 2025</span>
         </div>
 
         <div>
-          <span class="project-number mono">02</span>
+          <span class="project-number mono">03</span>
           <h2 class="project-title mono project-link">Magazine</h2>
           <p class="mt-4 max-w-md text-sm leading-relaxed">
             Conception graphique d’un magazine institutionnel pour le CRAC 19.
@@ -222,14 +248,14 @@ const logoImg = "/images/logo.png";
         </div>
       </a>
 
-      <!-- 03 : MODULO -->
+      <!-- 04 : MODULO -->
       <a href="/modulo" class="project-row">
         <div class="project-separator">
           <span class="project-date mono">MARS 2025</span>
         </div>
 
         <div>
-          <span class="project-number mono">03</span>
+          <span class="project-number mono">04</span>
           <h2 class="project-title mono project-link">MŌdulo</h2>
           <p class="mt-4 max-w-md text-sm leading-relaxed">
             Identité visuelle pour une marque éco-responsable et durable.
@@ -246,14 +272,14 @@ const logoImg = "/images/logo.png";
         </div>
       </a>
 
-      <!-- 04 : ORBITE -->
+      <!-- 05 : ORBITE -->
       <a href="/orbite" class="project-row">
         <div class="project-separator">
           <span class="project-date mono">JUIN 2025</span>
         </div>
 
         <div>
-          <span class="project-number mono">04</span>
+          <span class="project-number mono">05</span>
           <h2 class="project-title mono project-link">Orbite</h2>
           <p class="mt-4 max-w-md text-sm leading-relaxed">
             Plateforme collaborative pensée pour les étudiants.
@@ -270,14 +296,14 @@ const logoImg = "/images/logo.png";
         </div>
       </a>
 
-      <!-- 05 : MON LOGO -->
+      <!-- 06 : MON LOGO -->
       <a href="/monlogo" class="project-row">
         <div class="project-separator">
           <span class="project-date mono">OCTOBRE 2025</span>
         </div>
 
         <div>
-          <span class="project-number mono">05</span>
+          <span class="project-number mono">06</span>
           <h2 class="project-title mono project-link">Mon logo</h2>
           <p class="mt-4 max-w-md text-sm leading-relaxed">
             Construction de mon identité graphique personnelle.

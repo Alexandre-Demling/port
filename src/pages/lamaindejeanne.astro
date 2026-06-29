@@ -1,0 +1,211 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import pb from "../utils/pb";
+
+/* ================= IMAGES POCKETBASE ================= */
+/* Placeholders temporaires (mêmes images que Modulo, à remplacer plus tard) */
+
+const heroRecord = await pb.collection("image").getOne("3e4mhwufm8u6xy1");
+const heroMockup = pb.files.getUrl(heroRecord, heroRecord.image);
+
+const integration1Record = await pb.collection("image").getOne("md0kwwpaoisjm1a");
+const integration1 = pb.files.getUrl(integration1Record, integration1Record.image);
+
+const integration2Record = await pb.collection("image").getOne("efob4gkzvt0zt84");
+const integration2 = pb.files.getUrl(integration2Record, integration2Record.image);
+
+const menu1Record = await pb.collection("image").getOne("0tpctffvmxy3fg8");
+const menu1 = pb.files.getUrl(menu1Record, menu1Record.image);
+
+const menu2Record = await pb.collection("image").getOne("oaa44rxzxc4dlk7");
+const menu2 = pb.files.getUrl(menu2Record, menu2Record.image);
+---
+
+<head>
+  <meta charset="utf-8" />
+</head>
+
+<Header />
+
+<main class="bg-white text-black overflow-hidden">
+
+  <!-- ================= HERO ================= -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-24 pb-32">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <div>
+        <p class="font-mono text-xs tracking-widest mb-6 uppercase">Projet</p>
+
+        <h1 class="heading-font text-[56px] sm:text-[72px] lg:text-[96px] leading-[0.95] mb-10">
+          La Main de Jeanne
+        </h1>
+
+        <p class="font-mono text-sm max-w-md leading-relaxed">
+          Site web pour une entreprise de services à la personne, intégré
+          sous WordPress avec le thème Avada.
+        </p>
+
+        <!-- ✅ BOUTON RETOUR RÉALISATIONS -->
+        <div class="mt-10">
+          <a
+            href="/realisations"
+            class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest border border-black px-6 py-3 hover:bg-black hover:text-white transition"
+          >
+            ← Retour aux réalisations
+          </a>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <img
+          src={heroMockup}
+          alt="Mockup La Main de Jeanne"
+          class="max-h-[420px] w-auto object-contain"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CONTEXTE ================= -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-32">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+
+      <div class="lg:col-span-6">
+        <h2 class="heading-font text-3xl mb-12">Contexte</h2>
+
+        <div class="font-mono text-sm leading-relaxed space-y-6 max-w-xl">
+          <p>
+            La Main de Jeanne est une entreprise proposant des services à
+            domicile : portage de repas, aide à la personne et
+            accompagnement.
+          </p>
+
+          <p>
+            L'agence IDAHO m'a confié l'intégration complète de leur site
+            web à partir d'une maquette existante réalisée sous Figma.
+          </p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6">
+        <div class="font-mono text-sm leading-relaxed space-y-6 max-w-xl">
+          <p>
+            La maquette validée ne couvrait que trois pages : l'accueil,
+            la page portage de repas et la page Agde. Pour toutes les
+            autres pages du site (pour qui, nos services, nos agences,
+            qui sommes-nous, aides financières, contact, actualités),
+            j'ai conçu le design moi-même directement au moment de
+            l'intégration, en maintenant une cohérence visuelle avec les
+            pages maquettées.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= INTÉGRATION ================= -->
+  <section class="bg-black text-white py-32">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+
+        <div class="lg:col-span-5">
+          <h2 class="heading-font text-3xl mb-12">Intégration</h2>
+
+          <div class="font-mono text-sm leading-relaxed space-y-6">
+            <p>
+              L'ensemble du site a été intégré sous WordPress avec le
+              thème Avada, en utilisant exclusivement ses éléments
+              natifs afin que la cliente puisse administrer et modifier
+              son contenu de façon autonome après la livraison, sans
+              passer par l'agence.
+            </p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="grid grid-cols-2 gap-8">
+            <img src={integration1} class="w-full object-contain" />
+            <img src={integration2} class="w-full object-contain" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FONCTIONNALITÉ SUR MESURE (MENU) ================= -->
+  <section class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-32">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+
+      <div class="lg:col-span-5">
+        <h2 class="heading-font text-3xl mb-12">Fonctionnalité sur mesure</h2>
+
+        <div class="font-mono text-sm leading-relaxed space-y-6 max-w-md">
+          <p>
+            La fonctionnalité la plus complexe du projet était le menu
+            de la semaine. La cliente devait pouvoir préparer à l'avance
+            le menu de la semaine suivante sans qu'il s'affiche
+            immédiatement sur le site.
+          </p>
+
+          <p>
+            J'ai développé cette solution en m'appuyant sur l'extension
+            ACF (Advanced Custom Fields) et du code PHP, permettant au
+            site d'afficher automatiquement le bon menu selon la semaine
+            en cours, à plusieurs endroits du site.
+          </p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="grid grid-cols-2 gap-8">
+          <img src={menu1} class="w-full object-contain" />
+          <img src={menu2} class="w-full object-contain" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= OUTILS UTILISÉS ================= -->
+  <section class="bg-black text-white py-32">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      <h2 class="heading-font text-3xl mb-12">Outils utilisés</h2>
+
+      <div class="flex flex-wrap gap-4 font-mono text-xs uppercase tracking-widest">
+        <span class="border border-white px-5 py-3">WordPress</span>
+        <span class="border border-white px-5 py-3">Avada</span>
+        <span class="border border-white px-5 py-3">ACF</span>
+        <span class="border border-white px-5 py-3">PHP</span>
+        <span class="border border-white px-5 py-3">CSS</span>
+        <span class="border border-white px-5 py-3">Claude Design</span>
+        <span class="border border-white px-5 py-3">Claude Code</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-black w-full flex items-center justify-between text-white px-6 sm:px-10 lg:px-16 py-6">
+    <div class="flex items-center gap-4">
+      <a href="https://www.linkedin.com/in/alexandre-demling-965a90346" target="_blank" class="footer-link uppercase">
+        LinkedIn
+      </a>
+      <a href="https://github.com/Alexandre-Demling" target="_blank" class="footer-link uppercase">
+        Github
+      </a>
+    </div>
+    <a href="/mentionlegale" class="footer-link uppercase">
+      Mentions légales
+    </a>
+  </footer>
+
+</main>
+
+<style>
+  .heading-font {
+    font-family: var(--font-heading);
+  }
+</style>
