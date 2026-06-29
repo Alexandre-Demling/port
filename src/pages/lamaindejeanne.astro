@@ -1,25 +1,17 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
-import pb from "../utils/pb";
 
-/* ================= IMAGES POCKETBASE ================= */
-/* Placeholders temporaires (mêmes images que Modulo, à remplacer plus tard) */
+/* ================= IMAGES ================= */
+/* Placeholders temporaires (mêmes images que Orbite, à remplacer plus tard) */
 
-const heroRecord = await pb.collection("image").getOne("3e4mhwufm8u6xy1");
-const heroMockup = pb.files.getUrl(heroRecord, heroRecord.image);
+const heroMockup = "/images/orbitepc2.png";
 
-const integration1Record = await pb.collection("image").getOne("md0kwwpaoisjm1a");
-const integration1 = pb.files.getUrl(integration1Record, integration1Record.image);
+const integration1 = "/images/MAP.png";
+const integration2 = "/images/ACT.png";
 
-const integration2Record = await pb.collection("image").getOne("efob4gkzvt0zt84");
-const integration2 = pb.files.getUrl(integration2Record, integration2Record.image);
-
-const menu1Record = await pb.collection("image").getOne("0tpctffvmxy3fg8");
-const menu1 = pb.files.getUrl(menu1Record, menu1Record.image);
-
-const menu2Record = await pb.collection("image").getOne("oaa44rxzxc4dlk7");
-const menu2 = pb.files.getUrl(menu2Record, menu2Record.image);
+const menu1 = "/images/CREA.png";
+const menu2 = "/images/Moodboard.png";
 ---
 
 <head>
